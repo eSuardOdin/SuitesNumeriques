@@ -1,12 +1,42 @@
 # Application Suites Numériques
 
-**Résumé** : Cette application a pour but de s'entrainer aux diffיrents calculs concernant les suites numériques.
+**Résumé** : Cette application a pour but de s'entrainer aux différents calculs concernant les suites numériques.
+
+## Théorie des suites :
+
+### Généralités :
+
+**Définition** : Une suite numérique associe à tout entier naturel $n$ un nombre réél. Le nombre associé est noté $Un$. La suite est notée $(Un)$ et $Un$ est le *terme général* de la suite.
+
+​	<u>*Exemple*</u>:
+
+​	La suite $(Un)$ de terme général $Un = 2n$ est telle que :
+
+​				$\ce{U0} = 0 ; \ce{U1} = 2 ; \ce{U2} = 4 ; \ce{U3} = 6 ; ... ; \ce{U50} = 100$
+
+​	*<u>Remarque</u>* :
+
+​	Certaines suites ne sont définies que pour $n \ge 1$ ; par exemple, la suite de terme général $\ce{Un} = \frac {1} {n} $.
+
+​	Pour cette suite : $\ce{U1} =  1; \ce{U2} = \frac {1} {2} ; ... ; \ce{U50} = \frac {1} {50}$
+
+### Suite arithmétique
+
+**Définition** : Une suite $(\ce{Un})$ est une suite arithmétique si et seulement s'il existe un nombre réel $r$, tel que :
+
+​		$\forall n \in N,    \ce {Un\tiny{+}1} = \ce{Un} + r$
+
+Le nombre $r$ est appelé <u>raison</u> de la suite arithmétique.
 
 
 
-**Définitions** : Une suite numérique associe à tout entier naturel *n* un nombre réél
+**Terme général d'une suite arithmétique** :
 
-## Objectifs :
+Si la suite $\ce{Un}$ est une suite arithmétique de premier terme $\ce{U0}$ et de raison $r$, alors : 
+
+## L'application :
+
+### Objectifs :
 
 - Pouvoir **consulter** une leçon sur les suites numériques.
 - Proposer à un joueur unique un **entrainement** aux différents exercices proposés par l'application.
@@ -18,7 +48,7 @@
 
 ### Implémentations nécessaires :
 - La recherche d'un terme d'une suite :
-	- *Arithmétique* : Pour une raison *r* et tout entier naturel *n* et *p* tels que *n >= p* on a 
+	- *Arithmétique* : Pour une raison *r* et tout entier naturel *n* et *p* tels que $n \le p$ on a 
 	  - $Un = Up + (n - p) r$  
 	  - Si on a $\ce{U0}$ alors $\ce{Un =U0 + nr}$
 	  
