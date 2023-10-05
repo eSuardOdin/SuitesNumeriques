@@ -1,18 +1,46 @@
-# Application Suites NumÈriques
+# Application Suites Num√©riques
 
-**RÈsumÈ** : Cette application a pour but de s'entrainer aux diffÈrents calculs concernant les suites numÈriques.
+**R√©sum√©** : Cette application a pour but de s'entrainer aux diff◊ôrents calculs concernant les suites num√©riques.
+
+
+
+**D√©finitions** : Une suite num√©rique associe √† tout entier naturel *n* un nombre r√©√©l
 
 ## Objectifs :
 
-- Pouvoir **consulter** une leÁon sur les suites numÈriques.
-- Proposer ‡ un joueur unique un **entrainement** aux diffÈrents exercices proposÈs par l'application.
-- Proposer ‡ deux joueurs un **match** portant sur les mÍme exercices, ce match peut Ítre :
+- Pouvoir **consulter** une le√ßon sur les suites num√©riques.
+- Proposer √† un joueur unique un **entrainement** aux diff√©rents exercices propos√©s par l'application.
+- Proposer √† deux joueurs un **match** portant sur les m√™me exercices, ce match peut √™tre :
   - Avec contrainte de temps
   - Sans contrainte de temps
-    - Pouvoir Ècrire/lire les **meilleurs scores** (JSON?)
+    - Pouvoir √©crire/lire les **meilleurs scores** (JSON?)
     - ***Bonus**: Entrainement sur les suites quelconques*
 
-> **IdÈes ‡ la volÈe** : 
+###¬†Impl√©mentations n√©cessaires :
+- La recherche d'un terme d'une suite :
+	- *Arithm√©tique* : Pour une raison *r* et tout entier naturel *n* et *p* tels que *n >= p* on a 
+	  - $Un = Up + (n - p) r$  
+	  - Si on a $\ce{U0}$ alors $\ce{Un =U0 + nr}$
+	  
+	- *G√©om√©trique* : Pour une raison *r* et tout entier naturel *n* et *p*, on a   $Un = Up * r^{n-p}$
+	
+- La recherche du premier terme :
+
+  - *Arithm√©tique* : $U0 = Un - nr$
+  - *G√©om√©trique* : 
+
+- La recherche du rang d'un terme :
+
+- La recherche de la raison et du premier terme :
+
+- La recherche de la somme des premiers n termes :
+
+- La recherche de la monotonie :
+
+
+
+> **Id√©es √† la vol√©e** : 
 > 
 > - Serait il pertinent qu'un Match soit une classe enfant d'un Entrainement ?
-> - Attention aux valeurs alÈatoires sur l'indice demandÈ, vÈrifier que le calcul ne gÈnËre pas de dÈpassement de capacitÈ.
+> - Attention aux valeurs al√©atoires sur l'indice demand√©, v√©rifier que le calcul ne g√©n√®re pas de d√©passement de capacit√©.
+
