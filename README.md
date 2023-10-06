@@ -16,29 +16,63 @@
 
 ​    *<u>Remarque</u>* :
 
-​    Certaines suites ne sont définies que pour $n \ge 1$ ; par exemple, la suite de terme général $\ce{Un} = \frac {1} {n} $.
+​    Certaines suites ne sont définies que pour $n \ge 1$ ; par exemple, la suite de terme général $U_{n} = \frac {1} {n}$.
 
-​    Pour cette suite : $\ce{U1} =  1; \ce{U2} = \frac {1} {2} ; ... ; \ce{U50} = \frac {1} {50}$
+​    Pour cette suite : $U_{1} =  1; U_{2} = \frac {1} {2} ; ... ; U_{50} = \frac {1} {50}$
 
 ### Suite arithmétique
 
-**1) Définition** : Une suite $(\ce{Un})$ est une suite arithmétique si et seulement s'il existe un nombre réel $r$, tel que :
+**1) Définition** : Une suite $(U_{n})$ est une suite arithmétique si et seulement s'il existe un nombre réel $r$, tel que :
 
-​        $\forall n \in N,    \ce {Un\tiny{+}1} = \ce{Un} + r$
+$\forall n \in N,    U_{n\tiny{+}1} = U_{n} + r$
 
 Le nombre $r$ est appelé <u>raison</u> de la suite arithmétique.
 
 **2) Terme général d'une suite arithmétique** :
 
-Si la suite $\ce{Un}$ est une suite arithmétique de premier terme $\ce{U0}$ et de raison $r$, alors : 
-
-            $\forall n \in \mathbb{R}, U_{n+1} = U_{0} + nr$
+Si la suite $U_{n}$ est une suite arithmétique de premier terme $U_{0}$ et de raison $r$, alors : 
+		$\forall n \in \mathbb{R}, U_{n+1} = U_{0} + nr$
 
 Pour tout entier naturel $n$, nous avons $U_{n} = U_{0} + nr$ donc le point de coordonnées $(n, U_{n})$ appartient à la droite D d'équation $y = U_{0} + rx$
 
-
-
 **3)  Expression de la somme des $(n+1)$ premiers termes**
+La somme des $(n+1)$ premiers termes d'une suite arithmétique de premier terme $U_{0}$ est :
+$S_{n}=U_{0} +U_{1} + ... + U_{n-1} + U_{n} = \frac{(n+1)(U_{0} + U_{n})}{2}$
+On peut retenir le schéma :
+$S_{n} = \frac {(nombre\;de\;termes) * (premier\;terme+dernier\;terme)}{2}$
+
+<u>Cas particulier</u> :
+Somme des $n$ premiers entiers naturels non nuls :
+$S_{n} = 1 + 2 + 3 + ... + n = \frac{n(n+1)}{2}$
+
+## Suite Géométrique
+### 1) Définition :
+Une suite $(U_{n})$ est une suite géométrique si et seulement s'il existe un nombre réel $r$, tel que :
+$\forall n \in \mathbb{N}, U_{n+1} = U_{n} * r$
+Le nombre $r$ est appelé raison de la suite géométrique.
+
+### 2) Terme général d'une suite géométrique
+Si la suite $(U_{n})$ est une suite géométrique de premier terme $U_{0}$ et de raison $r$, alors :
+
+$\forall\; n \in \mathbb{N}, \:\:\:\:U_{n} = U_{0} * r^n$
+
+
+Pour tout entier naturel $n : U_{n} = U_{0} * r^n$**, donc si $r$ est strictement positif, le point $M(n;U_{n})$ appartient à la courbe d'équation $y = U_{0} * r^x$. Cette courbe est la courbe représentative de la fonction exponentielle : $x -> U_{0} * r^x$
+
+### 3) Expression de la somme $(n+1)$ premiers termes
+Si $r\ne1$ *alors* $1+r+r^2+...+r^n = \frac{1-r^{n+1}}{1-r}$
+Si $r = 1$ *alors* $1+r+r^2+...+r^n = n+1$
+
+Conséquence : 
+Pour une suite géométrique de premier terme $U_{0}$ et de raison $r$,
+
+$S_{n} = U_{0} + U_{1} + U_{2} + U_{n-1} + U_{n} = U_{0} (1+ r + r^2 +...+ r^n)$
+
+D'où le résultat suivant :
+$S_{n} = U_{0} + U_{1} + U_{2} + U_{n-1} + U_{n} = U_{0} (\frac{1-r^{n+1}}{1-r})$
+
+On peut retenir la formule générale:
+	$S_{n} = (premier\;terme)(\frac{1-(raison)^{nombre\;de\;termes}}{1-raison})$
 
 ## L'application :
 
@@ -59,13 +93,13 @@ Pour tout entier naturel $n$, nous avons $U_{n} = U_{0} + nr$ donc le point de c
   - *Arithmétique* : Pour une raison *r* et tout entier naturel *n* et *p* tels que $n \le p$ on a 
     
     - $Un = Up + (n - p) r$  
-    - Si on a $\ce{U0}$ alors $\ce{Un =U0 + nr}$
+    - Si on a $U_{0}$ alors $U_{n} =U_{0} + nr$
   
   - *Géométrique* : Pour une raison *r* et tout entier naturel *n* et *p*, on a   $Un = Up * r^{n-p}$
 
 - La recherche du premier terme :
   
-  - *Arithmétique* : $U0 = Un - nr$
+  - *Arithmétique* : $U_{0} = U_{n} - nr$
   - *Géométrique* : 
 
 - La recherche du rang d'un terme :
