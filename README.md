@@ -108,7 +108,7 @@ On peut retenir la formule générale:
 
 - La recherche de la somme des premiers n termes :
 
-- La recherche de la monotonie :
+- La recherche de la monotonie : Pour une géométrique, si la U0 est positif et que la raison est superieure à 0, la suite est croissante, si la raison est comprise entre 0 et 1, elle est décroissante. Si U0 est negatif, on inverse. Si la raison est négative, la suite est non monotone. 
 
 > **Idées à la volée** : 
 > 
