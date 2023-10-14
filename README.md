@@ -105,6 +105,8 @@ On peut retenir la formule générale:
 - La recherche du rang d'un terme :
 
 - La recherche de la raison et du premier terme :
+  - *Arithmétique* : 1 + 2 + 3 + ... + n = n(n+1)/2
+  - *Géométrique* : 1 + q + q^2 + q^3 + ... + q^n = 1-q^(n+1)/1-q
 
 - La recherche de la somme des premiers n termes :
 
