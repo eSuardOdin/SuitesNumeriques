@@ -26,4 +26,9 @@ public class Suite
 
         return true;
     }
+
+    public virtual string GetCroissance()
+    {
+        return "";
+    }
 }
