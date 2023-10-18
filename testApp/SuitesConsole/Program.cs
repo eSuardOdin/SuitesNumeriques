@@ -1,8 +1,12 @@
-﻿Arithmethique ari = new(4,2);
-/* Console.WriteLine(ari.GetValueAt(8));
-Console.WriteLine(ari.GetSum(10)); */
+﻿
 
-Geometrique geo = new(2,1);
-//for (int i = 0; i < 10; i++) Console.WriteLine(geo.GetValueAt(i));
-Console.WriteLine(geo.GetSum(4));
-Console.WriteLine(geo.GetType());
+
+ExoTerme exo = new("arithmétique");
+// Console.WriteLine(exo.SuiteExo.Raison);
+// Console.WriteLine(exo.SuiteExo.PremierTerme);
+
+Console.WriteLine(exo.Enonce);
+string res = Console.ReadLine();
+
+if (res == exo.Reponse) Console.WriteLine("Bonne réponse ! ");
+else                    Console.WriteLine($"Faux, la réponse est : {exo.Reponse}");

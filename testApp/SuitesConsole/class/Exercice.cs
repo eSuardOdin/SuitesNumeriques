@@ -1,28 +1,27 @@
 public abstract class Exercice
 {
-    private byte TypeExo {get; set;}
-    public string Enonce {get; private set;}
-    public string Question {get; private set;}
-    public string Reponse {get; private set;}
-    private Suite SuiteExo {get; set;}
+    protected byte TypeExo {get; set;}
+    public string? Enonce {get; protected set;}
+    public string? Reponse {get; protected set;}
+    public Suite? SuiteExo {get; protected set;}
 
-    public Exercice(byte typeExo)
-    {
-        TypeExo = typeExo;
-        GetNewSuite();
-    }
+    // public Exercice(byte typeExo)
+    // {
+    //     TypeExo = typeExo;
+    //     GetNewSuite();
+    // }
 
-    public virtual void SetEnonce(string typeSuite)
-    {
-        Random rand = new();
-        Enonce = $"Soit la suite {typeSuite} (Un)";
+    public abstract void SetEnonce(string typeSuite);
+    // {
+    //     Random rand = new();
+    //     Enonce = $"Soit la suite {typeSuite} (Un)";
 
-        // Si on a donne le premier terme et la raison
-        if(TypeExo == 1 || TypeExo == 3 || TypeExo == 5 || TypeExo == 6)
-        {
-            Enonce += $"de premier terme U0 et de raison r :\n\n\tU0: {SuiteExo.PremierTerme}\n\n\tr: {SuiteExo.Raison}";
-        }
-    }
+    //     // Si on a donne le premier terme et la raison
+    //     if(TypeExo == 1 || TypeExo == 3 || TypeExo == 5 || TypeExo == 6)
+    //     {
+    //         Enonce += $"de premier terme U0 et de raison r :\n\n\tU0: {SuiteExo.PremierTerme}\n\n\tr: {SuiteExo.Raison}";
+    //     }
+    // }
 
 
 
@@ -32,7 +31,7 @@ public abstract class Exercice
     /// <param name="typeSuite"></param>
     public abstract void GetNewSuite(string typeSuite);
 
-    {/* 
+    /*{ 
         // Attention, ce n'est pas ici qu'on met à jour les infos
         // de l'exercice mais ce sera handle par la GUI
         Random rand = new();
