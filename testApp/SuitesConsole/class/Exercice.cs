@@ -12,16 +12,6 @@ public abstract class Exercice
     // }
 
     public abstract void SetEnonce(string typeSuite);
-    // {
-    //     Random rand = new();
-    //     Enonce = $"Soit la suite {typeSuite} (Un)";
-
-    //     // Si on a donne le premier terme et la raison
-    //     if(TypeExo == 1 || TypeExo == 3 || TypeExo == 5 || TypeExo == 6)
-    //     {
-    //         Enonce += $"de premier terme U0 et de raison r :\n\n\tU0: {SuiteExo.PremierTerme}\n\n\tr: {SuiteExo.Raison}";
-    //     }
-    // }
 
 
 
@@ -29,23 +19,30 @@ public abstract class Exercice
     /// Sert à (re)génèrer l'exercice
     /// </summary>
     /// <param name="typeSuite"></param>
-    public abstract void GetNewSuite(string typeSuite);
-
-    /*{ 
-        // Attention, ce n'est pas ici qu'on met à jour les infos
-        // de l'exercice mais ce sera handle par la GUI
+    protected void GetNewSuite(string typeSuite)
+    {
         Random rand = new();
         // Géométrique
         if(typeSuite == "géométrique")
         {
-            SuiteExo = new Geometrique(1,1);
+            //Overflow
+            SuiteExo = new Geometrique(
+                rand.Next(-15, 15),
+                rand.Next(-1000, 1000)
+            );
         }
         // Arithmétique
         else if (typeSuite == "arithmétique")
         {
-            SuiteExo = new Arithmethique(1,1);
+            SuiteExo = new Arithmethique(
+                rand.Next(-15, 15),
+                rand.Next(-1000, 1000)
+            );
         }
         // Quelconque
-        this.SuiteExo = new Suite(1,1);
-    } */
+        else 
+        {
+            this.SuiteExo = new Suite(1,1);
+        }
+    }
 }
