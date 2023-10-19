@@ -1,7 +1,9 @@
 ﻿
 
 
-ExoPremierTerme exo = new("arithmétique");
+// ExoTerme exo = new("arithmétique");
+// ExoPremierTerme exo = new("arithmétique");
+ExoRang exo = new("arithmétique");
 // Console.WriteLine(exo.SuiteExo.Raison);
 // Console.WriteLine(exo.SuiteExo.PremierTerme);
 
