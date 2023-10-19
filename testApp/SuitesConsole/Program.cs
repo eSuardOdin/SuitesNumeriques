@@ -5,7 +5,8 @@
 // ExoPremierTerme exo = new("arithmétique");
 // ExoRang exo = new("arithmétique");
 // ExoRaison exo = new("arithmétique");
-ExoSomme exo = new("arithmétique");
+// ExoSomme exo = new("arithmétique");
+ExoMonotonie exo = new("arithmétique");
 
 
 
