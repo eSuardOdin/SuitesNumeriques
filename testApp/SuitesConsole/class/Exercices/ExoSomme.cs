@@ -12,8 +12,8 @@ public class ExoSomme : Exercice
     {
         Random rand = new();
         int nbTermes = rand.Next(1, 15);
-        Reponse = SuiteExo.GetSum(nbTermes).ToString();
+        Reponse = Math.Round(SuiteExo.GetSum(nbTermes), 1).ToString();
         Enonce = $"Soit la suite {typeSuite} (Un) de premier terme U0 et de raison r:\n\n\tU0: {SuiteExo.PremierTerme}\n\n\tr: {SuiteExo.Raison}\n\n\n\n\n";
-        Enonce += $"Quelle est la somme des {nbTermes} premiers termes?";
+        Enonce += $"Quelle est la somme des {nbTermes} premiers termes? (Arrondi au premier chiffre après la virgule)";
     }
 }

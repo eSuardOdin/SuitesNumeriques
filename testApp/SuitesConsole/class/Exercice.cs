@@ -34,8 +34,14 @@ public abstract class Exercice
         // Arithmétique
         else if (typeSuite == "arithmétique")
         {
+            // ---------- 
+            // Tentative de random decimal
+            double dec = rand.NextDouble();
+            dec = Math.Round(dec,1);
+            double raison = rand.Next(-15, 15) + dec;
+            // ----------
             SuiteExo = new Arithmethique(
-                rand.Next(-15, 15),
+                raison,
                 rand.Next(-1000, 1000)
             );
         }
