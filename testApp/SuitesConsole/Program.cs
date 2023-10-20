@@ -12,4 +12,5 @@
 // if (res == exo.Reponse) Console.WriteLine("Bonne réponse ! ");
 // else                    Console.WriteLine($"Faux, la réponse est : {exo.Reponse}");
 
-Partie partie = new("arithmétique");
+/* Partie partie = new("arithmétique"); */
+Partie partie = new("géométrique");

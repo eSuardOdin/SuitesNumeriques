@@ -10,8 +10,6 @@ public class ExoMonotonie : Exercice
 
     public override void SetEnonce(string typeSuite)
     {
-        Random rand = new();
-        int rang = rand.Next(1, 15);
         if (typeSuite == "arithmétique")
         {
             if (SuiteExo.Raison == 0)       Reponse = "Monotone constante";

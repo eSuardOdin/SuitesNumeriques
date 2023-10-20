@@ -8,14 +8,13 @@ public class Partie
     {
         TypeSuite = typeSuite;
         Score = 0;
-        if (typeSuite == "arithmétique")
-        {
-            CreatePartieArithmetique();
-            Play();
-        }
+        
+        CreatePartie();
+        Play();
+        
     }
 
-    private void CreatePartieArithmetique()
+    private void CreatePartie()
     {
         Exercices.Add(new ExoTerme(TypeSuite));
         Exercices.Add(new ExoPremierTerme(TypeSuite));
@@ -29,6 +28,7 @@ public class Partie
     {
         foreach (var ex in Exercices)
         {
+            Console.WriteLine("\n\n");
             Console.WriteLine(ex.Enonce);
             string res = Console.ReadLine();
 

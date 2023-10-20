@@ -25,10 +25,15 @@ public abstract class Exercice
         // Géométrique
         if(typeSuite == "géométrique")
         {
-            //Overflow
+            // ---------- 
+            // Tentative de random decimal
+            double dec = rand.NextDouble();
+            /* dec = Math.Round(dec,1); */
+            double raison = Math.Round((rand.Next(-5, 5) + dec), 1);
+            // ----------
             SuiteExo = new Geometrique(
-                rand.Next(-15, 15),
-                rand.Next(-1000, 1000)
+                raison,
+                rand.Next(-10, 10)  
             );
         }
         // Arithmétique
@@ -37,12 +42,13 @@ public abstract class Exercice
             // ---------- 
             // Tentative de random decimal
             double dec = rand.NextDouble();
-            dec = Math.Round(dec,1);
-            double raison = rand.Next(-15, 15) + dec;
+            /* dec = Math.Round(dec,1); */
+            double raison = Math.Round((rand.Next(-15, 15) + dec), 1);
             // ----------
             SuiteExo = new Arithmethique(
                 raison,
-                rand.Next(-1000, 1000)
+                /* rand.Next(-1000, 1000) */
+                rand.Next(-100, 100)
             );
         }
         // Quelconque
