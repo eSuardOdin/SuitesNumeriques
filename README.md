@@ -31,35 +31,38 @@ Le nombre $r$ est appelé <u>raison</u> de la suite arithmétique.
 **2) Terme général d'une suite arithmétique** :
 
 Si la suite $U_{n}$ est une suite arithmétique de premier terme $U_{0}$ et de raison $r$, alors : 
-		$\forall n \in \mathbb{R}, U_{n+1} = U_{0} + nr$
+        $\forall n \in \mathbb{R}, U_{n+1} = U_{0} + nr$
 
 Pour tout entier naturel $n$, nous avons $U_{n} = U_{0} + nr$ donc le point de coordonnées $(n, U_{n})$ appartient à la droite D d'équation $y = U_{0} + rx$
 
 **3)  Expression de la somme des $(n+1)$ premiers termes**
 La somme des $(n+1)$ premiers termes d'une suite arithmétique de premier terme $U_{0}$ est :
-$S_{n}=U_{0} +U_{1} + ... + U_{n-1} + U_{n} = \frac{(n+1)(U_{0} + U_{n})}{2}$
+$S_{n}=U_{0} +U_{1} + ... + U_{n-1} + U_{n} = (n+1) * \frac{(U_{0} + U_{n})}{2}$
 On peut retenir le schéma :
-$S_{n} = \frac {(nombre\;de\;termes) * (premier\;terme+dernier\;terme)}{2}$
+$S_{n} = (nombre\;de\;termes) *\frac  {(premier\;terme+dernier\;terme)}{2}$
 
 <u>Cas particulier</u> :
 Somme des $n$ premiers entiers naturels non nuls :
 $S_{n} = 1 + 2 + 3 + ... + n = \frac{n(n+1)}{2}$
 
 ## Suite Géométrique
+
 ### 1) Définition :
+
 Une suite $(U_{n})$ est une suite géométrique si et seulement s'il existe un nombre réel $r$, tel que :
 $\forall n \in \mathbb{N}, U_{n+1} = U_{n} * r$
 Le nombre $r$ est appelé raison de la suite géométrique.
 
 ### 2) Terme général d'une suite géométrique
+
 Si la suite $(U_{n})$ est une suite géométrique de premier terme $U_{0}$ et de raison $r$, alors :
 
 $\forall\; n \in \mathbb{N}, \:\:\:\:U_{n} = U_{0} * r^n$
 
-
 Pour tout entier naturel $n : U_{n} = U_{0} * r^n$**, donc si $r$ est strictement positif, le point $M(n;U_{n})$ appartient à la courbe d'équation $y = U_{0} * r^x$. Cette courbe est la courbe représentative de la fonction exponentielle : $x -> U_{0} * r^x$
 
 ### 3) Expression de la somme $(n+1)$ premiers termes
+
 Si $r\ne1$ *alors* $1+r+r^2+...+r^n = \frac{1-r^{n+1}}{1-r}$
 Si $r = 1$ *alors* $1+r+r^2+...+r^n = n+1$
 
@@ -72,7 +75,7 @@ D'où le résultat suivant :
 $S_{n} = U_{0} + U_{1} + U_{2} + U_{n-1} + U_{n} = U_{0} (\frac{1-r^{n+1}}{1-r})$
 
 On peut retenir la formule générale:
-	$S_{n} = (premier\;terme)(\frac{1-(raison)^{nombre\;de\;termes}}{1-raison})$
+    $S_{n} = (premier\;terme)(\frac{1-(raison)^{nombre\;de\;termes}}{1-raison})$
 
 ## L'application :
 
@@ -105,6 +108,7 @@ On peut retenir la formule générale:
 - La recherche du rang d'un terme :
 
 - La recherche de la raison et du premier terme :
+  
   - *Arithmétique* : 1 + 2 + 3 + ... + n = n(n+1)/2
   - *Géométrique* : 1 + q + q^2 + q^3 + ... + q^n = 1-q^(n+1)/1-q
 

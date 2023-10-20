@@ -1,21 +1,21 @@
 public class Suite
 {
-    public int Raison {get; private set;}
-    public int PremierTerme {get; private set;} 
+    public double Raison {get; private set;}
+    public double PremierTerme {get; private set;} 
 
-    public Suite(int raison, int premierTerme)
+    public Suite(double raison, double premierTerme)
     {
         Raison = raison;
         PremierTerme = premierTerme;
     }
 
-    public virtual int GetValueAt(int rank)
+    public virtual double GetValueAt(int rank)
     {
 
         return 0;
     }
 
-    public virtual long GetSum(int firstN)
+    public virtual double GetSum(int firstN)
     {
 
         return 0;
