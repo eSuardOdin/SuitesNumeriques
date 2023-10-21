@@ -13,4 +13,6 @@
 // else                    Console.WriteLine($"Faux, la réponse est : {exo.Reponse}");
 
 /* Partie partie = new("arithmétique"); */
-Partie partie = new("géométrique");
+Player p1 = new("Erwann");
+Player p2 = new("Autre");
+Versus vs = new("arithmétique", p1, p2);

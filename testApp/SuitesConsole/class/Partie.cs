@@ -14,7 +14,7 @@ public class Partie
         
     }
 
-    private void CreatePartie()
+    protected void CreatePartie()
     {
         Exercices.Add(new ExoTerme(TypeSuite));
         Exercices.Add(new ExoPremierTerme(TypeSuite));
@@ -24,7 +24,7 @@ public class Partie
         Exercices.Add(new ExoMonotonie(TypeSuite));
     }
 
-    private void Play()
+    protected virtual void Play()
     {
         foreach (var ex in Exercices)
         {
