@@ -5,8 +5,8 @@ public class Versus : Partie
     {
         Players.Add(p1);
         Players.Add(p2);
-
-        CreatePartie();
+        // CreatePartie();
+        // Play();
         Play();
     }
 
@@ -16,19 +16,30 @@ public class Versus : Partie
     protected override void Play()
     {
         bool isFirstPlayer = true;
+        //Debug
+        int counter = 1;
+        Console.WriteLine($"Exercice n°{counter}, la partie a {Exercices.Count} exercices");
         foreach (var ex in Exercices)
         {
+
             foreach (var player in Players)
             {
                 if (!isFirstPlayer)
                 {
-                    ex.GetNewSuite(TypeSuite);
+                    ex.GetNewSuite(TypeSuite);   
                 }
                 isFirstPlayer = !isFirstPlayer;
                 Console.WriteLine($"\n\n\n------------------\nC'est votre tour {player.Pseudo}\n------------------");
                 Console.WriteLine("\n\n");
                 Console.WriteLine(ex.Enonce);
-                player.Repondre(ex, Console.ReadLine());
+                string res = Console.ReadLine();
+                player.Repondre(ex, res);
+                // // DEBUG
+                // if (res == ex.Reponse) 
+                // {
+                //     Console.WriteLine("Bonne réponse ! ");  
+                // }
+                // else Console.WriteLine($"Faux, la réponse est : {ex.Reponse}");
             }          
         }
         foreach (var player in Players) Console.WriteLine($"{player.Pseudo}: {player.Score}");

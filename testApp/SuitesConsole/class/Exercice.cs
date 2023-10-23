@@ -50,14 +50,13 @@ public abstract class Exercice
                 /* rand.Next(-1000, 1000) */
                 rand.Next(-100, 100)
             );
-
-            // DEBUG
-            Console.WriteLine("La suite a changé");
         }
         // Quelconque
         else 
         {
             this.SuiteExo = new Suite(1,1);
         }
+        
+        SetEnonce(typeSuite);
     }
 }
