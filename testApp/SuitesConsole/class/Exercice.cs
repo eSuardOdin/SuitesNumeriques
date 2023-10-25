@@ -4,7 +4,7 @@ public abstract class Exercice
     public string? Enonce {get; protected set;}
     public string? Reponse {get; protected set;}
     public Suite? SuiteExo {get; protected set;}
-
+    
     // public Exercice(byte typeExo)
     // {
     //     TypeExo = typeExo;

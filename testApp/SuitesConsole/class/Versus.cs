@@ -1,5 +1,6 @@
 public class Versus : Partie
 {
+    public TimeManager? TimeLeft {get; private set;}
     public List<Player> Players = new();
     public Versus(string typePartie, Player p1, Player p2) : base(typePartie)
     {
@@ -24,6 +25,8 @@ public class Versus : Partie
 
             foreach (var player in Players)
             {
+                // Reset time
+                TimeLeft = new(30);
                 if (!isFirstPlayer)
                 {
                     ex.GetNewSuite(TypeSuite);   
@@ -33,7 +36,7 @@ public class Versus : Partie
                 Console.WriteLine("\n\n");
                 Console.WriteLine(ex.Enonce);
                 string res = Console.ReadLine();
-                player.Repondre(ex, res);
+                player.Repondre(ex, res, TimeLeft.SecondsLeft);
                 // // DEBUG
                 // if (res == ex.Reponse) 
                 // {
@@ -42,6 +45,6 @@ public class Versus : Partie
                 // else Console.WriteLine($"Faux, la réponse est : {ex.Reponse}");
             }          
         }
-        foreach (var player in Players) Console.WriteLine($"{player.Pseudo}: {player.Score}");
+        foreach (var player in Players) Console.WriteLine($"{player.Pseudo}: {player.Score}, time : {player.Time} sec");
     }
 }
