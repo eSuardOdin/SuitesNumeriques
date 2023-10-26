@@ -8,11 +8,11 @@ public class TimeManager
     public TimeManager(int secondsLeft)
     {
         SecondsLeft = secondsLeft;
-        MyTimer.Elapsed += OnTimedEvent;
+        MyTimer.Elapsed += OnSecEvent;
         MyTimer.AutoReset = true;
         MyTimer.Enabled = true;
     }
-    private void OnTimedEvent(Object source, ElapsedEventArgs e) 
+    private void OnSecEvent(Object source, ElapsedEventArgs e) 
     {
         SecondsLeft -=1;
     }
