@@ -33,11 +33,12 @@ public class Versus : Partie
                 }
                 isFirstPlayer = !isFirstPlayer;
                 //DEBUG
-                Console.WriteLine($"La réponse est : {ex.Reponse}");
+                
                 string res = "";
                 do
                 {
                     PrintQuestion(ex, player);
+                    Console.WriteLine($"La réponse est : {ex.Reponse}");
                     res = Console.ReadLine();
 
                     // Si reset de la question
