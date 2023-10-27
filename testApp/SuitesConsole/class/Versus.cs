@@ -5,7 +5,7 @@ public class Versus : Partie
     public List<Player> Players = new();
     public Versus(string typePartie, Player p1, Player p2) : base(typePartie)
     {
-        ScoreManager = new("scores.txt");
+        ScoreManager = new("scores", typePartie);
         ScoreManager.TryCreateScoreFile();
         Players.Add(p1);
         Players.Add(p2);
@@ -32,11 +32,8 @@ public class Versus : Partie
                     ex.GetNewSuite(TypeSuite);  
                 }
                 isFirstPlayer = !isFirstPlayer;
-                // Console.WriteLine($"\n\n\n------------------\nC'est votre tour {player.Pseudo}\n------------------");
-                // Console.WriteLine("\n\n");
-                // Console.WriteLine(ex.Enonce);
-                /* DEBUG
-                Console.WriteLine($"La réponse est : {ex.Reponse}");*/
+                //DEBUG
+                Console.WriteLine($"La réponse est : {ex.Reponse}");
                 string res = "";
                 do
                 {
@@ -61,7 +58,12 @@ public class Versus : Partie
                 else Console.WriteLine($"Faux, la réponse est : {ex.Reponse}");*/
             }    
         }
-        foreach (var player in Players) Console.WriteLine($"{player.Pseudo}: {player.Score}, time : {player.Time} sec");
+        foreach (var player in Players)
+        {
+            player.ComputeScore();
+            Console.WriteLine($"{player.Pseudo}: {player.Score}, time : {player.Time} sec, reset : {player.Reset}");
+        }
+            
     }
 
 
