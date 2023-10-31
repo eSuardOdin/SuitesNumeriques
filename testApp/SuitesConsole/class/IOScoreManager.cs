@@ -22,10 +22,24 @@ public class IOScoreManager
     /// Vérifier si un score a sa place dans le fichier
     /// </summary>
     /// <returns>Le classement du score, -1 si non top10</returns>
-    public int GetRank(string score)
+    public int GetRank(int score)
     {
-
-        return -1;
+        int rank = -1;
+        int compteur = 1;
+        using(StreamReader reader = new(Path))
+        {
+            while(reader.ReadLine() != null && rank == -1)
+            {
+                string line = reader.ReadLine();
+                var values = line.Split(';');
+                if (Convert.ToInt32(values[0]) <= score)
+                {
+                    rank = compteur;
+                }
+                compteur++;
+            }
+        }
+        return rank;
     }
     // Il faut que je puisse checker si un score est plus élevé qu'un autre
     // Je dois gérer les décalages de ligne

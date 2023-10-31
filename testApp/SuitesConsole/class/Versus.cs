@@ -7,6 +7,7 @@ public class Versus : Partie
     {
         ScoreManager = new("scores", typePartie);
         ScoreManager.TryCreateScoreFile();
+        Console.WriteLine(ScoreManager.GetRank(4000));
         Players.Add(p1);
         Players.Add(p2);
         Play();

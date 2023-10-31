@@ -35,3 +35,49 @@ using(var reader = new StreamReader(path))
   }
 
 }
+
+
+Peut être faut il commencer par un moyen de connaître l'index de placement du score
+
+int GetScoreRank(score) => Renvoie le positionnement du score et -1 s'il n'est pas dans les 10 meilleurs.
+
+
+
+Puis on peut faire une method pour générer le nouveau fichier
+
+void InsertNewScore(int rank, Player p)
+{
+    string newScore = "";
+    compteur = 1; -> Init à 1 car plus parlant pour un rang
+    using(StreamReader reader = new(path))
+    {
+        while(!reader.EndOfStream && compteur <= 10)
+        var line = reader.ReadLine();
+        var values = line.Split(;); -> ? Plutôt pour GetScoreRank
+        if(rank == compteur)
+        {
+            newScore += $"{p.Score};{p.Pseudo}\n";
+            if(compteur != 10) newScore += line;
+            compteur++;
+        }
+        else
+        {
+           newScore += line; 
+        }
+        compteur++;
+    }
+}
+
+1847;
+1624;
+1548;
+1300;
+1299;
+1200;
+1200;
+1000;
+980;
+720;
+
+On fait un score de 1500
+
