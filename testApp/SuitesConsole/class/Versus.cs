@@ -7,7 +7,7 @@ public class Versus : Partie
     {
         ScoreManager = new("scores", typePartie);
         ScoreManager.TryCreateScoreFile();
-        Console.WriteLine(ScoreManager.GetRank(4000));
+        Console.WriteLine(ScoreManager.GetRank(1200));
         Players.Add(p1);
         Players.Add(p2);
         Play();
@@ -63,9 +63,13 @@ public class Versus : Partie
         foreach (var player in Players)
         {
             player.ComputeScore();
+            int rank = ScoreManager.GetRank(player.Score);
+            if (rank != -1)
+            {
+                ScoreManager.WriteNewScore(rank, player);
+            }
             Console.WriteLine($"{player.Pseudo}: {player.Score}, time : {player.Time} sec, reset : {player.Reset}");
         }
-            
     }
 
 
