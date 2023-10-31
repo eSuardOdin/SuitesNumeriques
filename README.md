@@ -120,3 +120,8 @@ On peut retenir la formule générale:
 > 
 > - Serait il pertinent qu'un Match soit une classe enfant d'un Entrainement ?
 > - Attention aux valeurs aléatoires sur l'indice demandé, vérifier que le calcul ne génère pas de dépassement de capacité.
+
+
+
+**Gestion du score**
+Exos réussis * 150 - resets * 50 + temps * 5

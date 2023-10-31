@@ -4,9 +4,9 @@ public class IOScoreManager
     public FileStream? Fs;
     public string Path {get; private set;}
 
-    public IOScoreManager(string path)
+    public IOScoreManager(string path, string typeSuite)
     {
-        Path = path;
+        Path = $"{path}_{typeSuite}.txt";
     }
 
     public void TryCreateScoreFile()

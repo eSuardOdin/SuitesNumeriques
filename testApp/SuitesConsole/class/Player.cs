@@ -14,10 +14,19 @@ public class Player
 
     public void Repondre(Exercice exo, string reponse, int time)
     {
-        if (reponse == exo.Reponse) Score++;
-        AddTime(time);
+        // Si la réponse est juste on rajoute le temps pour y répondre
+        if (reponse == exo.Reponse)
+        {
+            Score+=150;
+            AddTime(time);
+        }
     }
 
     public void AddTime(int time) => Time += time;
     public void AddReset() => Reset++;
+    public void ComputeScore()
+    {
+        Score += Time * 5;
+        Score -= Reset * 50;
+    }
 }
