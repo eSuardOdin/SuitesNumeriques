@@ -1,3 +1,6 @@
+/// <summary>
+/// Permet de gérer une partie entre deux joueurs sur n'importe quel type de suite
+/// </summary>
 public class Versus : Partie
 {
     private IOScoreManager ScoreManager;
@@ -15,33 +18,35 @@ public class Versus : Partie
 
 
 
-
+    /// <summary>
+    /// Permet de jouer une partie joueur contre joueur
+    /// </summary>
     protected override void Play()
     {
+
         bool isFirstPlayer = true;
-        //Debug
-        int counter = 1;
-        Console.WriteLine($"Exercice n°{counter}, la partie a {Exercices.Count} exercices");
         foreach (var ex in Exercices)
         {
             foreach (var player in Players)
             {
                 // Reset time
                 TimeLeft = new(30);
+                
+                // Si on est sur le deuxième joueur, on change de suite
                 if (!isFirstPlayer)
                 {
                     ex.GetNewSuite(TypeSuite);  
                 }
                 isFirstPlayer = !isFirstPlayer;
-                //DEBUG
                 
                 string res = "";
+                // à chaque nouvelle suite on affiche la question
                 do
                 {
                     PrintQuestion(ex, player);
-                    Console.WriteLine($"La réponse est : {ex.Reponse}");
+                    Console.WriteLine($"La réponse est : {ex.Reponse}"); // Débug
+                    
                     res = Console.ReadLine();
-
                     // Si reset de la question
                     if (res == "r")
                     {
@@ -60,6 +65,7 @@ public class Versus : Partie
                 else Console.WriteLine($"Faux, la réponse est : {ex.Reponse}");*/
             }    
         }
+        // On calcule les scores des joueurs et on met à jour les meilleurs scores
         foreach (var player in Players)
         {
             player.ComputeScore();
@@ -73,6 +79,11 @@ public class Versus : Partie
     }
 
 
+    /// <summary>
+    /// Print la question sur la console (à refaire pour la GUI)
+    /// </summary>
+    /// <param name="ex">Exercice à print</param>
+    /// <param name="p">Joueur répondant à la question</param>
     private void PrintQuestion(Exercice ex, Player p)
     {
         Console.WriteLine($"\n\n\n------------------\nC'est votre tour {p.Pseudo}\n------------------");

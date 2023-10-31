@@ -1,3 +1,6 @@
+/// <summary>
+/// La classe mère d'une suite, contient les méthodes à override par les classes enfant
+/// </summary>
 public class Suite
 {
     public double Raison {get; private set;}

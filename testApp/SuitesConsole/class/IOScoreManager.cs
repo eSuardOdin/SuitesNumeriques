@@ -29,7 +29,7 @@ public class IOScoreManager
     /// <summary>
     /// Vérifier si un score a sa place dans le fichier
     /// </summary>
-    /// <returns>Le classement du score, -1 si non top10</returns>
+    /// <returns>Le classement du score, -1 si !top10</returns>
     public int GetRank(int score)
     {
         int rank = -1;
@@ -50,7 +50,11 @@ public class IOScoreManager
         return rank;
     }
 
-
+    /// <summary>
+    /// Ecrit les nouveaux meilleurs scores dans le fichier correspondant au type de suite
+    /// </summary>
+    /// <param name="rank">Rang du score à écrire</param>
+    /// <param name="p">Joueur dont on écrit Score et Pseudo</param>
     public void WriteNewScore(int rank, Player p)
     {
         string newScore = "";
@@ -77,34 +81,4 @@ public class IOScoreManager
         Console.WriteLine(newScore);
     }
 
-
-
-    // Il faut que je puisse checker si un score est plus élevé qu'un autre
-    // Je dois gérer les décalages de ligne
-    // On peut copier toute les lignes restantes sauf la dernière
-
-
-    /*
-    Geometrique
-    Rank;Pseudo;Score
-    Rank;Pseudo;Score
-    Rank;Pseudo;Score
-    Arithmetique
-    Rank;Pseudo;Score
-    Rank;Pseudo;Score
-    Rank;Pseudo;Score
-    
-    ou
-
-    <Geometrique>
-        <1>
-            <pseudo>
-                "toto"
-            <pseudo/>
-            <score>
-                1278
-            <score/>
-        <1/>
-    <Geometrique/>
-    */
 }
