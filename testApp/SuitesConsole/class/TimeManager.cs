@@ -8,6 +8,10 @@ public class TimeManager
     System.Timers.Timer MyTimer = new(1000);
     public int SecondsLeft {get; private set;}
 
+    /// <summary>
+    /// Constructeur de TimeManager, on définit l'intervalle entre les evenements, on s'abonne à l'evenement, on le déclenche en continu (AutoReset = true) et on l'active   
+    /// </summary>
+    /// <param name="secondsLeft">Le nombre de secondes du timer (par exercice)</param>
     public TimeManager(int secondsLeft)
     {
         SecondsLeft = secondsLeft;
