@@ -1,4 +1,8 @@
 using System.IO;
+
+/// <summary>
+/// Gère l'input/output des scores dans un fichier associé à un type de suite
+/// </summary>
 public class IOScoreManager
 {
     public FileStream? Fs;

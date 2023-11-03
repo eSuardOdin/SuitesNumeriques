@@ -1,4 +1,7 @@
 using System.Timers;
+/// <summary>
+/// Gère le temps restant d'une question
+/// </summary>
 public class TimeManager
 {
     // Timer d'une seconde
@@ -12,6 +15,11 @@ public class TimeManager
         MyTimer.AutoReset = true;
         MyTimer.Enabled = true;
     }
+    /// <summary>
+    /// Evenement déclenché toutes les secondes
+    /// </summary>
+    /// <param name="source">Le timer MyTimer</param>
+    /// <param name="e">Objet qui contient les données de l'event</param>
     private void OnSecEvent(Object source, ElapsedEventArgs e) 
     {
         SecondsLeft -=1;
