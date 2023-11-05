@@ -32,11 +32,17 @@ public class Player
     public void AddReset() => Reset++;
     
     /// <summary>
-    /// Gérer le score final d'un joueur
+    /// Gérer le score final d'un joueur avec temps
     /// </summary>
-    public void ComputeScore()
+    public void ComputeTimedScore()
     {
         Score += Time * 5;
+        Score -= Reset * 50;
+    }
+
+
+    public void ComputeScore()
+    {
         Score -= Reset * 50;
     }
 }

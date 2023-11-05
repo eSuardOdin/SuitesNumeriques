@@ -16,7 +16,7 @@
 /* Partie partie = new("arithmétique"); */
 Player p1 = new("Erwann");
 Player p2 = new("Autre");
-Versus vs = new("arithmétique", p1, p2);
+TimedVersus vs = new("arithmétique", p1, p2);
         
 
 

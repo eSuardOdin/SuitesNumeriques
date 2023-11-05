@@ -1,12 +1,11 @@
 /// <summary>
 /// Permet de gérer une partie entre deux joueurs sur n'importe quel type de suite
 /// </summary>
-public class Versus : Partie
+public class UntimedVersus : Partie
 {
     private IOScoreManager ScoreManager;
-    public TimeManager? TimeLeft {get; private set;}
     public List<Player> Players = new();
-    public Versus(string typePartie, Player p1, Player p2) : base(typePartie)
+    public UntimedVersus(string typePartie, Player p1, Player p2) : base(typePartie)
     {
         ScoreManager = new("scores", typePartie);
         ScoreManager.TryCreateScoreFile();
@@ -19,7 +18,7 @@ public class Versus : Partie
 
 
     /// <summary>
-    /// Permet de jouer une partie joueur contre joueur
+    /// Permet de jouer une partie joueur contre joueur avec contrainte de temps
     /// </summary>
     protected override void Play()
     {
@@ -29,9 +28,6 @@ public class Versus : Partie
         {
             foreach (var player in Players)
             {
-                // Reset time
-                TimeLeft = new(30);
-                
                 // Si on est sur le deuxième joueur, on change de suite
                 if (!isFirstPlayer)
                 {
@@ -55,7 +51,7 @@ public class Versus : Partie
                     }
                 } while (res == "r");
                
-                player.Repondre(ex, res, TimeLeft.SecondsLeft);
+                player.Repondre(ex, res, 0);
                 
                 /* DEBUG
                 if (res == ex.Reponse) 
@@ -74,7 +70,7 @@ public class Versus : Partie
             {
                 ScoreManager.WriteNewScore(rank, player);
             }
-            Console.WriteLine($"{player.Pseudo}: {player.Score}, time : {player.Time} sec, reset : {player.Reset}");
+            Console.WriteLine($"{player.Pseudo}: {player.Score}, reset : {player.Reset}");
         }
     }
 
