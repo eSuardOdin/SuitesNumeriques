@@ -9,8 +9,8 @@ namespace SuitesNumeriques
 
         private void arithmétiquesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Entrainement ent = new Entrainement();
-            ent.Show();
+            Entrainement training = new Entrainement(arithmétiquesToolStripMenuItem.Text);
+            training.Show();
         }
     }
 }

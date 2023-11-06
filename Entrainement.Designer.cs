@@ -6,6 +6,13 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        public string TypePartie { get; private set; }
+
+        public Entrainement(string typePartie)
+        {
+            TypePartie = typePartie;
+            this.Text = $"Suites {TypePartie}: Rechercher...";
+        }
 
         /// <summary>
         /// Clean up any resources being used.
