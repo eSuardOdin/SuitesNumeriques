@@ -64,6 +64,7 @@
             // 
             arithmétiquesToolStripMenuItem.Name = "arithmétiquesToolStripMenuItem";
             arithmétiquesToolStripMenuItem.Size = new Size(202, 22);
+            arithmétiquesToolStripMenuItem.Tag = "arithmétique";
             arithmétiquesToolStripMenuItem.Text = "Arithmétiques";
             arithmétiquesToolStripMenuItem.Click += arithmétiquesToolStripMenuItem_Click;
             // 
@@ -71,7 +72,9 @@
             // 
             géométriquesToolStripMenuItem.Name = "géométriquesToolStripMenuItem";
             géométriquesToolStripMenuItem.Size = new Size(202, 22);
+            géométriquesToolStripMenuItem.Tag = "géométrique";
             géométriquesToolStripMenuItem.Text = "Géométriques";
+            géométriquesToolStripMenuItem.Click += géométriquesToolStripMenuItem_Click;
             // 
             // quelconquesEnProjetToolStripMenuItem
             // 
