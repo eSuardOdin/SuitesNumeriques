@@ -41,8 +41,18 @@ namespace SuitesNumeriques
             tab3 = new TabPage();
             tab4 = new TabPage();
             tab5 = new TabPage();
+            exo1 = new ExoEntrainement();
+            exo2 = new ExoEntrainement();
+            exo3 = new ExoEntrainement();
+            exo4 = new ExoEntrainement();
+            exo5 = new ExoEntrainement();
             tabControl1.SuspendLayout();
             tab0.SuspendLayout();
+            tab1.SuspendLayout();
+            tab2.SuspendLayout();
+            tab3.SuspendLayout();
+            tab4.SuspendLayout();
+            tab5.SuspendLayout();
             SuspendLayout();
             // 
             // contextMenuStrip1
@@ -78,13 +88,14 @@ namespace SuitesNumeriques
             // 
             // exo0
             // 
-            exo0.Location = new Point(28, 30);
+            exo0.Location = new Point(30, 30);
             exo0.Name = "exo0";
             exo0.Size = new Size(714, 325);
             exo0.TabIndex = 0;
             // 
             // tab1
             // 
+            tab1.Controls.Add(exo1);
             tab1.Location = new Point(4, 24);
             tab1.Name = "tab1";
             tab1.Padding = new Padding(3);
@@ -96,6 +107,7 @@ namespace SuitesNumeriques
             // 
             // tab2
             // 
+            tab2.Controls.Add(exo2);
             tab2.Location = new Point(4, 24);
             tab2.Name = "tab2";
             tab2.Padding = new Padding(3);
@@ -107,6 +119,7 @@ namespace SuitesNumeriques
             // 
             // tab3
             // 
+            tab3.Controls.Add(exo3);
             tab3.Location = new Point(4, 24);
             tab3.Name = "tab3";
             tab3.Padding = new Padding(3);
@@ -118,6 +131,7 @@ namespace SuitesNumeriques
             // 
             // tab4
             // 
+            tab4.Controls.Add(exo4);
             tab4.Location = new Point(4, 24);
             tab4.Name = "tab4";
             tab4.Padding = new Padding(3);
@@ -129,6 +143,7 @@ namespace SuitesNumeriques
             // 
             // tab5
             // 
+            tab5.Controls.Add(exo5);
             tab5.Location = new Point(4, 24);
             tab5.Name = "tab5";
             tab5.Padding = new Padding(3);
@@ -137,6 +152,41 @@ namespace SuitesNumeriques
             tab5.Tag = "5";
             tab5.Text = "La Monotonie";
             tab5.UseVisualStyleBackColor = true;
+            // 
+            // exo1
+            // 
+            exo1.Location = new Point(30, 30);
+            exo1.Name = "exo1";
+            exo1.Size = new Size(714, 325);
+            exo1.TabIndex = 0;
+            // 
+            // exo2
+            // 
+            exo2.Location = new Point(30, 30);
+            exo2.Name = "exo2";
+            exo2.Size = new Size(714, 325);
+            exo2.TabIndex = 0;
+            // 
+            // exo3
+            // 
+            exo3.Location = new Point(30, 30);
+            exo3.Name = "exo3";
+            exo3.Size = new Size(714, 325);
+            exo3.TabIndex = 0;
+            // 
+            // exo4
+            // 
+            exo4.Location = new Point(30, 30);
+            exo4.Name = "exo4";
+            exo4.Size = new Size(714, 325);
+            exo4.TabIndex = 0;
+            // 
+            // exo5
+            // 
+            exo5.Location = new Point(30, 30);
+            exo5.Name = "exo5";
+            exo5.Size = new Size(714, 325);
+            exo5.TabIndex = 0;
             // 
             // Entrainement
             // 
@@ -148,6 +198,11 @@ namespace SuitesNumeriques
             Text = "Entrainement";
             tabControl1.ResumeLayout(false);
             tab0.ResumeLayout(false);
+            tab1.ResumeLayout(false);
+            tab2.ResumeLayout(false);
+            tab3.ResumeLayout(false);
+            tab4.ResumeLayout(false);
+            tab5.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -162,5 +217,10 @@ namespace SuitesNumeriques
         private TabPage tab4;
         private TabPage tab5;
         private ExoEntrainement exo0;
+        private ExoEntrainement exo1;
+        private ExoEntrainement exo2;
+        private ExoEntrainement exo3;
+        private ExoEntrainement exo4;
+        private ExoEntrainement exo5;
     }
 }

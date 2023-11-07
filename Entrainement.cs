@@ -28,8 +28,24 @@ namespace SuitesNumeriques
                 txt += $"- {ex.ToString()} : Raison -> {ex.SuiteExo.Raison}, Premier terme -> {ex.SuiteExo.PremierTerme}\n";
             }
             MessageBox.Show(txt);
+            InitExos();
+        }
+
+
+        private void InitExos()
+        {
             exo0.GetExoType(Convert.ToInt32(tab0.Tag), TypePartie);
             exo0.GetExoLabels();
+            exo1.GetExoType(Convert.ToInt32(tab1.Tag), TypePartie);
+            exo1.GetExoLabels();
+            exo2.GetExoType(Convert.ToInt32(tab2.Tag), TypePartie);
+            exo2.GetExoLabels();
+            exo3.GetExoType(Convert.ToInt32(tab3.Tag), TypePartie);
+            exo3.GetExoLabels();
+            exo4.GetExoType(Convert.ToInt32(tab4.Tag), TypePartie);
+            exo4.GetExoLabels();
+            exo5.GetExoType(Convert.ToInt32(tab5.Tag), TypePartie);
+            exo5.GetExoLabels();
         }
     }
 }

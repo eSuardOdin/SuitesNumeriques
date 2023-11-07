@@ -33,7 +33,6 @@
             answerTxt = new TextBox();
             answerLbl = new Label();
             enonceLbl = new Label();
-            questionLbl = new Label();
             SuspendLayout();
             // 
             // resetBtn
@@ -49,7 +48,7 @@
             // validBtn
             // 
             validBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            validBtn.Location = new Point(309, 278);
+            validBtn.Location = new Point(309, 299);
             validBtn.Name = "validBtn";
             validBtn.Size = new Size(75, 23);
             validBtn.TabIndex = 1;
@@ -58,7 +57,7 @@
             // 
             // answerTxt
             // 
-            answerTxt.Location = new Point(159, 230);
+            answerTxt.Location = new Point(159, 270);
             answerTxt.Name = "answerTxt";
             answerTxt.Size = new Size(225, 23);
             answerTxt.TabIndex = 2;
@@ -67,7 +66,7 @@
             // 
             answerLbl.AutoSize = true;
             answerLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            answerLbl.Location = new Point(77, 238);
+            answerLbl.Location = new Point(77, 273);
             answerLbl.Name = "answerLbl";
             answerLbl.Size = new Size(64, 15);
             answerLbl.TabIndex = 3;
@@ -76,26 +75,16 @@
             // enonceLbl
             // 
             enonceLbl.AutoSize = true;
-            enonceLbl.Location = new Point(77, 95);
+            enonceLbl.Location = new Point(77, 78);
             enonceLbl.Name = "enonceLbl";
             enonceLbl.Size = new Size(38, 15);
             enonceLbl.TabIndex = 4;
             enonceLbl.Text = "label1";
             // 
-            // questionLbl
-            // 
-            questionLbl.AutoSize = true;
-            questionLbl.Location = new Point(77, 193);
-            questionLbl.Name = "questionLbl";
-            questionLbl.Size = new Size(38, 15);
-            questionLbl.TabIndex = 5;
-            questionLbl.Text = "label1";
-            // 
             // ExoEntrainement
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(questionLbl);
             Controls.Add(enonceLbl);
             Controls.Add(answerLbl);
             Controls.Add(answerTxt);
@@ -114,6 +103,5 @@
         private TextBox answerTxt;
         private Label answerLbl;
         private Label enonceLbl;
-        private Label questionLbl;
     }
 }
