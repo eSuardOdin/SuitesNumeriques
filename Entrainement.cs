@@ -12,9 +12,42 @@ namespace SuitesNumeriques
 {
     public partial class Entrainement : Form
     {
+        private Exercice Exo {  get; set; }
         public Entrainement()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Permet d'instancier le type d'exercice de l'onglet actuel
+        /// </summary>
+        /// <param name="index">L'index de l'onglet actuel</param>
+        /// <param name="typeSuite">Le type de suite à gérer</param>
+        public void GetExoType(int index, string typeSuite)
+        {
+            switch (index) 
+            {
+                case 0:
+                    Exo = new ExoTerme(typeSuite);
+                    break;
+                case 1:
+                    Exo = new ExoPremierTerme(typeSuite);
+                    break;
+                case 2:
+                    Exo = new ExoRang(typeSuite);
+                    break;
+                case 3:
+                    Exo = new ExoRaison(typeSuite);
+                    break;
+                case 4:
+                    Exo = new ExoSomme(typeSuite);
+                    break;
+                case 5:
+                    Exo = new ExoMonotonie(typeSuite);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

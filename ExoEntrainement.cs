@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace SuitesNumeriques
 {
-    public partial class TabBtn : UserControl
+    public partial class ExoEntrainement : UserControl
     {
-        public TabBtn()
+        public ExoEntrainement()
         {
             InitializeComponent();
-            //this.Size = tab.Size; // Resize à la taille de l'elmt enfant
-            IsSelected = false;
-        }
-
-        private void tab_Click(object sender, EventArgs e)
-        {
-            if (!IsSelected) IsSelected = true;
         }
     }
 }
