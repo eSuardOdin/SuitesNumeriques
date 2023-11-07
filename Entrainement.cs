@@ -12,42 +12,22 @@ namespace SuitesNumeriques
 {
     public partial class Entrainement : Form
     {
-        private Exercice Exo {  get; set; }
-        public Entrainement()
+        public string TypePartie { get; private set; }
+        public Partie Partie { get; private set; }
+
+        public Entrainement(string label, string typePartie)
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Permet d'instancier le type d'exercice de l'onglet actuel
-        /// </summary>
-        /// <param name="index">L'index de l'onglet actuel</param>
-        /// <param name="typeSuite">Le type de suite à gérer</param>
-        public void GetExoType(int index, string typeSuite)
-        {
-            switch (index) 
+            TypePartie = typePartie;
+            Partie = new Partie(TypePartie);
+            this.Text = $"Suites {label}: Rechercher...";
+            // Debug
+            string txt = "";
+            foreach (var ex in Partie.Exercices)
             {
-                case 0:
-                    Exo = new ExoTerme(typeSuite);
-                    break;
-                case 1:
-                    Exo = new ExoPremierTerme(typeSuite);
-                    break;
-                case 2:
-                    Exo = new ExoRang(typeSuite);
-                    break;
-                case 3:
-                    Exo = new ExoRaison(typeSuite);
-                    break;
-                case 4:
-                    Exo = new ExoSomme(typeSuite);
-                    break;
-                case 5:
-                    Exo = new ExoMonotonie(typeSuite);
-                    break;
-                default:
-                    break;
+                txt += $"- {ex.ToString()} : Raison -> {ex.SuiteExo.Raison}, Premier terme -> {ex.SuiteExo.PremierTerme}\n";
             }
+            MessageBox.Show(txt);
         }
     }
 }

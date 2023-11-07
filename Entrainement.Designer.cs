@@ -8,22 +8,7 @@ namespace SuitesNumeriques
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        public string TypePartie { get; private set; }
-        public Partie Partie { get; private set; }
-
-        public Entrainement(string label, string typePartie)
-        {
-            TypePartie = typePartie;
-            Partie = new Partie(TypePartie);
-            this.Text = $"Suites {label}: Rechercher...";
-            // Debug
-            string txt = "";
-            foreach (var ex in Partie.Exercices)
-            {
-                txt += $"- {ex.ToString()} : Raison -> {ex.SuiteExo.Raison}, Premier terme -> {ex.SuiteExo.PremierTerme}\n";
-            }
-            MessageBox.Show(txt);
-        }
+        
 
         /// <summary>
         /// Clean up any resources being used.
@@ -48,6 +33,7 @@ namespace SuitesNumeriques
         {
             components = new System.ComponentModel.Container();
             contextMenuStrip1 = new ContextMenuStrip(components);
+
             SuspendLayout();
             // 
             // contextMenuStrip1
