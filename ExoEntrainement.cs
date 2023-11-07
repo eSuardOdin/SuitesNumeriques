@@ -15,12 +15,12 @@ namespace SuitesNumeriques
         /// <summary>
         /// L'exercice géré par le control
         /// </summary>
-        private Exercice Exo { get; set; }
-        public ExoEntrainement(int index, string typeSuite)
+        private Exercice? Exo { get; set; }
+        public ExoEntrainement()
         {
             InitializeComponent();
-            GetExoType(index, typeSuite);
-            GetExoLabels();
+            //GetExoType(index, typeSuite);
+            //GetExoLabels();
         }
 
 

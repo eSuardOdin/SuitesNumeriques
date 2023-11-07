@@ -28,6 +28,8 @@ namespace SuitesNumeriques
                 txt += $"- {ex.ToString()} : Raison -> {ex.SuiteExo.Raison}, Premier terme -> {ex.SuiteExo.PremierTerme}\n";
             }
             MessageBox.Show(txt);
+            exo0.GetExoType(Convert.ToInt32(tab0.Tag), TypePartie);
+            exo0.GetExoLabels();
         }
     }
 }
