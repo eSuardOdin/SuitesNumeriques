@@ -27,9 +27,9 @@ public abstract class Exercice
         {
             // ---------- 
             // Tentative de random decimal
-            double dec = rand.NextDouble();
+            //double dec = rand.NextDouble();
             /* dec = Math.Round(dec,1); */
-            double raison = Math.Round((rand.Next(-5, 5) + dec), 1);
+            double raison = /*Math.Round((*/rand.Next(-5, 5) /*+ dec), 1)*/;
             // ----------
             SuiteExo = new Geometrique(
                 raison,
@@ -41,9 +41,9 @@ public abstract class Exercice
         {
             // ---------- 
             // Tentative de random decimal
-            double dec = rand.NextDouble();
+            //double dec = rand.NextDouble();
             /* dec = Math.Round(dec,1); */
-            double raison = Math.Round((rand.Next(-15, 15) + dec), 1);
+            double raison = /*Math.Round((*/rand.Next(-15, 15) /*+ dec), 1)*/;
             // ----------
             SuiteExo = new Arithmethique(
                 raison,

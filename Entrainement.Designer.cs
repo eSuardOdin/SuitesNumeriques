@@ -34,6 +34,7 @@ namespace SuitesNumeriques
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tab5 = new System.Windows.Forms.TabPage();
+            this.exo5 = new SuitesNumeriques.classes.ExoEntrainementMonotonie();
             this.tab4 = new System.Windows.Forms.TabPage();
             this.exo4 = new SuitesNumeriques.ExoEntrainement();
             this.tab3 = new System.Windows.Forms.TabPage();
@@ -45,7 +46,6 @@ namespace SuitesNumeriques
             this.tab0 = new System.Windows.Forms.TabPage();
             this.exo0 = new SuitesNumeriques.ExoEntrainement();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.exo5 = new SuitesNumeriques.classes.ExoEntrainementMonotonie();
             this.tab5.SuspendLayout();
             this.tab4.SuspendLayout();
             this.tab3.SuspendLayout();
@@ -71,6 +71,13 @@ namespace SuitesNumeriques
             this.tab5.Tag = "5";
             this.tab5.Text = "La Monotonie";
             this.tab5.UseVisualStyleBackColor = true;
+            // 
+            // exo5
+            // 
+            this.exo5.Location = new System.Drawing.Point(12, 5);
+            this.exo5.Name = "exo5";
+            this.exo5.Size = new System.Drawing.Size(708, 441);
+            this.exo5.TabIndex = 0;
             // 
             // tab4
             // 
@@ -180,13 +187,6 @@ namespace SuitesNumeriques
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(796, 446);
             this.tabControl1.TabIndex = 0;
-            // 
-            // exo5
-            // 
-            this.exo5.Location = new System.Drawing.Point(36, 3);
-            this.exo5.Name = "exo5";
-            this.exo5.Size = new System.Drawing.Size(708, 441);
-            this.exo5.TabIndex = 0;
             // 
             // Entrainement
             // 

@@ -65,12 +65,21 @@ namespace SuitesNumeriques
             Exo.GetNewSuite(this.Tag.ToString());
             enonceLbl.Text = Exo.Enonce;
             repBox.Text = "";
+            repStatutLbl.Text = "";
         }
 
         private void validBtn_Click(object sender, EventArgs e)
         {
-            if (repBox.Text == Exo.Reponse) MessageBox.Show("Bonne réponse");
-            else MessageBox.Show("Mauvaise réponse");
+            if (repBox.Text == Exo.Reponse)
+            {
+                repStatutLbl.ForeColor = Color.Blue;
+                repStatutLbl.Text = "Bonne réponse !";
+            }
+            else
+            {
+                repStatutLbl.ForeColor = Color.Red;
+                repStatutLbl.Text = "Mauvaise réponse...";
+            }
         }
     }
 }

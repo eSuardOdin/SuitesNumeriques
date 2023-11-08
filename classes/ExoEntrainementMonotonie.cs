@@ -52,14 +52,15 @@ namespace SuitesNumeriques.classes
         }
         public void GetExoLabels()
         {
-            enonceLbl.Text = Exo.Enonce;
+            enonceLbl.Text = Exo.Enonce;         
         }
 
         private void resetBtn_Click(object sender, EventArgs e)
         {
             Exo.GetNewSuite(this.Tag.ToString());
             enonceLbl.Text = Exo.Enonce;
-            CheckedRadio.Checked = false;
+            if(CheckedRadio != null) CheckedRadio.Checked = false;
+            repStatutLbl.Text = "";
         }
 
         private void validBtn_Click(object sender, EventArgs e)
@@ -70,8 +71,16 @@ namespace SuitesNumeriques.classes
             }
             if (CheckedRadio != null)
             {
-                if (CheckedRadio.Text == Exo.Reponse) MessageBox.Show("Bonne réponse");
-                else MessageBox.Show("Mauvaise réponse");
+                if (CheckedRadio.Text == Exo.Reponse)
+                {
+                    repStatutLbl.ForeColor = Color.Blue;
+                    repStatutLbl.Text = "Bonne réponse !";
+                }
+                else
+                {
+                    repStatutLbl.ForeColor = Color.Red;
+                    repStatutLbl.Text = "Mauvaise réponse...";
+                }
             }
         }
     }

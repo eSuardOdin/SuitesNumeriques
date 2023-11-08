@@ -33,10 +33,11 @@
             this.resetBtn = new System.Windows.Forms.Button();
             this.enonceLbl = new System.Windows.Forms.Label();
             this.repBox = new System.Windows.Forms.GroupBox();
-            this.radio0 = new System.Windows.Forms.RadioButton();
-            this.radio1 = new System.Windows.Forms.RadioButton();
-            this.radio2 = new System.Windows.Forms.RadioButton();
             this.radio3 = new System.Windows.Forms.RadioButton();
+            this.radio2 = new System.Windows.Forms.RadioButton();
+            this.radio1 = new System.Windows.Forms.RadioButton();
+            this.radio0 = new System.Windows.Forms.RadioButton();
+            this.repStatutLbl = new System.Windows.Forms.Label();
             this.repBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,27 +95,16 @@
             this.repBox.TabIndex = 14;
             this.repBox.TabStop = false;
             // 
-            // radio0
+            // radio3
             // 
-            this.radio0.AutoSize = true;
-            this.radio0.Location = new System.Drawing.Point(15, 23);
-            this.radio0.Name = "radio0";
-            this.radio0.Size = new System.Drawing.Size(107, 19);
-            this.radio0.TabIndex = 0;
-            this.radio0.TabStop = true;
-            this.radio0.Text = "Non monotone";
-            this.radio0.UseVisualStyleBackColor = true;
-            // 
-            // radio1
-            // 
-            this.radio1.AutoSize = true;
-            this.radio1.Location = new System.Drawing.Point(148, 23);
-            this.radio1.Name = "radio1";
-            this.radio1.Size = new System.Drawing.Size(136, 19);
-            this.radio1.TabIndex = 1;
-            this.radio1.TabStop = true;
-            this.radio1.Text = "Monotone constante";
-            this.radio1.UseVisualStyleBackColor = true;
+            this.radio3.AutoSize = true;
+            this.radio3.Location = new System.Drawing.Point(148, 48);
+            this.radio3.Name = "radio3";
+            this.radio3.Size = new System.Drawing.Size(150, 19);
+            this.radio3.TabIndex = 3;
+            this.radio3.TabStop = true;
+            this.radio3.Text = "Monotone décroissante";
+            this.radio3.UseVisualStyleBackColor = true;
             // 
             // radio2
             // 
@@ -127,28 +117,48 @@
             this.radio2.Text = "Monotone croissante";
             this.radio2.UseVisualStyleBackColor = true;
             // 
-            // radio3
+            // radio1
             // 
-            this.radio3.AutoSize = true;
-            this.radio3.Location = new System.Drawing.Point(148, 48);
-            this.radio3.Name = "radio3";
-            this.radio3.Size = new System.Drawing.Size(150, 19);
-            this.radio3.TabIndex = 3;
-            this.radio3.TabStop = true;
-            this.radio3.Text = "Monotone décroissante";
-            this.radio3.UseVisualStyleBackColor = true;
+            this.radio1.AutoSize = true;
+            this.radio1.Location = new System.Drawing.Point(148, 23);
+            this.radio1.Name = "radio1";
+            this.radio1.Size = new System.Drawing.Size(136, 19);
+            this.radio1.TabIndex = 1;
+            this.radio1.TabStop = true;
+            this.radio1.Text = "Monotone constante";
+            this.radio1.UseVisualStyleBackColor = true;
+            // 
+            // radio0
+            // 
+            this.radio0.AutoSize = true;
+            this.radio0.Location = new System.Drawing.Point(15, 23);
+            this.radio0.Name = "radio0";
+            this.radio0.Size = new System.Drawing.Size(107, 19);
+            this.radio0.TabIndex = 0;
+            this.radio0.TabStop = true;
+            this.radio0.Text = "Non monotone";
+            this.radio0.UseVisualStyleBackColor = true;
+            // 
+            // repStatutLbl
+            // 
+            this.repStatutLbl.AutoSize = true;
+            this.repStatutLbl.Location = new System.Drawing.Point(511, 271);
+            this.repStatutLbl.Name = "repStatutLbl";
+            this.repStatutLbl.Size = new System.Drawing.Size(0, 15);
+            this.repStatutLbl.TabIndex = 15;
             // 
             // ExoEntrainementMonotonie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.repStatutLbl);
             this.Controls.Add(this.repBox);
             this.Controls.Add(this.validBtn);
             this.Controls.Add(this.reponseLbl);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.enonceLbl);
             this.Name = "ExoEntrainementMonotonie";
-            this.Size = new System.Drawing.Size(708, 441);
+            this.Size = new System.Drawing.Size(714, 348);
             this.repBox.ResumeLayout(false);
             this.repBox.PerformLayout();
             this.ResumeLayout(false);
@@ -167,5 +177,6 @@
         private RadioButton radio2;
         private RadioButton radio1;
         private RadioButton radio0;
+        private Label repStatutLbl;
     }
 }

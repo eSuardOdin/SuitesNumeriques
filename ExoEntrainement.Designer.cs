@@ -33,6 +33,7 @@
             this.reponseLbl = new System.Windows.Forms.Label();
             this.repBox = new System.Windows.Forms.TextBox();
             this.validBtn = new System.Windows.Forms.Button();
+            this.repStatutLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // enonceLbl
@@ -84,10 +85,19 @@
             this.validBtn.UseVisualStyleBackColor = true;
             this.validBtn.Click += new System.EventHandler(this.validBtn_Click);
             // 
+            // repStatutLbl
+            // 
+            this.repStatutLbl.AutoSize = true;
+            this.repStatutLbl.Location = new System.Drawing.Point(334, 241);
+            this.repStatutLbl.Name = "repStatutLbl";
+            this.repStatutLbl.Size = new System.Drawing.Size(0, 15);
+            this.repStatutLbl.TabIndex = 9;
+            // 
             // ExoEntrainement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.repStatutLbl);
             this.Controls.Add(this.validBtn);
             this.Controls.Add(this.repBox);
             this.Controls.Add(this.reponseLbl);
@@ -107,5 +117,6 @@
         private Label reponseLbl;
         private TextBox repBox;
         private Button validBtn;
+        private Label repStatutLbl;
     }
 }
