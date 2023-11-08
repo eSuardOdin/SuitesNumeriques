@@ -15,6 +15,11 @@ namespace SuitesNumeriques
         public string TypePartie { get; private set; }
         public Partie Partie { get; private set; }
 
+        /*
+         * Test de ramener les exercices dans le form
+         */
+        public Exercice[] Exos {  get; private set; } = new Exercice[6];
+
         public Entrainement(string label, string typePartie)
         {
             InitializeComponent();
