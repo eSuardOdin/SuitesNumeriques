@@ -8,20 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SuitesNumeriques
+namespace SuitesNumeriques.classes
 {
-    public partial class ExoEntrainement : UserControl
+    public partial class ExoEntrainementMonotonie : UserControl
     {
-        /// <summary>
-        /// L'exercice géré par le control
-        /// </summary>
         private Exercice? Exo { get; set; }
-        //private string TypeSuite { get; set; }
-        public ExoEntrainement(/*string typeSuite*/)
+        RadioButton? CheckedRadio = null;
+        public ExoEntrainementMonotonie()
         {
             InitializeComponent();
         }
-
 
         /// <summary>
         /// Permet d'instancier le type d'exercice de l'onglet actuel
@@ -54,7 +50,6 @@ namespace SuitesNumeriques
                     break;
             }
         }
-
         public void GetExoLabels()
         {
             enonceLbl.Text = Exo.Enonce;
@@ -64,13 +59,20 @@ namespace SuitesNumeriques
         {
             Exo.GetNewSuite(this.Tag.ToString());
             enonceLbl.Text = Exo.Enonce;
-            repBox.Text = "";
+            CheckedRadio.Checked = false;
         }
 
         private void validBtn_Click(object sender, EventArgs e)
         {
-            if (repBox.Text == Exo.Reponse) MessageBox.Show("Bonne réponse");
-            else MessageBox.Show("Mauvaise réponse");
+            foreach(RadioButton btn in repBox.Controls)
+            {
+                if (btn.Checked == true) CheckedRadio = btn;
+            }
+            if (CheckedRadio != null)
+            {
+                if (CheckedRadio.Text == Exo.Reponse) MessageBox.Show("Bonne réponse");
+                else MessageBox.Show("Mauvaise réponse");
+            }
         }
     }
 }

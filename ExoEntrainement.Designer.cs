@@ -28,45 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            enonceLbl = new Label();
-            resetBtn = new Button();
-            SuspendLayout();
+            this.enonceLbl = new System.Windows.Forms.Label();
+            this.resetBtn = new System.Windows.Forms.Button();
+            this.reponseLbl = new System.Windows.Forms.Label();
+            this.repBox = new System.Windows.Forms.TextBox();
+            this.validBtn = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // enonceLbl
             // 
-            enonceLbl.AutoSize = true;
-            enonceLbl.Location = new Point(77, 78);
-            enonceLbl.Name = "enonceLbl";
-            enonceLbl.Size = new Size(38, 15);
-            enonceLbl.TabIndex = 4;
-            enonceLbl.Text = "label1";
+            this.enonceLbl.AutoSize = true;
+            this.enonceLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.enonceLbl.Location = new System.Drawing.Point(77, 78);
+            this.enonceLbl.Name = "enonceLbl";
+            this.enonceLbl.Size = new System.Drawing.Size(40, 15);
+            this.enonceLbl.TabIndex = 4;
+            this.enonceLbl.Text = "label1";
             // 
             // resetBtn
             // 
-            resetBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            resetBtn.Location = new Point(258, 16);
-            resetBtn.Name = "resetBtn";
-            resetBtn.Size = new Size(152, 23);
-            resetBtn.TabIndex = 5;
-            resetBtn.Text = "Nouvelle Recherche";
-            resetBtn.UseVisualStyleBackColor = true;
-            resetBtn.Click += resetBtn_Click;
+            this.resetBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.resetBtn.Location = new System.Drawing.Point(258, 16);
+            this.resetBtn.Name = "resetBtn";
+            this.resetBtn.Size = new System.Drawing.Size(152, 23);
+            this.resetBtn.TabIndex = 5;
+            this.resetBtn.Text = "Nouvelle Recherche";
+            this.resetBtn.UseVisualStyleBackColor = true;
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
+            // 
+            // reponseLbl
+            // 
+            this.reponseLbl.AutoSize = true;
+            this.reponseLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.reponseLbl.Location = new System.Drawing.Point(73, 245);
+            this.reponseLbl.Name = "reponseLbl";
+            this.reponseLbl.Size = new System.Drawing.Size(64, 15);
+            this.reponseLbl.TabIndex = 6;
+            this.reponseLbl.Text = "Réponse : ";
+            // 
+            // repBox
+            // 
+            this.repBox.Location = new System.Drawing.Point(143, 237);
+            this.repBox.Name = "repBox";
+            this.repBox.Size = new System.Drawing.Size(170, 23);
+            this.repBox.TabIndex = 7;
+            // 
+            // validBtn
+            // 
+            this.validBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.validBtn.Location = new System.Drawing.Point(291, 282);
+            this.validBtn.Name = "validBtn";
+            this.validBtn.Size = new System.Drawing.Size(75, 23);
+            this.validBtn.TabIndex = 8;
+            this.validBtn.Text = "Valider";
+            this.validBtn.UseVisualStyleBackColor = true;
+            this.validBtn.Click += new System.EventHandler(this.validBtn_Click);
             // 
             // ExoEntrainement
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(resetBtn);
-            Controls.Add(enonceLbl);
-            Name = "ExoEntrainement";
-            Size = new Size(714, 203);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.validBtn);
+            this.Controls.Add(this.repBox);
+            this.Controls.Add(this.reponseLbl);
+            this.Controls.Add(this.resetBtn);
+            this.Controls.Add(this.enonceLbl);
+            this.Name = "ExoEntrainement";
+            this.Size = new System.Drawing.Size(714, 319);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
         private Label enonceLbl;
         private Button resetBtn;
+        private Label reponseLbl;
+        private TextBox repBox;
+        private Button validBtn;
     }
 }

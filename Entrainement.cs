@@ -26,13 +26,6 @@ namespace SuitesNumeriques
             TypePartie = typePartie;
             Partie = new Partie(TypePartie);
             this.Text = $"Suites {label}: Rechercher...";
-            // Debug
-            string txt = "";
-            foreach (var ex in Partie.Exercices)
-            {
-                txt += $"- {ex.ToString()} : Raison -> {ex.SuiteExo.Raison}, Premier terme -> {ex.SuiteExo.PremierTerme}\n";
-            }
-            MessageBox.Show(txt);
             InitExos();
         }
 
