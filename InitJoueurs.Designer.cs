@@ -153,7 +153,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "InitJoueurs";
-            this.Text = "InitJoueurs";
+            this.Text = "Jeu : Initialisation de la partie";
             this.suiteBox.ResumeLayout(false);
             this.suiteBox.PerformLayout();
             this.ResumeLayout(false);
