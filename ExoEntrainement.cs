@@ -16,9 +16,11 @@ namespace SuitesNumeriques
         /// L'exercice géré par le control
         /// </summary>
         private Exercice? Exo { get; set; }
-        public ExoEntrainement()
+        //private string TypeSuite { get; set; }
+        public ExoEntrainement(/*string typeSuite*/)
         {
             InitializeComponent();
+            //TypeSuite = typeSuite;
             //GetExoType(index, typeSuite);
             //GetExoLabels();
         }
@@ -61,5 +63,10 @@ namespace SuitesNumeriques
             enonceLbl.Text = Exo.Enonce;
         }
 
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            Exo.GetNewSuite(this.Tag.ToString());
+            enonceLbl.Text = Exo.Enonce;
+        }
     }
 }

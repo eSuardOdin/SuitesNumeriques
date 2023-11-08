@@ -34,6 +34,12 @@ namespace SuitesNumeriques
 
         private void InitExos()
         {
+            exo0.Tag = TypePartie;
+            exo1.Tag = TypePartie;
+            exo2.Tag = TypePartie;
+            exo3.Tag = TypePartie;
+            exo4.Tag = TypePartie;
+            exo5.Tag = TypePartie;
             exo0.GetExoType(Convert.ToInt32(tab0.Tag), TypePartie);
             exo0.GetExoLabels();
             exo1.GetExoType(Convert.ToInt32(tab1.Tag), TypePartie);
