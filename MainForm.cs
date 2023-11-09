@@ -18,5 +18,11 @@ namespace SuitesNumeriques
             Entrainement training = new Entrainement(géométriquesToolStripMenuItem.Text, géométriquesToolStripMenuItem.Tag.ToString());
             training.Show();
         }
+
+        private void sansContrainteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitJoueurs init = new();
+            init.Show();
+        }
     }
 }

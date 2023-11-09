@@ -16,5 +16,14 @@ namespace SuitesNumeriques
         {
             InitializeComponent();
         }
+
+        private void launchBtn_Click(object sender, EventArgs e)
+        {
+            Player j1 = new(j1TxtBox.Text);
+            Player j2 = new(j2TxtBox.Text);
+            Jeu jeu = new Jeu(j1, j2);
+            jeu.Show();
+            this.Close();
+        }
     }
 }

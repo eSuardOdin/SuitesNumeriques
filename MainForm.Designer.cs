@@ -92,13 +92,14 @@
             // sansContrainteToolStripMenuItem
             // 
             sansContrainteToolStripMenuItem.Name = "sansContrainteToolStripMenuItem";
-            sansContrainteToolStripMenuItem.Size = new Size(157, 22);
+            sansContrainteToolStripMenuItem.Size = new Size(180, 22);
             sansContrainteToolStripMenuItem.Text = "Sans contrainte";
+            sansContrainteToolStripMenuItem.Click += sansContrainteToolStripMenuItem_Click;
             // 
             // avecContrainteToolStripMenuItem
             // 
             avecContrainteToolStripMenuItem.Name = "avecContrainteToolStripMenuItem";
-            avecContrainteToolStripMenuItem.Size = new Size(157, 22);
+            avecContrainteToolStripMenuItem.Size = new Size(180, 22);
             avecContrainteToolStripMenuItem.Text = "Avec contrainte";
             // 
             // meilleursTempsToolStripMenuItem
