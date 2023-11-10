@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace SuitesNumeriques
 {
 
-
     public partial class Jeu : Form
     {
+        private int IndexExercice { get; set; }
         public UntimedVersus Versus { get; private set; } // Pas sûr du tout
         public List<Player> Players { get; private set; } = new();
         private bool IsFirstPlayer { get; set; }
@@ -22,13 +22,18 @@ namespace SuitesNumeriques
         public Jeu(Player j1, Player j2, string typePartie)
         {
             InitializeComponent();
-            //Players.Add(j1);
-            //Players.Add(j2);
-            //joueurTxtBox.Text = j1.Pseudo;
             J1 = j1;
             J2 = j2;
             Versus = new UntimedVersus(typePartie, j1, j2);
             IsFirstPlayer = true;
+            IndexExercice = 0;
+            exoContainer.Text = $"Question N°{IndexExercice + 1}/6";
+            enonceLbl.Text = Versus.Exercices[IndexExercice].Enonce;
+            ResetAffichage(j1, Versus.Exercices[IndexExercice]);
+            //ExoEntrainement exo = new ExoEntrainement();
+            //exo.GetExoType(IndexExercice, typePartie);
+            //exo.GetExoLabels();
+            //exoContainer.Controls.Add(exo);
         }
 
         /// <summary>
@@ -58,13 +63,49 @@ namespace SuitesNumeriques
         {
             if (IsFirstPlayer)
             {
-                MessageBox.Show($"{J1.Pseudo} a répondu {testRepBox.Text}");
+                if(J1.Repondre(Versus.Exercices.ElementAt(IndexExercice), repTxtBox.Text, 0))
+                {
+                    MessageBox.Show("Bonne réponse !");
+                }
+                else
+                {
+                    MessageBox.Show("Mauvaise réponse !");
+                }
+                Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
             }
             else
             {
-                MessageBox.Show($"{J2.Pseudo} a répondu {testRepBox.Text}");
+                if (J2.Repondre(Versus.Exercices.ElementAt(IndexExercice), repTxtBox.Text, 0))
+                {
+                    MessageBox.Show("Bonne réponse !");
+                }
+                else
+                {
+                    MessageBox.Show("Mauvaise réponse !");
+                }
+                IndexExercice++;
             }
             IsFirstPlayer = !IsFirstPlayer;
+            if (!IsFirstPlayer && IndexExercice <= 5)
+            {
+                ResetAffichage(J2, Versus.Exercices[IndexExercice]);
+            }
+            else
+            {
+                ResetAffichage(J1, Versus.Exercices[IndexExercice]);
+            }
+        }
+
+
+        private void ResetAffichage(Player p, Exercice exo)
+        {
+            enonceLbl.Text = exo.Enonce;
+            exoContainer.Text = $"Question N°{IndexExercice + 1}/6";
+            joueurTxtBox.Text = p.Pseudo;
+            joueurLbl.Text = IsFirstPlayer == true ? "Joueur N°1" : "Joueur N°2";
+            joueurTxtBox.ForeColor = IsFirstPlayer == true ? Color.Red : Color.Blue;
+            pointsTxtBox.Text = p.Score.ToString();
+            repTxtBox.Text = "";
         }
     }
 }

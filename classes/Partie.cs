@@ -1,7 +1,7 @@
 public class Partie
 {
     public string TypeSuite { get; private set; }
-    public List<Exercice> Exercices{ get; private set; } = new List<Exercice>();
+    public Exercice[] Exercices{ get; private set; } = new Exercice[6];
     public int Score { get; private set; }
 
     public Partie(string typeSuite)
@@ -16,12 +16,12 @@ public class Partie
 
     protected void CreatePartie()
     {
-        Exercices.Add(new ExoTerme(TypeSuite));
-        Exercices.Add(new ExoPremierTerme(TypeSuite));
-        Exercices.Add(new ExoRang(TypeSuite));
-        Exercices.Add(new ExoRaison(TypeSuite));
-        Exercices.Add(new ExoSomme(TypeSuite));
-        Exercices.Add(new ExoMonotonie(TypeSuite));
+        Exercices[0] = new ExoTerme(TypeSuite);
+        Exercices[1] = new ExoPremierTerme(TypeSuite);
+        Exercices[2] = new ExoRang(TypeSuite);
+        Exercices[3] = new ExoRaison(TypeSuite);
+        Exercices[4] = new ExoSomme(TypeSuite);
+        Exercices[5] = new ExoMonotonie(TypeSuite);
     }
 
     protected virtual void Play()
@@ -39,6 +39,6 @@ public class Partie
             }
             else Console.WriteLine($"Faux, la réponse est : {ex.Reponse}");
         }
-        Console.WriteLine($"Votre score est de {Score}/{Exercices.Count}");
+        Console.WriteLine($"Votre score est de {Score}/{Exercices.Length}");
     }
 }
