@@ -21,7 +21,15 @@ namespace SuitesNumeriques
         {
             Player j1 = new(j1TxtBox.Text);
             Player j2 = new(j2TxtBox.Text);
-            Jeu jeu = new Jeu(j1, j2);
+            string typePartie = "";
+            foreach(RadioButton btn in suiteBox.Controls)
+            {
+                if (btn is RadioButton)
+                {
+                    if (btn.Checked == true) typePartie = btn.Tag.ToString();
+                }
+            }
+            Jeu jeu = new Jeu(j1, j2, typePartie);
             jeu.Show();
             this.Close();
         }

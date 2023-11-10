@@ -59,7 +59,7 @@ namespace SuitesNumeriques
         {
             enonceLbl.Text = Exo.Enonce;
         }
-
+        
         private void resetBtn_Click(object sender, EventArgs e)
         {
             Exo.GetNewSuite(this.Tag.ToString());

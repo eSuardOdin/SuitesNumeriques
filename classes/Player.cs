@@ -18,14 +18,16 @@ public class Player
     /// <param name="exo">Exercice auquel le joueur répond</param>
     /// <param name="reponse">Réponse du joueur</param>
     /// <param name="time">Temps mis à répondre</param>
-    public void Repondre(Exercice exo, string reponse, int time)
+    public bool Repondre(Exercice exo, string reponse, int time)
     {
         // Si la réponse est juste on rajoute le temps pour y répondre
         if (reponse == exo.Reponse)
         {
             Score+=150;
             AddTime(time);
+            return true;
         }
+        return false;
     }
 
     public void AddTime(int time) => Time += time;

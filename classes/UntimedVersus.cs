@@ -9,7 +9,7 @@ public class UntimedVersus : Partie
     {
         ScoreManager = new("scores", typePartie);
         ScoreManager.TryCreateScoreFile();
-        Console.WriteLine(ScoreManager.GetRank(1200));
+        //Console.WriteLine(ScoreManager.GetRank(1200));
         Players.Add(p1);
         Players.Add(p2);
         Play();
