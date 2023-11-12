@@ -116,5 +116,45 @@ namespace SuitesNumeriques
             currentPlayer.AddReset();
             ResetAffichage(currentPlayer, Versus.Exercices[IndexExercice]);
         }
+
+        private void SwitchInputType(bool isRadio)
+        {
+            if (isRadio)
+            {
+                repTxtBox.Visible = false;
+                repTxtBox.Enabled = false;
+                foreach (Control btn in repBox.Controls)
+                {
+                    if (btn is RadioButton)
+                    {
+                        btn.Visible = true;
+                        btn.Enabled = true;
+                    }
+                }
+            }
+            else
+            {
+                repTxtBox.Visible = true;
+                repTxtBox.Enabled = true;
+                foreach (Control btn in repBox.Controls)
+                {
+                    if (btn is RadioButton)
+                    {
+                        btn.Visible = false;
+                        btn.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SwitchInputType(true);
+        }
+
+        private void reglesBtn_Click(object sender, EventArgs e)
+        {
+            SwitchInputType(false);
+        }
     }
 }

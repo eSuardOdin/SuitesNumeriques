@@ -37,8 +37,12 @@
             tab0 = new TabControl();
             exoContainer = new TabPage();
             repBox = new GroupBox();
+            radio3 = new RadioButton();
             repTxtBox = new TextBox();
+            radio2 = new RadioButton();
             label1 = new Label();
+            radio1 = new RadioButton();
+            radio0 = new RadioButton();
             enonceLbl = new Label();
             joueurTxt = new Label();
             pointsTxt = new Label();
@@ -98,6 +102,7 @@
             button1.TabIndex = 6;
             button1.Text = "Scores";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // reglesBtn
             // 
@@ -108,6 +113,7 @@
             reglesBtn.TabIndex = 7;
             reglesBtn.Text = "Règles";
             reglesBtn.UseVisualStyleBackColor = true;
+            reglesBtn.Click += reglesBtn_Click;
             // 
             // tab0
             // 
@@ -132,13 +138,30 @@
             // 
             // repBox
             // 
+            repBox.Controls.Add(radio3);
             repBox.Controls.Add(repTxtBox);
+            repBox.Controls.Add(radio2);
             repBox.Controls.Add(label1);
+            repBox.Controls.Add(radio1);
+            repBox.Controls.Add(radio0);
             repBox.Location = new Point(146, 245);
             repBox.Name = "repBox";
-            repBox.Size = new Size(350, 76);
+            repBox.Size = new Size(379, 76);
             repBox.TabIndex = 1;
             repBox.TabStop = false;
+            // 
+            // radio3
+            // 
+            radio3.AutoSize = true;
+            radio3.Enabled = false;
+            radio3.Location = new Point(208, 47);
+            radio3.Name = "radio3";
+            radio3.Size = new Size(150, 19);
+            radio3.TabIndex = 7;
+            radio3.TabStop = true;
+            radio3.Text = "Monotone décroissante";
+            radio3.UseVisualStyleBackColor = true;
+            radio3.Visible = false;
             // 
             // repTxtBox
             // 
@@ -146,6 +169,19 @@
             repTxtBox.Name = "repTxtBox";
             repTxtBox.Size = new Size(206, 23);
             repTxtBox.TabIndex = 1;
+            // 
+            // radio2
+            // 
+            radio2.AutoSize = true;
+            radio2.Enabled = false;
+            radio2.Location = new Point(75, 46);
+            radio2.Name = "radio2";
+            radio2.Size = new Size(137, 19);
+            radio2.TabIndex = 6;
+            radio2.TabStop = true;
+            radio2.Text = "Monotone croissante";
+            radio2.UseVisualStyleBackColor = true;
+            radio2.Visible = false;
             // 
             // label1
             // 
@@ -156,6 +192,32 @@
             label1.Size = new Size(61, 15);
             label1.TabIndex = 0;
             label1.Text = "Réponse :";
+            // 
+            // radio1
+            // 
+            radio1.AutoSize = true;
+            radio1.Enabled = false;
+            radio1.Location = new Point(208, 22);
+            radio1.Name = "radio1";
+            radio1.Size = new Size(136, 19);
+            radio1.TabIndex = 5;
+            radio1.TabStop = true;
+            radio1.Text = "Monotone constante";
+            radio1.UseVisualStyleBackColor = true;
+            radio1.Visible = false;
+            // 
+            // radio0
+            // 
+            radio0.AutoSize = true;
+            radio0.Enabled = false;
+            radio0.Location = new Point(75, 22);
+            radio0.Name = "radio0";
+            radio0.Size = new Size(107, 19);
+            radio0.TabIndex = 4;
+            radio0.TabStop = true;
+            radio0.Text = "Non monotone";
+            radio0.UseVisualStyleBackColor = true;
+            radio0.Visible = false;
             // 
             // enonceLbl
             // 
@@ -232,5 +294,9 @@
         private TextBox repTxtBox;
         private Label joueurTxt;
         private Label pointsTxt;
+        private RadioButton radio3;
+        private RadioButton radio2;
+        private RadioButton radio1;
+        private RadioButton radio0;
     }
 }
