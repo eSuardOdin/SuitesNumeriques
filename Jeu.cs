@@ -44,11 +44,11 @@ namespace SuitesNumeriques
             bool isFirstPlayer = true; // Le tour du joueur en cours
             bool submitted = false;
             int currentExercice = 1;
-            foreach(Exercice ex in Versus.Exercices)
+            foreach (Exercice ex in Versus.Exercices)
             {
                 foreach (Player p in Versus.Players)
                 {
-                    
+
                 }
             }
         }
@@ -63,7 +63,7 @@ namespace SuitesNumeriques
         {
             if (IsFirstPlayer)
             {
-                if(J1.Repondre(Versus.Exercices.ElementAt(IndexExercice), repTxtBox.Text, 0))
+                if (J1.Repondre(Versus.Exercices.ElementAt(IndexExercice), repTxtBox.Text, 0))
                 {
                     MessageBox.Show("Bonne réponse !");
                 }
@@ -101,11 +101,20 @@ namespace SuitesNumeriques
         {
             enonceLbl.Text = exo.Enonce;
             exoContainer.Text = $"Question N°{IndexExercice + 1}/6";
-            joueurTxtBox.Text = p.Pseudo;
+            joueurTxt.Text = p.Pseudo;
             joueurLbl.Text = IsFirstPlayer == true ? "Joueur N°1" : "Joueur N°2";
-            joueurTxtBox.ForeColor = IsFirstPlayer == true ? Color.Red : Color.Blue;
-            pointsTxtBox.Text = p.Score.ToString();
+            joueurTxt.ForeColor = IsFirstPlayer == true ? Color.Red : Color.Blue;
+            pointsTxt.Text = p.Score.ToString();
+            pointsTxt.ForeColor = IsFirstPlayer == true ? Color.Red : Color.Blue;
             repTxtBox.Text = "";
+        }
+
+        private void skipBtn_Click(object sender, EventArgs e)
+        {
+            Player currentPlayer = IsFirstPlayer ? J1 : J2;
+            Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
+            currentPlayer.AddReset();
+            ResetAffichage(currentPlayer, Versus.Exercices[IndexExercice]);
         }
     }
 }

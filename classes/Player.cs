@@ -2,7 +2,7 @@ public class Player
 {
     public string Pseudo { get; private set; }
     public int Score { get; private set; }
-    public int Time {get; private set; }
+    public int Time { get; private set; }
     public int Reset { get; private set; }
     public Player(string pseudo)
     {
@@ -23,7 +23,7 @@ public class Player
         // Si la réponse est juste on rajoute le temps pour y répondre
         if (reponse == exo.Reponse)
         {
-            Score+=150;
+            Score += 150;
             AddTime(time);
             return true;
         }
@@ -31,7 +31,11 @@ public class Player
     }
 
     public void AddTime(int time) => Time += time;
-    public void AddReset() => Reset++;
+    public void AddReset() 
+    {
+        Reset++; // Pour les stats
+        Score -= 50;
+    }
     
     /// <summary>
     /// Gérer le score final d'un joueur avec temps
