@@ -90,9 +90,15 @@ namespace SuitesNumeriques
             {
                 ResetAffichage(J2, Versus.Exercices[IndexExercice]);
             }
+            else if(IndexExercice == 6)
+            {
+                //Handle end game
+                validBtn.Enabled = false;
+            }
             else
             {
                 ResetAffichage(J1, Versus.Exercices[IndexExercice]);
+                if (IndexExercice == 5) SwitchInputType(true);
             }
         }
 
@@ -119,6 +125,7 @@ namespace SuitesNumeriques
 
         private void SwitchInputType(bool isRadio)
         {
+            bool isOneChecked = false;
             if (isRadio)
             {
                 repTxtBox.Visible = false;
@@ -129,6 +136,11 @@ namespace SuitesNumeriques
                     {
                         btn.Visible = true;
                         btn.Enabled = true;
+                        if (!isOneChecked)
+                        {
+                            ((RadioButton)btn).Checked = true;
+                            isOneChecked = !isOneChecked;
+                        } 
                     }
                 }
             }
