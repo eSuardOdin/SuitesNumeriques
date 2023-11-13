@@ -92,7 +92,7 @@ namespace SuitesNumeriques
             }
             else if(IndexExercice == 6)
             {
-                //Handle end game
+                // Handle end game (On va cacher le form, à implémenter)
                 validBtn.Enabled = false;
             }
             else
@@ -115,14 +115,49 @@ namespace SuitesNumeriques
             repTxtBox.Text = "";
         }
 
-        private void skipBtn_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Termine une partie, affiche le formulaire de scores.
+        /// </summary>
+        private void EndVersus()
         {
-            Player currentPlayer = IsFirstPlayer ? J1 : J2;
-            Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
-            currentPlayer.AddReset();
-            ResetAffichage(currentPlayer, Versus.Exercices[IndexExercice]);
+            // à faire
         }
 
+        /// <summary>
+        /// Passer le tour du joueur en cours
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skipBtn_Click(object sender, EventArgs e)
+        {
+            // Si c'est le 2ème joueur qui skip, on incrémente l'index d'exercice.
+            if (!IsFirstPlayer)
+            {
+                IndexExercice++;
+                // On montre les radio btns si dernier exercice
+                if (IndexExercice == 5) SwitchInputType(true);
+            }
+            if (IndexExercice == 6)
+            {
+                // Handle end game (On va cacher le form, à implémenter)
+                validBtn.Enabled = false;
+                EndVersus();
+            }
+            else
+            {
+                // On change de joueur et de suite
+                IsFirstPlayer = !IsFirstPlayer;
+                Player currentPlayer = IsFirstPlayer ? J1 : J2;
+                Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
+                ResetAffichage(currentPlayer, Versus.Exercices[IndexExercice]);
+            }
+            //ResetAffichage(currentPlayer, Versus.Exercices[IndexExercice]);
+        }
+
+        /// <summary>
+        /// Permet de switch entre radio button et textbox
+        /// </summary>
+        /// <param name="isRadio">Si true, montrer les radio buttons</param>
         private void SwitchInputType(bool isRadio)
         {
             bool isOneChecked = false;
@@ -162,11 +197,12 @@ namespace SuitesNumeriques
         private void button1_Click(object sender, EventArgs e)
         {
             SwitchInputType(true);
+
         }
 
         private void reglesBtn_Click(object sender, EventArgs e)
         {
-            SwitchInputType(false);
+            MessageBox.Show("Implémenter les règles ici");
         }
     }
 }
