@@ -12,9 +12,11 @@ namespace SuitesNumeriques
 {
     public partial class InitJoueurs : Form
     {
-        public InitJoueurs()
+        MainForm mainForm;
+        public InitJoueurs(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         private void launchBtn_Click(object sender, EventArgs e)
@@ -29,9 +31,15 @@ namespace SuitesNumeriques
                     if (btn.Checked == true) typePartie = btn.Tag.ToString();
                 }
             }
-            Jeu jeu = new Jeu(j1, j2, typePartie);
+            Jeu jeu = new Jeu(j1, j2, typePartie, mainForm);
             jeu.Show();
             this.Close();
         }
+
+
+        /*private void InitJoueurs_FormClosed(object sender, FormClosedEventArgs e) 
+        {
+            if (FormClosed != null) FormClosed(this, e);
+        }*/
     }
 }

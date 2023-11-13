@@ -269,6 +269,8 @@
             Controls.Add(joueurLbl);
             Name = "Jeu";
             Text = "Jeu";
+            FormClosed += Jeu_FormClosed;
+            Load += Jeu_Load;
             tab0.ResumeLayout(false);
             exoContainer.ResumeLayout(false);
             exoContainer.PerformLayout();

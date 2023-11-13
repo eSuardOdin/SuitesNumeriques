@@ -13,13 +13,14 @@ namespace SuitesNumeriques
 
     public partial class Jeu : Form
     {
+        MainForm mainForm;
         private int IndexExercice { get; set; }
         public UntimedVersus Versus { get; private set; } // Pas sûr du tout
         public List<Player> Players { get; private set; } = new();
         private bool IsFirstPlayer { get; set; }
         public Player J1 { get; private set; }
         public Player J2 { get; private set; }
-        public Jeu(Player j1, Player j2, string typePartie)
+        public Jeu(Player j1, Player j2, string typePartie, MainForm mainForm)
         {
             InitializeComponent();
             J1 = j1;
@@ -30,6 +31,7 @@ namespace SuitesNumeriques
             exoContainer.Text = $"Question N°{IndexExercice + 1}/6";
             enonceLbl.Text = Versus.Exercices[IndexExercice].Enonce;
             ResetAffichage(j1, Versus.Exercices[IndexExercice]);
+            this.mainForm = mainForm;
             //ExoEntrainement exo = new ExoEntrainement();
             //exo.GetExoType(IndexExercice, typePartie);
             //exo.GetExoLabels();
@@ -64,17 +66,17 @@ namespace SuitesNumeriques
         {
             Player currentPlayer = IsFirstPlayer ? J1 : J2;
             ShowAnswerResult(currentPlayer, Versus.Exercices[IndexExercice], repTxtBox.Text, 0);
-            
+
             if (IsFirstPlayer) Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
-            
+
             else IndexExercice++;
-            
+
             IsFirstPlayer = !IsFirstPlayer;
             if (!IsFirstPlayer && IndexExercice <= 5)
             {
                 ResetAffichage(J2, Versus.Exercices[IndexExercice]);
             }
-            else if(IndexExercice == 6)
+            else if (IndexExercice == 6)
             {
                 // Handle end game (On va cacher le form, à implémenter)
                 validBtn.Enabled = false;
@@ -184,7 +186,7 @@ namespace SuitesNumeriques
                         {
                             ((RadioButton)btn).Checked = true;
                             isOneChecked = !isOneChecked;
-                        } 
+                        }
                     }
                 }
             }
@@ -212,6 +214,17 @@ namespace SuitesNumeriques
         private void reglesBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Implémenter les règles ici");
+        }
+
+        private void Jeu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Close();
+            mainForm.Show();
+        }
+
+        private void Jeu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
