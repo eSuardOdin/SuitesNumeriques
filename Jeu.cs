@@ -59,32 +59,16 @@ namespace SuitesNumeriques
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void validBtn_Click(object sender, EventArgs e)
+        private void validBtn_Click(object sender, EventArgs e) //ATTENTION, JE N'AI PAS IMPLEMENTE LA PRISE EN COMPTE DE LA REP EN RADIO BTN
+                                                                // Peut faire GetAnswer qui donnerait soit la txtbox soit le radiobtn en fonction de IndexExo
         {
-            if (IsFirstPlayer)
-            {
-                if (J1.Repondre(Versus.Exercices.ElementAt(IndexExercice), repTxtBox.Text, 0))
-                {
-                    MessageBox.Show("Bonne réponse !");
-                }
-                else
-                {
-                    MessageBox.Show("Mauvaise réponse !");
-                }
-                Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
-            }
-            else
-            {
-                if (J2.Repondre(Versus.Exercices.ElementAt(IndexExercice), repTxtBox.Text, 0))
-                {
-                    MessageBox.Show("Bonne réponse !");
-                }
-                else
-                {
-                    MessageBox.Show("Mauvaise réponse !");
-                }
-                IndexExercice++;
-            }
+            Player currentPlayer = IsFirstPlayer ? J1 : J2;
+            ShowAnswerResult(currentPlayer, Versus.Exercices[IndexExercice], repTxtBox.Text, 0);
+            
+            if (IsFirstPlayer) Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
+            
+            else IndexExercice++;
+            
             IsFirstPlayer = !IsFirstPlayer;
             if (!IsFirstPlayer && IndexExercice <= 5)
             {
@@ -102,7 +86,11 @@ namespace SuitesNumeriques
             }
         }
 
-
+        /// <summary>
+        /// Rafraichit l'affichage du formulaire par rapport au joueur dont c'est le tour
+        /// </summary>
+        /// <param name="p">Joueur en cours</param>
+        /// <param name="exo">Exercice en cours</param>
         private void ResetAffichage(Player p, Exercice exo)
         {
             enonceLbl.Text = exo.Enonce;
@@ -155,6 +143,27 @@ namespace SuitesNumeriques
         }
 
         /// <summary>
+        /// Affiche le résultat dans une message box (maladroit car n'est qu'un appel d'une méthode de Player)
+        /// </summary>
+        /// <param name="p">Joueur répondant</param>
+        /// <param name="exo">Exercice en cours</param>
+        /// <param name="reponse">Réponse du joueur</param>
+        /// <param name="t">Temps restant de l'exercice</param>
+        private void ShowAnswerResult(Player p, Exercice exo, string reponse, int t)
+        {
+            if (p.Repondre(exo, reponse, t))
+            {
+                MessageBox.Show("Réponse correcte.", "Résultat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Réponse incorrecte.", "Résultat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        /// <summary>
         /// Permet de switch entre radio button et textbox
         /// </summary>
         /// <param name="isRadio">Si true, montrer les radio buttons</param>
@@ -196,7 +205,7 @@ namespace SuitesNumeriques
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SwitchInputType(true);
+            MessageBox.Show($"{J1.Pseudo}: {J1.Score}\n{J2.Pseudo}: {J2.Score}", "Partie en cours...", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
