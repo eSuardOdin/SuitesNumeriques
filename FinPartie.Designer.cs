@@ -109,6 +109,7 @@
             menuBtn.TabIndex = 16;
             menuBtn.Text = "Menu";
             menuBtn.UseVisualStyleBackColor = true;
+            menuBtn.Click += menuBtn_Click;
             // 
             // newGameBtn
             // 
@@ -119,6 +120,7 @@
             newGameBtn.TabIndex = 17;
             newGameBtn.Text = "Nouvelle Partie";
             newGameBtn.UseVisualStyleBackColor = true;
+            newGameBtn.Click += newGameBtn_Click;
             // 
             // FinPartie
             // 
@@ -135,6 +137,7 @@
             Controls.Add(winnerTxt);
             Name = "FinPartie";
             Text = "Jeu : Scores";
+            FormClosed += FinPartie_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }

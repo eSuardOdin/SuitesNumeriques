@@ -78,8 +78,7 @@ namespace SuitesNumeriques
             }
             else if (IndexExercice == 6)
             {
-                // Handle end game (On va cacher le form, à implémenter)
-                validBtn.Enabled = false;
+                EndGame();
             }
             else
             {
@@ -105,13 +104,7 @@ namespace SuitesNumeriques
             repTxtBox.Text = "";
         }
 
-        /// <summary>
-        /// Termine une partie, affiche le formulaire de scores.
-        /// </summary>
-        private void EndVersus()
-        {
-            // à faire
-        }
+
 
         /// <summary>
         /// Passer le tour du joueur en cours
@@ -129,9 +122,7 @@ namespace SuitesNumeriques
             }
             if (IndexExercice == 6)
             {
-                // Handle end game (On va cacher le form, à implémenter)
-                validBtn.Enabled = false;
-                EndVersus();
+                EndGame();
             }
             else
             {
@@ -205,6 +196,15 @@ namespace SuitesNumeriques
             }
         }
 
+
+        private void EndGame()
+        {
+            FinPartie fin = new(J1, J2, Versus.TypeSuite, mainForm);
+            fin.Show();
+            this.Dispose();
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"{J1.Pseudo}: {J1.Score}\n{J2.Pseudo}: {J2.Score}", "Partie en cours...", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -221,10 +221,8 @@ namespace SuitesNumeriques
             this.Dispose();
             if (mainForm != null && !mainForm.Visible) mainForm.Show();
         }
+        
 
-        private void Jeu_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }
