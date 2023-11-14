@@ -20,6 +20,11 @@ namespace SuitesNumeriques
             this.mainForm = mainForm;
         }
 
+        /// <summary>
+        /// Lancement de la partie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void launchBtn_Click(object sender, EventArgs e)
         {
             Player j1 = new(j1TxtBox.Text);
@@ -32,9 +37,13 @@ namespace SuitesNumeriques
                     if (btn.Checked == true) typePartie = btn.Tag.ToString();
                 }
             }
-            MyJeu = new Jeu(j1, j2, typePartie, mainForm);
-            MyJeu.Show();
-            this.Close();
+            // Vérification de l'input et lancement du jeu si ok (À IMPLEMENTER)
+            if (InputValidation())
+            {
+                MyJeu = new Jeu(j1, j2, typePartie, mainForm);
+                MyJeu.Show();
+                this.Close();
+            }  
         }
 
 
@@ -43,6 +52,16 @@ namespace SuitesNumeriques
             this.Dispose();
             // Si la partie n'est pas lancée, on fait réapparaitre le mainForm
             if (mainForm != null && !mainForm.Visible && MyJeu == null) mainForm.Show();
+        }
+
+        /// <summary>
+        /// Validation du formulaire de création de partie
+        /// </summary>
+        /// <returns>La validité du form (ou alors je return un string d'erreurs)</returns>
+        private bool InputValidation()
+        {
+
+            return true;
         }
     }
 }
