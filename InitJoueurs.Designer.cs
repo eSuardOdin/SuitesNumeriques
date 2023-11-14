@@ -155,6 +155,7 @@
             Controls.Add(label1);
             Name = "InitJoueurs";
             Text = "Jeu : Initialisation de la partie";
+            FormClosed += InitJoueurs_FormClosed;
             suiteBox.ResumeLayout(false);
             suiteBox.PerformLayout();
             ResumeLayout(false);

@@ -218,8 +218,8 @@ namespace SuitesNumeriques
 
         private void Jeu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Close();
-            mainForm.Show();
+            this.Dispose();
+            if (mainForm != null && !mainForm.Visible) mainForm.Show();
         }
 
         private void Jeu_Load(object sender, EventArgs e)

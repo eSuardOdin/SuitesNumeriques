@@ -12,6 +12,7 @@ namespace SuitesNumeriques
 {
     public partial class InitJoueurs : Form
     {
+        private Jeu? MyJeu { get; set; } = null;
         MainForm mainForm;
         public InitJoueurs(MainForm mainForm)
         {
@@ -24,22 +25,24 @@ namespace SuitesNumeriques
             Player j1 = new(j1TxtBox.Text);
             Player j2 = new(j2TxtBox.Text);
             string typePartie = "";
-            foreach(RadioButton btn in suiteBox.Controls)
+            foreach (RadioButton btn in suiteBox.Controls)
             {
                 if (btn is RadioButton)
                 {
                     if (btn.Checked == true) typePartie = btn.Tag.ToString();
                 }
             }
-            Jeu jeu = new Jeu(j1, j2, typePartie, mainForm);
-            jeu.Show();
+            MyJeu = new Jeu(j1, j2, typePartie, mainForm);
+            MyJeu.Show();
             this.Close();
         }
 
 
-        /*private void InitJoueurs_FormClosed(object sender, FormClosedEventArgs e) 
+        private void InitJoueurs_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (FormClosed != null) FormClosed(this, e);
-        }*/
+            this.Dispose();
+            // Si la partie n'est pas lancée, on fait réapparaitre le mainForm
+            if (mainForm != null && !mainForm.Visible && MyJeu == null) mainForm.Show();
+        }
     }
 }
