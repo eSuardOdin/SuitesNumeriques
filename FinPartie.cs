@@ -12,16 +12,18 @@ namespace SuitesNumeriques
 {
     public partial class FinPartie : Form
     {
+        private bool IsTimed { get; set; }
         private MainForm MyMainForm { get; set; }
         private Player J1 { get; set; }
         private Player J2 { get; set; }
         private string TypePartie { get; set; }
         private bool IsNewPartie { get; set; } = false; // Permettra de choisir si on remontre le MainForm au Close
-        public FinPartie(Player j1, Player j2, string typePartie, MainForm mainForm)
+        public FinPartie(Player j1, Player j2, string typePartie, MainForm mainForm, bool isTimed)
         {
             InitializeComponent();
             J1 = j1;
             J2 = j2;
+            IsTimed = isTimed;
             TypePartie = typePartie;
             MyMainForm = mainForm;
             // Scores et pseudos
@@ -41,6 +43,7 @@ namespace SuitesNumeriques
                 winnerTxt.ForeColor = Color.Blue;
             }
             else winnerTxt.Text = "MATCH NUL";
+            
         }
 
         /// <summary>
@@ -52,7 +55,7 @@ namespace SuitesNumeriques
         {
             IsNewPartie = true;
             // Nouveau formulaire de création de partie
-            InitJoueurs init = new(MyMainForm);
+            InitJoueurs init = new(MyMainForm, IsTimed);
             
             // Pré remplissage des champs
             foreach (Control ctrl in init.Controls)

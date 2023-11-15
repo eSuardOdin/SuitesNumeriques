@@ -44,7 +44,14 @@ namespace SuitesNumeriques
             string err = InputValidation();
             if (err == "")
             {
-                MyJeu = new Jeu(j1, j2, typePartie, mainForm);
+                if (!IsTimed)
+                {
+                    MyJeu = new Jeu(j1, j2, typePartie, mainForm);
+                }
+                else
+                {
+                    MyJeu = new JeuTimer(j1, j2,typePartie, mainForm, new TimeManager(1000));
+                }
                 MyJeu.Show();
                 this.Close();
             }

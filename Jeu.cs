@@ -15,10 +15,10 @@ namespace SuitesNumeriques
     public partial class Jeu : Form
     {
         MainForm mainForm;
-        private int IndexExercice { get; set; }
+        protected int IndexExercice { get; set; }
         public UntimedVersus Versus { get; private set; } // Pas sûr du tout
         public List<Player> Players { get; private set; } = new();
-        private bool IsFirstPlayer { get; set; }
+        protected bool IsFirstPlayer { get; set; }
         public Player J1 { get; private set; }
         public Player J2 { get; private set; }
         public Jeu(Player j1, Player j2, string typePartie, MainForm mainForm)
@@ -40,9 +40,9 @@ namespace SuitesNumeriques
         }
 
         /// <summary>
-        /// Doit contenir la logique de jeu d'une partie
+        /// Doit contenir la logique de jeu d'une partie (TO DELETE)
         /// </summary>
-        private void Play()
+        protected void Play()
         {
             bool isFirstPlayer = true; // Le tour du joueur en cours
             bool submitted = false;
@@ -62,7 +62,7 @@ namespace SuitesNumeriques
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void validBtn_Click(object sender, EventArgs e) //ATTENTION, JE N'AI PAS IMPLEMENTE LA PRISE EN COMPTE DE LA REP EN RADIO BTN
+        protected void validBtn_Click(object sender, EventArgs e) //ATTENTION, JE N'AI PAS IMPLEMENTE LA PRISE EN COMPTE DE LA REP EN RADIO BTN
                                                                 // Peut faire GetAnswer qui donnerait soit la txtbox soit le radiobtn en fonction de IndexExo
         {
             Player currentPlayer = IsFirstPlayer ? J1 : J2;
@@ -93,7 +93,7 @@ namespace SuitesNumeriques
         /// </summary>
         /// <param name="p">Joueur en cours</param>
         /// <param name="exo">Exercice en cours</param>
-        private void ResetAffichage(Player p, Exercice exo)
+        protected void ResetAffichage(Player p, Exercice exo)
         {
             enonceLbl.Text = exo.Enonce;
             exoContainer.Text = $"Question N°{IndexExercice + 1}/6";
@@ -112,7 +112,7 @@ namespace SuitesNumeriques
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void skipBtn_Click(object sender, EventArgs e)
+        protected void skipBtn_Click(object sender, EventArgs e)
         {
             // Si c'est le 2ème joueur qui skip, on incrémente l'index d'exercice.
             if (!IsFirstPlayer)
@@ -143,7 +143,7 @@ namespace SuitesNumeriques
         /// <param name="exo">Exercice en cours</param>
         /// <param name="reponse">Réponse du joueur</param>
         /// <param name="t">Temps restant de l'exercice</param>
-        private void ShowAnswerResult(Player p, Exercice exo, string reponse, int t)
+        protected void ShowAnswerResult(Player p, Exercice exo, string reponse, int t)
         {
             if (p.Repondre(exo, reponse, t))
             {
@@ -161,7 +161,7 @@ namespace SuitesNumeriques
         /// Permet de switch entre radio button et textbox
         /// </summary>
         /// <param name="isRadio">Si true, montrer les radio buttons</param>
-        private void SwitchInputType(bool isRadio)
+        protected void SwitchInputType(bool isRadio)
         {
             bool isOneChecked = false;
             if (isRadio)
@@ -198,27 +198,27 @@ namespace SuitesNumeriques
         }
 
 
-        private void EndGame()
+        protected void EndGame()
         {
-            FinPartie fin = new(J1, J2, Versus.TypeSuite, mainForm);
+            FinPartie fin = new(J1, J2, Versus.TypeSuite, mainForm, false);
             fin.Show();
             
             this.Dispose();
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        protected void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"{J1.Pseudo}: {J1.Score}\n{J2.Pseudo}: {J2.Score}", "Partie en cours...", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
-        private void reglesBtn_Click(object sender, EventArgs e)
+        protected void reglesBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Implémenter les règles ici");
         }
 
-        private void Jeu_FormClosed(object sender, FormClosedEventArgs e)
+        protected void Jeu_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
             if (mainForm != null && !mainForm.Visible) mainForm.Show();

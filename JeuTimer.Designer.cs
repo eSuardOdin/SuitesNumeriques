@@ -1,4 +1,4 @@
-﻿namespace SuitesNumeriques.classes
+﻿namespace SuitesNumeriques
 {
     partial class JeuTimer
     {
