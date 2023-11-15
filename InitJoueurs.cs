@@ -13,12 +13,14 @@ namespace SuitesNumeriques
 {
     public partial class InitJoueurs : Form
     {
+        private bool IsTimed {  get; set; }
         private Jeu? MyJeu { get; set; } = null;
         MainForm mainForm;
-        public InitJoueurs(MainForm mainForm)
+        public InitJoueurs(MainForm mainForm, bool isTimed)
         {
             InitializeComponent();
             this.mainForm = mainForm;
+            IsTimed = isTimed;
         }
 
         /// <summary>

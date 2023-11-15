@@ -101,6 +101,7 @@
             avecContrainteToolStripMenuItem.Name = "avecContrainteToolStripMenuItem";
             avecContrainteToolStripMenuItem.Size = new Size(180, 22);
             avecContrainteToolStripMenuItem.Text = "Avec contrainte";
+            avecContrainteToolStripMenuItem.Click += avecContrainteToolStripMenuItem_Click;
             // 
             // meilleursTempsToolStripMenuItem
             // 
