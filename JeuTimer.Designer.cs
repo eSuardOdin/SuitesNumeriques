@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "JeuTimer";
+            timeLbl = new Label();
+            SuspendLayout();
+            // 
+            // timeLbl
+            // 
+            timeLbl.AutoSize = true;
+            timeLbl.Location = new Point(324, 25);
+            timeLbl.Name = "timeLbl";
+            timeLbl.Size = new Size(47, 15);
+            timeLbl.TabIndex = 11;
+            timeLbl.Text = "timeLbl";
+            // 
+            // JeuTimer
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(timeLbl);
+            Name = "JeuTimer";
+            Text = "JeuTimer";
+            Controls.SetChildIndex(timeLbl, 0);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label timeLbl;
     }
 }
