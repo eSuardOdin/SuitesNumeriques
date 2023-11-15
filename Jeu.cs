@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace SuitesNumeriques
 {
@@ -169,13 +170,13 @@ namespace SuitesNumeriques
                 repTxtBox.Enabled = false;
                 foreach (Control btn in repBox.Controls)
                 {
-                    if (btn is RadioButton)
+                    if (btn is System.Windows.Forms.RadioButton)
                     {
                         btn.Visible = true;
                         btn.Enabled = true;
                         if (!isOneChecked)
                         {
-                            ((RadioButton)btn).Checked = true;
+                            ((System.Windows.Forms.RadioButton)btn).Checked = true;
                             isOneChecked = !isOneChecked;
                         }
                     }
@@ -187,7 +188,7 @@ namespace SuitesNumeriques
                 repTxtBox.Enabled = true;
                 foreach (Control btn in repBox.Controls)
                 {
-                    if (btn is RadioButton)
+                    if (btn is System.Windows.Forms.RadioButton)
                     {
                         btn.Visible = false;
                         btn.Enabled = false;
@@ -201,6 +202,7 @@ namespace SuitesNumeriques
         {
             FinPartie fin = new(J1, J2, Versus.TypeSuite, mainForm);
             fin.Show();
+            
             this.Dispose();
         }
 

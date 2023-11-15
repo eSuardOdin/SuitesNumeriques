@@ -53,12 +53,17 @@ namespace SuitesNumeriques
             IsNewPartie = true;
             // Nouveau formulaire de création de partie
             InitJoueurs init = new(MyMainForm);
+            
             // Pré remplissage des champs
             foreach (Control ctrl in init.Controls)
             {
-                if (ctrl is RadioButton radioButton)
+                if (ctrl is GroupBox)
                 {
-                    if (radioButton.Tag.ToString() == TypePartie) radioButton.Checked = true; // Ne marche pas encore
+                    // Check du radio btn
+                    foreach (RadioButton btn in ctrl.Controls)
+                    {
+                        if (btn.Tag.ToString().ToLower() == TypePartie) btn.Checked = true;
+                    }
                 }
                 else
                 {
