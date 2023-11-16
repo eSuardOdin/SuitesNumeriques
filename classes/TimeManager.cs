@@ -5,16 +5,19 @@ using System.Timers;
 public class TimeManager
 {
     // Timer d'une seconde
-    System.Timers.Timer MyTimer = new(1000);
+    public System.Timers.Timer MyTimer { get ; private set; }
     public int SecondsLeft {get; private set;}
+    private int StartingSeconds { get; set; }
     public event Action<int> SecondsLeftChanged;
     /// <summary>
     /// Constructeur de TimeManager, on définit l'intervalle entre les evenements, on s'abonne à l'evenement, on le déclenche en continu (AutoReset = true) et on l'active   
     /// </summary>
-    /// <param name="secondsLeft">Le nombre de secondes du timer (par exercice)</param>
-    public TimeManager(int secondsLeft)
+    /// <param name="startingSecond">Le nombre de secondes de base du timer</param>
+    public TimeManager(int startingSeconds)
     {
-        SecondsLeft = secondsLeft;
+        MyTimer = new System.Timers.Timer(1000);
+        StartingSeconds = startingSeconds;
+        SecondsLeft = startingSeconds;
         MyTimer.Elapsed += OnSecEvent;
         MyTimer.AutoReset = true;
         MyTimer.Enabled = true;
@@ -29,5 +32,13 @@ public class TimeManager
         SecondsLeft -=1;
         // On déclenche l'event
         SecondsLeftChanged.Invoke(SecondsLeft);
+    }
+
+    /// <summary>
+    /// Remet le timer à neuf
+    /// </summary>
+    public void ResetTimer()
+    {
+        SecondsLeft = StartingSeconds;
     }
 }

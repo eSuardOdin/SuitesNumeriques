@@ -22,14 +22,16 @@ namespace SuitesNumeriques
 
         private void UpdateTimeLabel(int secondsLeft)
         {
-            if (timeLbl.InvokeRequired)
+            if (timeLbl.InvokeRequired && this != null)
             {
-                timeLbl.Invoke((MethodInvoker)delegate { timeLbl.Text = secondsLeft.ToString(); });
+                timeLbl.Invoke((MethodInvoker)delegate { timeLbl.Text = $"{(secondsLeft / 60).ToString()}min {(secondsLeft % 60).ToString()}sec"; });
+                if(secondsLeft / 60 == 0) timeLbl.ForeColor = Color.Red;
             }
-            else
+            /*else
             {
                 timeLbl.Text = secondsLeft.ToString();
-            }
+                //timeLbl.Text = $"{(secondsLeft/60).ToString()}min {(secondsLeft%60).ToString()}sec";
+            }*/
         }
     }
 }
