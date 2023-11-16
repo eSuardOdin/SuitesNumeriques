@@ -51,7 +51,7 @@ public class UntimedVersus : Partie
                     }
                 } while (res == "r");
                
-                player.Repondre(ex, res, 0);
+                player.Repondre(ex, res);
                 
                 /* DEBUG
                 if (res == ex.Reponse) 

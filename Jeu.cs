@@ -63,11 +63,11 @@ namespace SuitesNumeriques
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void validBtn_Click(object sender, EventArgs e) //ATTENTION, JE N'AI PAS IMPLEMENTE LA PRISE EN COMPTE DE LA REP EN RADIO BTN
+        protected virtual void validBtn_Click(object sender, EventArgs e) //ATTENTION, JE N'AI PAS IMPLEMENTE LA PRISE EN COMPTE DE LA REP EN RADIO BTN
                                                                 // Peut faire GetAnswer qui donnerait soit la txtbox soit le radiobtn en fonction de IndexExo
         {
             Player currentPlayer = IsFirstPlayer ? J1 : J2;
-            ShowAnswerResult(currentPlayer, Versus.Exercices[IndexExercice], repTxtBox.Text, 0);
+            ShowAnswerResult(currentPlayer, Versus.Exercices[IndexExercice], repTxtBox.Text);
 
             if (IsFirstPlayer) Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
 
@@ -144,10 +144,11 @@ namespace SuitesNumeriques
         /// <param name="exo">Exercice en cours</param>
         /// <param name="reponse">Réponse du joueur</param>
         /// <param name="t">Temps restant de l'exercice</param>
-        protected void ShowAnswerResult(Player p, Exercice exo, string reponse, int t)
+        protected void ShowAnswerResult(Player p, Exercice exo, string reponse)
         {
-            if (p.Repondre(exo, reponse, t))
+            if (p.Repondre(exo, reponse))
             {
+                p.AddScore();
                 MessageBox.Show("Réponse correcte.", "Résultat", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -226,6 +227,7 @@ namespace SuitesNumeriques
         }
         
 
-
+        // Control getters
+        protected string getRepTxtBox() => repTxtBox.Text;
     }
 }

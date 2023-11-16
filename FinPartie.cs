@@ -82,16 +82,20 @@ namespace SuitesNumeriques
 
         private void FinPartie_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Dispose();
             if (!IsNewPartie)
             {
                 if (MyMainForm != null && !MyMainForm.Visible) MyMainForm.Show();
             }
+            this.Dispose();
         }
 
         private void menuBtn_Click(object sender, EventArgs e)
         {
-            FinPartie_FormClosed(sender, (FormClosedEventArgs)e);
+            if (!IsNewPartie)
+            {
+                if (MyMainForm != null && !MyMainForm.Visible) MyMainForm.Show();
+            }
+            this.Dispose();
         }
     }
 }

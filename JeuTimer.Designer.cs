@@ -29,26 +29,40 @@
         private void InitializeComponent()
         {
             timeLbl = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
             // timeLbl
             // 
             timeLbl.AutoSize = true;
-            timeLbl.Location = new Point(324, 25);
+            timeLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            timeLbl.Location = new Point(400, 25);
             timeLbl.Name = "timeLbl";
-            timeLbl.Size = new Size(47, 15);
+            timeLbl.Size = new Size(49, 15);
             timeLbl.TabIndex = 11;
             timeLbl.Text = "timeLbl";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(302, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(92, 15);
+            label2.TabIndex = 12;
+            label2.Text = "Temps restant :";
             // 
             // JeuTimer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label2);
             Controls.Add(timeLbl);
             Name = "JeuTimer";
             Text = "JeuTimer";
             Controls.SetChildIndex(timeLbl, 0);
+            Controls.SetChildIndex(label2, 0);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -56,5 +70,6 @@
         #endregion
 
         private Label timeLbl;
+        private Label label2;
     }
 }

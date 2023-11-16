@@ -125,3 +125,13 @@ On peut retenir la formule générale:
 
 **Gestion du score**
 Exos réussis * 150 - resets * 50 + temps * 5
+
+
+------------------
+**Bugs connus**
+- Si je ferme le jeu avec contrainte, l'evenement du timer continue et il ne trouve pas la cible (le formulaire) -> Pas sûr en fait, certainement déjà réglé 
+- 
+
+-----------------
+**À implémenter**
+- Fin d'un tour si le timer passe à 0 ?

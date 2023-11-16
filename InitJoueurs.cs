@@ -50,7 +50,7 @@ namespace SuitesNumeriques
                 }
                 else
                 {
-                    MyJeu = new JeuTimer(j1, j2,typePartie, mainForm, new TimeManager(70));
+                    MyJeu = new JeuTimer(j1, j2,typePartie, mainForm, new TimeManager(120));
                 }
                 MyJeu.Show();
                 this.Close();

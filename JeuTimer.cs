@@ -25,13 +25,31 @@ namespace SuitesNumeriques
             if (timeLbl.InvokeRequired && this != null)
             {
                 timeLbl.Invoke((MethodInvoker)delegate { timeLbl.Text = $"{(secondsLeft / 60).ToString()}min {(secondsLeft % 60).ToString()}sec"; });
-                if(secondsLeft / 60 == 0) timeLbl.ForeColor = Color.Red;
+                if (secondsLeft / 60 == 0) timeLbl.ForeColor = Color.Red;
+                else timeLbl.ForeColor = Color.Green;
             }
             /*else
             {
                 timeLbl.Text = secondsLeft.ToString();
                 //timeLbl.Text = $"{(secondsLeft/60).ToString()}min {(secondsLeft%60).ToString()}sec";
             }*/
+        }
+
+
+
+        // EVENTS
+
+        protected override void validBtn_Click(object sender, EventArgs e)
+        {
+            Player currentPlayer = IsFirstPlayer ? J1 : J2;
+            if(currentPlayer.Repondre(Versus.Exercices[IndexExercice], base.getRepTxtBox()))
+            {
+                currentPlayer.AddTime(MyTimeManager.SecondsLeft);
+            }
+
+            MessageBox.Show(currentPlayer.Time.ToString());
+            MyTimeManager.ResetTimer();
+            base.validBtn_Click(sender, e);
         }
     }
 }

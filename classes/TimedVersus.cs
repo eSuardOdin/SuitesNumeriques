@@ -55,7 +55,7 @@ public class TimedVersus : Partie
                     }
                 } while (res == "r");
                
-                player.Repondre(ex, res, TimeLeft.SecondsLeft);
+                player.Repondre(ex, res);
                 
                 /* DEBUG
                 if (res == ex.Reponse) 
