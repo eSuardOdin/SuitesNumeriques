@@ -13,11 +13,16 @@ namespace SuitesNumeriques
     public partial class JeuTimer : Jeu
     {
         private TimeManager MyTimeManager { get; set; }
+        private IOScoreManager? MyScoreManager { get; set; }
         public JeuTimer(Player j1, Player j2, string typePartie, MainForm mainForm, TimeManager tm) : base(j1, j2, typePartie, mainForm)
         {
             InitializeComponent();
+            // Instance de l'IO des scores
+            MyScoreManager = new(Directory.GetCurrentDirectory(), typePartie);
+            // Instance du timer
             MyTimeManager = tm;
             MyTimeManager.SecondsLeftChanged += UpdateTimeLabel;
+
         }
 
         private void UpdateTimeLabel(int secondsLeft)

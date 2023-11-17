@@ -11,6 +11,24 @@ public class IOScoreManager
     public IOScoreManager(string path, string typeSuite)
     {
         Path = $"{path}_{typeSuite}.txt";
+        InitEnv();
+    }
+
+    private void InitEnv()
+    {
+        //MessageBox.Show(Directory.GetCurrentDirectory());
+        // Get le dossier d'exec
+        string path = Directory.GetCurrentDirectory();
+
+        // Créer les fichiers s'ils n'existent pas
+        if (!File.Exists(@$"{path}\géométrique.txt"))
+        {
+            File.Create(@$"{path}\géométrique.txt");
+        }
+        if (!File.Exists(@$"{path}\arithmétique.txt"))
+        {
+            File.Create(@$"{path}\arithmétique.txt");
+        }
     }
 
     /// <summary>
