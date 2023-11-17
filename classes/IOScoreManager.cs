@@ -16,21 +16,31 @@ public class IOScoreManager
 
     private void InitEnv()
     {
-        //MessageBox.Show(Directory.GetCurrentDirectory());
-        // Get le dossier d'exec
-        string path = Directory.GetCurrentDirectory();
 
-        // Créer et remplir les fichiers s'ils n'existent pas
-        if (!File.Exists(@$"{path}\géométrique.txt"))
+        // Tentative threading
+        Thread writingThread = new Thread(() =>
         {
-            File.Create(@$"{path}\géométrique.txt");
-            InitFile(@$"{path}\géométrique.txt");
-        }
-        if (!File.Exists(@$"{path}\arithmétique.txt"))
-        {
-            File.Create(@$"{path}\arithmétique.txt");
-            InitFile(@$"{path}\arithmétique.txt");
-        }
+            // Get le dossier d'exec
+            string path = Directory.GetCurrentDirectory();
+
+            // Créer et remplir les fichiers s'ils n'existent pas
+            if (!File.Exists(@$"{path}\géométrique.txt"))
+            {
+                File.Create(@$"{path}\géométrique.txt");
+                InitFile(@$"{path}\géométrique.txt");
+            }
+            if (!File.Exists(@$"{path}\arithmétique.txt"))
+            {
+                File.Create(@$"{path}\arithmétique.txt");
+                InitFile(@$"{path}\arithmétique.txt");
+            }
+        });
+
+        // Démarrage
+        writingThread.Start();
+
+        // Attente de la fin d'exec
+        writingThread.Join();
     }
 
     /// <summary>
@@ -38,20 +48,27 @@ public class IOScoreManager
     /// </summary>
     private void InitFile(string path)
     {
-        try
-        {
-            DateTime date = DateTime.Now;
-            string blank;
-            using(StreamWriter sw = new StreamWriter(path))
+        Thread writingThread = new Thread(() => {
+            try
             {
-                for (int i = 0; i < 10; i++)
+                DateTime date = DateTime.Now;
+                string blank;
+                using (StreamWriter sw = new StreamWriter(path))
                 {
-                    blank = $"{i+1};0;;{date}";
-                    sw.WriteLine(blank);
+                    for (int i = 0; i < 10; i++)
+                    {
+                        blank = $"{i + 1};0;;{date}";
+                        sw.WriteLine(blank);
+                    }
                 }
             }
-        }
-        catch {}
+            catch { }
+        });
+
+        writingThread.Start();
+
+        writingThread.Join();
+        
     }
 
     /// <summary>

@@ -9,11 +9,10 @@ public class TimedVersus : Partie
     public TimedVersus(string typePartie, Player p1, Player p2) : base(typePartie)
     {
         ScoreManager = new("scores", typePartie);
-        ScoreManager.TryCreateScoreFile();
-        Console.WriteLine(ScoreManager.GetRank(1200));
+        //ScoreManager.TryCreateScoreFile();
         Players.Add(p1);
         Players.Add(p2);
-        Play();
+        //Play();
     }
 
 
@@ -21,7 +20,7 @@ public class TimedVersus : Partie
     /// <summary>
     /// Permet de jouer une partie joueur contre joueur avec contrainte de temps
     /// </summary>
-    protected override void Play()
+    /*protected override void Play()
     {
 
         bool isFirstPlayer = true;
@@ -57,12 +56,7 @@ public class TimedVersus : Partie
                
                 player.Repondre(ex, res);
                 
-                /* DEBUG
-                if (res == ex.Reponse) 
-                {
-                    Console.WriteLine("Bonne réponse ! ");  
-                }
-                else Console.WriteLine($"Faux, la réponse est : {ex.Reponse}");*/
+                
             }    
         }
         // On calcule les scores des joueurs et on met à jour les meilleurs scores
@@ -76,7 +70,7 @@ public class TimedVersus : Partie
             }
             Console.WriteLine($"{player.Pseudo}: {player.Score}, time : {player.Time} sec, reset : {player.Reset}");
         }
-    }
+    }*/
 
 
     /// <summary>
