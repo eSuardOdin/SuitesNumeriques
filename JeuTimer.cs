@@ -39,17 +39,30 @@ namespace SuitesNumeriques
 
         // EVENTS
 
+        /// <summary>
+        /// Click du bouton valider
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected override void validBtn_Click(object sender, EventArgs e)
         {
             Player currentPlayer = IsFirstPlayer ? J1 : J2;
             if(currentPlayer.Repondre(Versus.Exercices[IndexExercice], base.getRepTxtBox()))
             {
                 currentPlayer.AddTime(MyTimeManager.SecondsLeft);
+                currentPlayer.AddTimedScore(MyTimeManager.SecondsLeft);
             }
 
-            MessageBox.Show(currentPlayer.Time.ToString());
+            //MessageBox.Show(currentPlayer.Time.ToString());
             MyTimeManager.ResetTimer();
             base.validBtn_Click(sender, e);
+        }
+
+
+        protected override void skipBtn_Click(object sender, EventArgs e)
+        {
+            UpdateTimeLabel(MyTimeManager.SecondsLeft);
+            base.skipBtn_Click(sender, e);
         }
     }
 }

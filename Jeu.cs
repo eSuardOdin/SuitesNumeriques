@@ -113,7 +113,7 @@ namespace SuitesNumeriques
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void skipBtn_Click(object sender, EventArgs e)
+        protected virtual void skipBtn_Click(object sender, EventArgs e)
         {
             // Si c'est le 2ème joueur qui skip, on incrémente l'index d'exercice.
             if (!IsFirstPlayer)

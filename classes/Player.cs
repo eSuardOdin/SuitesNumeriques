@@ -28,6 +28,7 @@ public class Player
 
     public void AddTime(int time) => Time += time;
     public void AddScore() => Score += 150;
+    public void AddTimedScore(int time) => Score += time * 5;
     public void AddReset() 
     {
         Reset++; // Pour les stats
