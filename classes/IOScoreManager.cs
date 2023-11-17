@@ -20,29 +20,35 @@ public class IOScoreManager
         // Get le dossier d'exec
         string path = Directory.GetCurrentDirectory();
 
-        // Créer les fichiers s'ils n'existent pas
+        // Créer et remplir les fichiers s'ils n'existent pas
         if (!File.Exists(@$"{path}\géométrique.txt"))
         {
             File.Create(@$"{path}\géométrique.txt");
+            InitFile(@$"{path}\géométrique.txt");
         }
         if (!File.Exists(@$"{path}\arithmétique.txt"))
         {
             File.Create(@$"{path}\arithmétique.txt");
+            InitFile(@$"{path}\arithmétique.txt");
         }
     }
 
     /// <summary>
     /// Créé un fichier de score et l'initialise si non existant
     /// </summary>
-    public void TryCreateScoreFile()
+    private void InitFile(string path)
     {
         try
         {
-            using (Fs = new(Path, FileMode.CreateNew)) { }
-            string blank = "0;undefined";
-            using(StreamWriter sw = new StreamWriter(Path))
+            DateTime date = DateTime.Now;
+            string blank;
+            using(StreamWriter sw = new StreamWriter(path))
             {
-                for (int i = 0; i < 10; i++) sw.WriteLine(blank);
+                for (int i = 0; i < 10; i++)
+                {
+                    blank = $"{i+1};0;;{date}";
+                    sw.WriteLine(blank);
+                }
             }
         }
         catch {}

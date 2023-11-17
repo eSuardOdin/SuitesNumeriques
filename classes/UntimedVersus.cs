@@ -8,7 +8,7 @@ public class UntimedVersus : Partie
     public UntimedVersus(string typePartie, Player p1, Player p2) : base(typePartie)
     {
         ScoreManager = new("scores", typePartie);
-        ScoreManager.TryCreateScoreFile();
+        //ScoreManager.TryCreateScoreFile();
         //Console.WriteLine(ScoreManager.GetRank(1200));
         Players.Add(p1);
         Players.Add(p2);
