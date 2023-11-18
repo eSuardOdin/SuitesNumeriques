@@ -14,14 +14,14 @@ namespace SuitesNumeriques
 
     public partial class Jeu : Form
     {
-        MainForm mainForm;
+        protected MainForm mainForm;
         protected int IndexExercice { get; set; }
         public UntimedVersus Versus { get; private set; } // Pas sûr du tout
         public List<Player> Players { get; private set; } = new();
         protected bool IsFirstPlayer { get; set; }
         public Player J1 { get; private set; }
         public Player J2 { get; private set; }
-        public Jeu() { InitializeComponent(); }
+        public Jeu() { InitializeComponent(); } // Pour pouvoir utiliser le designer
         public Jeu(Player j1, Player j2, string typePartie, MainForm mainForm)
         {
             InitializeComponent();
@@ -200,7 +200,7 @@ namespace SuitesNumeriques
         }
 
 
-        protected void EndGame()
+        protected virtual void EndGame()
         {
             FinPartie fin = new(J1, J2, Versus.TypeSuite, mainForm, false);
             fin.Show();

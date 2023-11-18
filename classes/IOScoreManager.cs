@@ -1,4 +1,6 @@
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 /// <summary>
 /// Gère l'input/output des scores dans un fichier associé à un type de suite
@@ -18,29 +20,76 @@ public class IOScoreManager
     {
 
         // Tentative threading
-        Thread writingThread = new Thread(() =>
-        {
+        //Thread writingThread = new Thread(() =>
+        //{
             // Get le dossier d'exec
             string path = Directory.GetCurrentDirectory();
 
             // Créer et remplir les fichiers s'ils n'existent pas
             if (!File.Exists(@$"{path}\géométrique.txt"))
             {
-                File.Create(@$"{path}\géométrique.txt");
-                InitFile(@$"{path}\géométrique.txt");
+                using (FileStream fs = new FileStream(@$"{path}\géométrique.txt", FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+
+                    try
+                    {
+                        DateTime date = DateTime.Now;
+                        string blank = "";
+                        //using (StreamWriter sw = new StreamWriter(@$"{path}\arithmétique.txt", false, Encoding.UTF8))
+                        //{
+                        for (int i = 0; i < 10; i++)
+                        {
+                            blank += $"{i + 1};0;;{date}\n";
+                        }
+                        //}
+                        Byte[] bytes = Encoding.UTF8.GetBytes(blank);
+                        fs.Write(bytes, 0, bytes.Length);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                }
+
+            //File.Create(@$"{path}\géométrique.txt");
+            //InitFile(@"géométrique.txt");
             }
             if (!File.Exists(@$"{path}\arithmétique.txt"))
             {
-                File.Create(@$"{path}\arithmétique.txt");
-                InitFile(@$"{path}\arithmétique.txt");
+                using (FileStream fs = new FileStream(@$"{path}\arithmétique.txt", FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    
+                    try
+                    {
+                        DateTime date = DateTime.Now;
+                        string blank = "";
+                        //using (StreamWriter sw = new StreamWriter(@$"{path}\arithmétique.txt", false, Encoding.UTF8))
+                        //{
+                        for (int i = 0; i < 10; i++)
+                        {
+                            blank += $"{i + 1};0;;{date}\n";
+                        }
+                        //}
+                        Byte[] bytes = Encoding.UTF8.GetBytes(blank);
+                        fs.Write(bytes, 0, bytes.Length);
+                        
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                }
+
+                //File.Create(@$"{path}\arithmétique.txt");
+                //InitFile(@"arithmétique.txt");
             }
-        });
+        //});
 
         // Démarrage
-        writingThread.Start();
+        //writingThread.Start();
 
         // Attente de la fin d'exec
-        writingThread.Join();
+        //writingThread.Join();
     }
 
     /// <summary>
@@ -48,12 +97,12 @@ public class IOScoreManager
     /// </summary>
     private void InitFile(string path)
     {
-        Thread writingThread = new Thread(() => {
+        //Thread writingThread = new Thread(() => {
             try
             {
                 DateTime date = DateTime.Now;
                 string blank;
-                using (StreamWriter sw = new StreamWriter(path))
+                using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
                 {
                     for (int i = 0; i < 10; i++)
                     {
@@ -62,12 +111,15 @@ public class IOScoreManager
                     }
                 }
             }
-            catch { }
-        });
+            catch(Exception e) 
+            {
+                MessageBox.Show(e.Message);
+            }
+        //});
 
-        writingThread.Start();
+        //writingThread.Start();
 
-        writingThread.Join();
+        //writingThread.Join();
         
     }
 

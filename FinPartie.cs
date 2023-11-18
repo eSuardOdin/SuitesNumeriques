@@ -12,6 +12,8 @@ namespace SuitesNumeriques
 {
     public partial class FinPartie : Form
     {
+        private IOScoreManager? MyScoreManager { get; set; }
+        
         private bool IsTimed { get; set; }
         private MainForm MyMainForm { get; set; }
         private Player J1 { get; set; }
@@ -21,6 +23,7 @@ namespace SuitesNumeriques
         public FinPartie(Player j1, Player j2, string typePartie, MainForm mainForm, bool isTimed)
         {
             InitializeComponent();
+            
             J1 = j1;
             J2 = j2;
             IsTimed = isTimed;
@@ -43,7 +46,14 @@ namespace SuitesNumeriques
                 winnerTxt.ForeColor = Color.Blue;
             }
             else winnerTxt.Text = "MATCH NUL";
-            
+
+            if (IsTimed)
+            {
+                // Instance de l'IO des scores
+                MyScoreManager = new(Directory.GetCurrentDirectory(), typePartie);
+            }
+                
+
         }
 
         /// <summary>

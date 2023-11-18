@@ -3,12 +3,12 @@
 /// </summary>
 public class TimedVersus : Partie
 {
-    private IOScoreManager ScoreManager;
+    //private IOScoreManager ScoreManager;
     public TimeManager? TimeLeft {get; private set;}
     public List<Player> Players = new();
     public TimedVersus(string typePartie, Player p1, Player p2) : base(typePartie)
     {
-        ScoreManager = new("scores", typePartie);
+        //ScoreManager = new("scores", typePartie);
         //ScoreManager.TryCreateScoreFile();
         Players.Add(p1);
         Players.Add(p2);

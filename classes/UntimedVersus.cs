@@ -3,11 +3,11 @@
 /// </summary>
 public class UntimedVersus : Partie
 {
-    private IOScoreManager ScoreManager;
+    //private IOScoreManager ScoreManager;
     public List<Player> Players = new();
     public UntimedVersus(string typePartie, Player p1, Player p2) : base(typePartie)
     {
-        ScoreManager = new("scores", typePartie);
+        //ScoreManager = new("scores", typePartie);
         //ScoreManager.TryCreateScoreFile();
         Players.Add(p1);
         Players.Add(p2);
