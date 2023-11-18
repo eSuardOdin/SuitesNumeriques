@@ -8,120 +8,70 @@ using System.Text;
 public class IOScoreManager
 {
     public FileStream? Fs;
-    public string Path {get; private set;}
+    public string Path {get; private set;} = Directory.GetCurrentDirectory();
 
     public IOScoreManager(string path, string typeSuite)
     {
-        Path = $"{path}_{typeSuite}.txt";
+        Path += $@"\{typeSuite}.txt";
         InitEnv();
     }
 
     private void InitEnv()
     {
+        string path = Directory.GetCurrentDirectory();
 
-        // Tentative threading
-        //Thread writingThread = new Thread(() =>
-        //{
-            // Get le dossier d'exec
-            string path = Directory.GetCurrentDirectory();
-
-            // Créer et remplir les fichiers s'ils n'existent pas
-            if (!File.Exists(@$"{path}\géométrique.txt"))
+        // Créer et remplir les fichiers s'ils n'existent pas
+        if (!File.Exists(@$"{path}\géométrique.txt"))
+        {
+            using (FileStream fs = new FileStream(@$"{path}\géométrique.txt", FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                using (FileStream fs = new FileStream(@$"{path}\géométrique.txt", FileMode.Create, FileAccess.Write, FileShare.None))
+
+                try
                 {
-
-                    try
-                    {
-                        DateTime date = DateTime.Now;
-                        string blank = "";
-                        //using (StreamWriter sw = new StreamWriter(@$"{path}\arithmétique.txt", false, Encoding.UTF8))
-                        //{
-                        for (int i = 0; i < 10; i++)
-                        {
-                            blank += $"{i + 1};0;;{date}\n";
-                        }
-                        //}
-                        Byte[] bytes = Encoding.UTF8.GetBytes(blank);
-                        fs.Write(bytes, 0, bytes.Length);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                }
-
-            //File.Create(@$"{path}\géométrique.txt");
-            //InitFile(@"géométrique.txt");
-            }
-            if (!File.Exists(@$"{path}\arithmétique.txt"))
-            {
-                using (FileStream fs = new FileStream(@$"{path}\arithmétique.txt", FileMode.Create, FileAccess.Write, FileShare.None))
-                {
-                    
-                    try
-                    {
-                        DateTime date = DateTime.Now;
-                        string blank = "";
-                        //using (StreamWriter sw = new StreamWriter(@$"{path}\arithmétique.txt", false, Encoding.UTF8))
-                        //{
-                        for (int i = 0; i < 10; i++)
-                        {
-                            blank += $"{i + 1};0;;{date}\n";
-                        }
-                        //}
-                        Byte[] bytes = Encoding.UTF8.GetBytes(blank);
-                        fs.Write(bytes, 0, bytes.Length);
-                        
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                }
-
-                //File.Create(@$"{path}\arithmétique.txt");
-                //InitFile(@"arithmétique.txt");
-            }
-        //});
-
-        // Démarrage
-        //writingThread.Start();
-
-        // Attente de la fin d'exec
-        //writingThread.Join();
-    }
-
-    /// <summary>
-    /// Créé un fichier de score et l'initialise si non existant
-    /// </summary>
-    private void InitFile(string path)
-    {
-        //Thread writingThread = new Thread(() => {
-            try
-            {
-                DateTime date = DateTime.Now;
-                string blank;
-                using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
-                {
+                    DateTime date = DateTime.Now;
+                    string blank = "";
+                    //using (StreamWriter sw = new StreamWriter(@$"{path}\arithmétique.txt", false, Encoding.UTF8))
+                    //{
                     for (int i = 0; i < 10; i++)
                     {
-                        blank = $"{i + 1};0;;{date}";
-                        sw.WriteLine(blank);
+                        blank += $"{i + 1};0;;{date}\n";
                     }
+                    //}
+                    Byte[] bytes = Encoding.UTF8.GetBytes(blank);
+                    fs.Write(bytes, 0, bytes.Length);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
                 }
             }
-            catch(Exception e) 
+
+        }
+        if (!File.Exists(@$"{path}\arithmétique.txt"))
+        {
+            using (FileStream fs = new FileStream(@$"{path}\arithmétique.txt", FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                MessageBox.Show(e.Message);
+                    
+                try
+                {
+                    DateTime date = DateTime.Now;
+                    string blank = "";
+                    for (int i = 0; i < 10; i++)
+                    {
+                        blank += $"{i + 1};0;;{date}\n";
+                    }
+                    Byte[] bytes = Encoding.UTF8.GetBytes(blank);
+                    fs.Write(bytes, 0, bytes.Length);
+                        
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
-        //});
-
-        //writingThread.Start();
-
-        //writingThread.Join();
-        
+        }
     }
+
 
     /// <summary>
     /// Vérifier si un score a sa place dans le fichier
@@ -161,10 +111,11 @@ public class IOScoreManager
             string line;
             while((line = reader.ReadLine()) != null && compteur <= 10)
             {
+                DateTime date = DateTime.Now;
                 var values = line.Split(';');
                 if(rank == compteur)
                 {
-                    newScore += $"{p.Score};{p.Pseudo}\n";
+                    newScore += $"{rank};{p.Score};{p.Pseudo};{date}\n";
                     compteur++;
                 }
                 if (compteur != 10) newScore += line + "\n";
@@ -175,7 +126,6 @@ public class IOScoreManager
         {
             sw.WriteLine(newScore);
         }
-        Console.WriteLine(newScore);
     }
 
 }
