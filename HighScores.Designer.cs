@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             menuBtn = new Button();
+            scoresLbl = new Label();
             SuspendLayout();
             // 
             // menuBtn
@@ -42,20 +43,33 @@
             menuBtn.UseVisualStyleBackColor = true;
             menuBtn.Click += menuBtn_Click;
             // 
+            // scoresLbl
+            // 
+            scoresLbl.AutoSize = true;
+            scoresLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            scoresLbl.Location = new Point(72, 27);
+            scoresLbl.Name = "scoresLbl";
+            scoresLbl.Size = new Size(40, 15);
+            scoresLbl.TabIndex = 1;
+            scoresLbl.Text = "label1";
+            // 
             // HighScores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(scoresLbl);
             Controls.Add(menuBtn);
             Name = "HighScores";
             Text = "Meilleurs scores";
             FormClosed += HighScores_FormClosed;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button menuBtn;
+        private Label scoresLbl;
     }
 }

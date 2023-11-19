@@ -22,6 +22,8 @@ namespace SuitesNumeriques
             TypeSuite = typeSuite;
             // Maj du nom fenêtre
             this.Text += $": Suite {TypeSuite}";
+            ScoreManager = new(TypeSuite);
+            scoresLbl.Text = ScoreManager.GetHighScores();
         }
 
 
@@ -38,5 +40,7 @@ namespace SuitesNumeriques
             if (MyMainForm != null && !MyMainForm.Visible) MyMainForm.Show();
             this.Dispose();
         }
+
+
     }
 }

@@ -50,7 +50,7 @@ namespace SuitesNumeriques
             if (IsTimed)
             {
                 // Instance de l'IO des scores
-                MyScoreManager = new(Directory.GetCurrentDirectory(), typePartie);
+                MyScoreManager = new(typePartie);
 
                 // Ecriture des meilleurs scores si meilleur score
                 MyScoreManager.WriteNewScore(MyScoreManager.GetRank(J1.Score), J1);

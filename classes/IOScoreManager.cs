@@ -1,6 +1,7 @@
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using static System.Formats.Asn1.AsnWriter;
 
 /// <summary>
 /// Gère l'input/output des scores dans un fichier associé à un type de suite
@@ -10,7 +11,7 @@ public class IOScoreManager
     public FileStream? Fs;
     public string Path {get; private set;} = Directory.GetCurrentDirectory();
 
-    public IOScoreManager(string path, string typeSuite)
+    public IOScoreManager(string typeSuite)
     {
         Path += $@"\{typeSuite}.txt";
         InitEnv();
@@ -129,10 +130,31 @@ public class IOScoreManager
     }
 
 
-    public string GetHighScores(string typePartie)
+    public string GetHighScores()
     {
-        string scores = "";
+        string scores = "Rang\t\tScore\t\tPseudo\t\tDate\n\n";
+        int compteur = 1;
 
+        using (StreamReader reader = new(Path))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                var values = line.Split(';');
+                if(values[0] != "") // Prevent l'erreur de la dernière ligne vide ...
+                {
+                    if (values[1] != "") // Si pseudo non vide
+                    {
+                        scores += $". {compteur}\t\t{values[0]}\t\t{values[1]}\t\t{values[2]}\n\n";
+                    }
+                    else
+                    {
+                        scores += $". {compteur}\n\n";
+                    }
+                    compteur++;
+                }
+            }
+        }
         return scores;
     }
 
