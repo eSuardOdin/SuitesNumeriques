@@ -76,8 +76,10 @@ namespace SuitesNumeriques
             Regex regex = new Regex("^[a-zA-Z0-9]+$");
             if (j1TxtBox.Text == "") err += "J1: Le champ de saisie ne doit pas être vide.\n";
             else if (!regex.IsMatch(j1TxtBox.Text)) err += "J1: Le nom du joueur ne doit contenir que des caractères alphanumériques.\n";
+            else if (j1TxtBox.Text.Length > 20) err += "J1: Le nom du joueur ne doit pas contenir plus de 20 caractères.\n";
             if (j2TxtBox.Text == "") err += "J2: Le champ de saisie ne doit pas être vide.\n";
-            else  if (!regex.IsMatch(j2TxtBox.Text)) err += "J2: Le nom du joueur ne doit contenir que des caractères alphanumériques.\n";
+            else if (!regex.IsMatch(j2TxtBox.Text)) err += "J2: Le nom du joueur ne doit contenir que des caractères alphanumériques.\n";
+            else if (j2TxtBox.Text.Length > 20) err += "J2: Le nom du joueur ne doit pas contenir plus de 20 caractères.\n";
 
             if (j1TxtBox.Text == j2TxtBox.Text && err == "") err += "Les deux joueurs ne peuvent avoir le même nom";
             return err;
