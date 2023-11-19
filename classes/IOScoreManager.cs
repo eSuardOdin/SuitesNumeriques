@@ -87,7 +87,7 @@ public class IOScoreManager
             while ((line = reader.ReadLine()) != null && rank == -1)
             {
                 var values = line.Split(';');
-                if (Convert.ToInt32(values[0]) <= score)
+                if (Convert.ToInt32(values[1]) <= score)
                 {
                     rank = compteur;
                 }
