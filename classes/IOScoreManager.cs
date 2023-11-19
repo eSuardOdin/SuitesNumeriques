@@ -58,7 +58,7 @@ public class IOScoreManager
                     string blank = "";
                     for (int i = 0; i < 10; i++)
                     {
-                        blank += $"{i + 1};0;;{date}\n";
+                        blank += $"0;;{date}\n";
                     }
                     Byte[] bytes = Encoding.UTF8.GetBytes(blank);
                     fs.Write(bytes, 0, bytes.Length);
@@ -87,7 +87,7 @@ public class IOScoreManager
             while ((line = reader.ReadLine()) != null && rank == -1)
             {
                 var values = line.Split(';');
-                if (Convert.ToInt32(values[1]) <= score)
+                if (Convert.ToInt32(values[0]) <= score)
                 {
                     rank = compteur;
                 }
@@ -115,7 +115,7 @@ public class IOScoreManager
                 var values = line.Split(';');
                 if(rank == compteur)
                 {
-                    newScore += $"{rank};{p.Score};{p.Pseudo};{date}\n";
+                    newScore += $"{p.Score};{p.Pseudo};{date}\n";
                     compteur++;
                 }
                 if (compteur != 10) newScore += line + "\n";
