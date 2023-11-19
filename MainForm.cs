@@ -38,5 +38,21 @@ namespace SuitesNumeriques
             // On cache le formulaire principal
             this.Hide();
         }
+
+        private void arithmétiqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HighScores hs = new(this, "arithmétique");
+            hs.Show();
+
+            this.Hide();
+        }
+
+        private void géométriqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HighScores hs = new(this, "géométrique");
+            hs.Show();
+
+            this.Hide();
+        }
     }
 }

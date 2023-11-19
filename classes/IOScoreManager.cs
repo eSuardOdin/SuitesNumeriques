@@ -128,4 +128,12 @@ public class IOScoreManager
         }
     }
 
+
+    public string GetHighScores(string typePartie)
+    {
+        string scores = "";
+
+        return scores;
+    }
+
 }

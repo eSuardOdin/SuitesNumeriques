@@ -37,6 +37,8 @@
             sansContrainteToolStripMenuItem = new ToolStripMenuItem();
             avecContrainteToolStripMenuItem = new ToolStripMenuItem();
             meilleursTempsToolStripMenuItem = new ToolStripMenuItem();
+            arithmétiqueToolStripMenuItem = new ToolStripMenuItem();
+            géométriqueToolStripMenuItem = new ToolStripMenuItem();
             picLeft = new PictureBox();
             picRight = new PictureBox();
             menuStrip1.SuspendLayout();
@@ -92,22 +94,39 @@
             // sansContrainteToolStripMenuItem
             // 
             sansContrainteToolStripMenuItem.Name = "sansContrainteToolStripMenuItem";
-            sansContrainteToolStripMenuItem.Size = new Size(180, 22);
+            sansContrainteToolStripMenuItem.Size = new Size(157, 22);
             sansContrainteToolStripMenuItem.Text = "Sans contrainte";
             sansContrainteToolStripMenuItem.Click += sansContrainteToolStripMenuItem_Click;
             // 
             // avecContrainteToolStripMenuItem
             // 
             avecContrainteToolStripMenuItem.Name = "avecContrainteToolStripMenuItem";
-            avecContrainteToolStripMenuItem.Size = new Size(180, 22);
+            avecContrainteToolStripMenuItem.Size = new Size(157, 22);
             avecContrainteToolStripMenuItem.Text = "Avec contrainte";
             avecContrainteToolStripMenuItem.Click += avecContrainteToolStripMenuItem_Click;
             // 
             // meilleursTempsToolStripMenuItem
             // 
+            meilleursTempsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { arithmétiqueToolStripMenuItem, géométriqueToolStripMenuItem });
             meilleursTempsToolStripMenuItem.Name = "meilleursTempsToolStripMenuItem";
             meilleursTempsToolStripMenuItem.Size = new Size(103, 20);
             meilleursTempsToolStripMenuItem.Text = "Meilleurs temps";
+            // 
+            // arithmétiqueToolStripMenuItem
+            // 
+            arithmétiqueToolStripMenuItem.Name = "arithmétiqueToolStripMenuItem";
+            arithmétiqueToolStripMenuItem.Size = new Size(180, 22);
+            arithmétiqueToolStripMenuItem.Tag = "";
+            arithmétiqueToolStripMenuItem.Text = "Arithmétique";
+            arithmétiqueToolStripMenuItem.Click += arithmétiqueToolStripMenuItem_Click;
+            // 
+            // géométriqueToolStripMenuItem
+            // 
+            géométriqueToolStripMenuItem.Name = "géométriqueToolStripMenuItem";
+            géométriqueToolStripMenuItem.Size = new Size(180, 22);
+            géométriqueToolStripMenuItem.Tag = "";
+            géométriqueToolStripMenuItem.Text = "Géométrique";
+            géométriqueToolStripMenuItem.Click += géométriqueToolStripMenuItem_Click;
             // 
             // picLeft
             // 
@@ -159,5 +178,7 @@
         private ToolStripMenuItem meilleursTempsToolStripMenuItem;
         private PictureBox picLeft;
         private PictureBox picRight;
+        private ToolStripMenuItem arithmétiqueToolStripMenuItem;
+        private ToolStripMenuItem géométriqueToolStripMenuItem;
     }
 }
