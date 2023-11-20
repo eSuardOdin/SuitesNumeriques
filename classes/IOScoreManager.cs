@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.Devices;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -31,13 +32,10 @@ public class IOScoreManager
                 {
                     DateTime date = DateTime.Now;
                     string blank = "";
-                    //using (StreamWriter sw = new StreamWriter(@$"{path}\arithmétique.txt", false, Encoding.UTF8))
-                    //{
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i <= 10; i++)
                     {
-                        blank += $"{i + 1};0;;{date}\n";
+                        blank += $"0;;{date}\n";
                     }
-                    //}
                     Byte[] bytes = Encoding.UTF8.GetBytes(blank);
                     fs.Write(bytes, 0, bytes.Length);
                 }
@@ -57,7 +55,7 @@ public class IOScoreManager
                 {
                     DateTime date = DateTime.Now;
                     string blank = "";
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i <= 10; i++)
                     {
                         blank += $"0;;{date}\n";
                     }
@@ -156,6 +154,97 @@ public class IOScoreManager
             }
         }
         return scores;
+    }
+
+
+    /*public void PopulateHighScores(DataGridView dataGrid)
+    {
+        // Ajout des headers
+        dataGrid.ColumnCount = 4;
+        dataGrid.Columns[0].Name = "Rang";
+        dataGrid.Columns[1].Name = "Score";
+        dataGrid.Columns[2].Name = "Pseudo";
+        dataGrid.Columns[3].Name = "Date";
+
+        // Refresh ?
+
+
+        // Ajout des datas
+        int compteur = 1;
+        List<string[]> data = new();
+
+        using (StreamReader reader = new(Path))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                
+                var values = line.Split(';');
+                if (values[0] != "") // Prevent l'erreur de la dernière ligne vide ...
+                {
+                    if (values[1] != "") // Si pseudo non vide
+                    {
+                        string[] row = { $"{compteur}", $"{values[0]}", $"{values[1]}", $"{values[2]}" };
+                        data.Add(row);
+                    }
+                    else
+                    {
+                        string[] row = { $"{compteur}", "", "", ""};
+                        data.Add(row);
+                    }
+                    compteur++;
+                }
+            }
+            foreach(var row in data) dataGrid.Rows.Add(row);
+        }
+    }*/
+
+
+
+    public void PopulateList(ListView scoresList)
+    {
+        // Ajout des headers
+        scoresList.View = View.Details;
+        scoresList.Columns.Add("Rang", 50);
+        scoresList.Columns.Add("Score", 50);
+        scoresList.Columns.Add("Pseudo", 150);
+        scoresList.Columns.Add("Date", 150);
+
+        // Refresh ?
+
+
+        // Ajout des datas
+        int compteur = 1;
+        List<string[]> data = new();
+
+        using (StreamReader reader = new(Path))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+
+                var values = line.Split(';');
+                if (values[0] != "") // Prevent l'erreur de la dernière ligne vide ...
+                {
+                    if (values[1] != "") // Si pseudo non vide
+                    {
+                        string[] row = { $"{compteur}", $"{values[0]}", $"{values[1]}", $"{values[2]}" };
+                        data.Add(row);
+                    }
+                    else
+                    {
+                        string[] row = { $"{compteur}", "", "", "" };
+                        data.Add(row);
+                    }
+                    compteur++;
+                }
+            }
+            foreach (var row in data)
+            {
+                ListViewItem item = new(row);
+                scoresList.Items.Add(item);
+            }
+        }
     }
 
 }

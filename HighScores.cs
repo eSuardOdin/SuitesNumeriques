@@ -23,7 +23,9 @@ namespace SuitesNumeriques
             // Maj du nom fenêtre
             this.Text += $": Suite {TypeSuite}";
             ScoreManager = new(TypeSuite);
-            scoresLbl.Text = ScoreManager.GetHighScores();
+            //scoresLbl.Text = ScoreManager.GetHighScores();
+            //ScoreManager.PopulateHighScores(scoresData);
+            ScoreManager.PopulateList(scoresList);
         }
 
 

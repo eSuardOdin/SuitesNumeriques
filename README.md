@@ -131,9 +131,9 @@ Exos réussis * 150 - resets * 50 + temps * 5
 **Bugs connus**
 - Si je ferme le jeu avec contrainte, l'evenement du timer continue et il ne trouve pas la cible (le formulaire) -> Pas sûr en fait, certainement déjà réglé 
 - La question 6 ne fonctionne pas, verifier valeur de réponse
-- Le système de score ne fonctionne pas encore
+
 
 -----------------
 **À implémenter**
 - Fin d'un tour si le timer passe à 0 ?
-- Affichage du score depuis le main menu
+- 

@@ -30,6 +30,9 @@
         {
             menuBtn = new Button();
             scoresLbl = new Label();
+            scoresData = new DataGridView();
+            scoresList = new ListView();
+            ((System.ComponentModel.ISupportInitialize)scoresData).BeginInit();
             SuspendLayout();
             // 
             // menuBtn
@@ -53,16 +56,37 @@
             scoresLbl.TabIndex = 1;
             scoresLbl.Text = "label1";
             // 
+            // scoresData
+            // 
+            scoresData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            scoresData.Location = new Point(177, 12);
+            scoresData.Name = "scoresData";
+            scoresData.RowTemplate.Height = 25;
+            scoresData.Size = new Size(92, 106);
+            scoresData.TabIndex = 2;
+            // 
+            // scoresList
+            // 
+            scoresList.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            scoresList.Location = new Point(177, 124);
+            scoresList.Name = "scoresList";
+            scoresList.Size = new Size(400, 250);
+            scoresList.TabIndex = 3;
+            scoresList.UseCompatibleStateImageBehavior = false;
+            // 
             // HighScores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(scoresList);
+            Controls.Add(scoresData);
             Controls.Add(scoresLbl);
             Controls.Add(menuBtn);
             Name = "HighScores";
             Text = "Meilleurs scores";
             FormClosed += HighScores_FormClosed;
+            ((System.ComponentModel.ISupportInitialize)scoresData).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -71,5 +95,7 @@
 
         private Button menuBtn;
         private Label scoresLbl;
+        private DataGridView scoresData;
+        private ListView scoresList;
     }
 }
