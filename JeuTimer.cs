@@ -60,11 +60,24 @@ namespace SuitesNumeriques
         protected override void validBtn_Click(object sender, EventArgs e)
         {
             Player currentPlayer = IsFirstPlayer ? J1 : J2;
-            if(currentPlayer.Repondre(Versus.Exercices[IndexExercice], base.getRepTxtBox()))
+            // Si on est pas dans la dernière question :
+            if(IndexExercice != 5)
             {
-                currentPlayer.AddTime(MyTimeManager.SecondsLeft);
-                currentPlayer.AddTimedScore(MyTimeManager.SecondsLeft);
+                if (currentPlayer.Repondre(Versus.Exercices[IndexExercice], base.getRepTxtBox(false)))
+                {
+                    currentPlayer.AddTime(MyTimeManager.SecondsLeft);
+                    currentPlayer.AddTimedScore(MyTimeManager.SecondsLeft);
+                }
             }
+            else
+            {
+                if (currentPlayer.Repondre(Versus.Exercices[IndexExercice], base.getRepTxtBox(true)))
+                {
+                    currentPlayer.AddTime(MyTimeManager.SecondsLeft);
+                    currentPlayer.AddTimedScore(MyTimeManager.SecondsLeft);
+                }
+            }
+            
 
             //MessageBox.Show(currentPlayer.Time.ToString());
             MyTimeManager.ResetTimer();

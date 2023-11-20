@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ScrollBar;
 
 namespace SuitesNumeriques
 {
@@ -34,10 +35,6 @@ namespace SuitesNumeriques
             enonceLbl.Text = Versus.Exercices[IndexExercice].Enonce;
             ResetAffichage(j1, Versus.Exercices[IndexExercice]);
             this.mainForm = mainForm;
-            //ExoEntrainement exo = new ExoEntrainement();
-            //exo.GetExoType(IndexExercice, typePartie);
-            //exo.GetExoLabels();
-            //exoContainer.Controls.Add(exo);
         }
 
         /// <summary>
@@ -67,6 +64,19 @@ namespace SuitesNumeriques
                                                                 // Peut faire GetAnswer qui donnerait soit la txtbox soit le radiobtn en fonction de IndexExo
         {
             Player currentPlayer = IsFirstPlayer ? J1 : J2;
+            // Si dernier exercice, on prend la valeur du radio btn
+            if (IndexExercice == 5)
+            {
+                foreach (Control btn in repBox.Controls)
+                {
+                    if (btn is System.Windows.Forms.RadioButton radio)
+                    {
+                        if (radio.Checked == true) repTxtBox.Text = radio.Text;
+                    }
+                }
+            }
+
+            // On process la réponse
             ShowAnswerResult(currentPlayer, Versus.Exercices[IndexExercice], repTxtBox.Text);
 
             if (IsFirstPlayer) Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
@@ -228,6 +238,19 @@ namespace SuitesNumeriques
         
 
         // Control getters
-        protected string getRepTxtBox() => repTxtBox.Text;
+        protected string getRepTxtBox(bool isRadio)
+        {
+            if (isRadio)
+            {
+                foreach (Control btn in repBox.Controls)
+                {
+                    if (btn is System.Windows.Forms.RadioButton radio)
+                    {
+                        if (radio.Checked == true) repTxtBox.Text = radio.Text;
+                    }
+                }
+            }
+            return repTxtBox.Text;
+        }
     }
 }
