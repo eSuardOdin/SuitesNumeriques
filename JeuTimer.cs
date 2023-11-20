@@ -21,7 +21,6 @@ namespace SuitesNumeriques
             // Instance du timer
             MyTimeManager = tm;
             MyTimeManager.SecondsLeftChanged += UpdateTimeLabel;
-
         }
 
         private void UpdateTimeLabel(int secondsLeft)
@@ -79,7 +78,6 @@ namespace SuitesNumeriques
             }
             
 
-            //MessageBox.Show(currentPlayer.Time.ToString());
             MyTimeManager.ResetTimer();
             base.validBtn_Click(sender, e);
         }
