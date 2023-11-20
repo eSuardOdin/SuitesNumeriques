@@ -43,6 +43,11 @@ namespace SuitesNumeriques
             this.Dispose();
         }
 
-
+        // Empêcher le resize de columns
+        private void scoresList_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.Cancel = true;
+            e.NewWidth = scoresList.Columns[e.ColumnIndex].Width;
+        }
     }
 }
