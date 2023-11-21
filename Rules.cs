@@ -30,13 +30,19 @@ namespace SuitesNumeriques
             rulesBox.ReadOnly = true;
 
             ParentForm.Enabled = false;
+
+            if (ParentForm is JeuTimer jeuParent)
+            {
+                label1.Visible = true;
+                label2.Visible = true;
+            }
         }
 
 
         private void Rules_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ParentForm.Show();
             ParentForm.Enabled = true;
+
             // On relance le timer si jeu avec contrainte
             if (ParentForm is JeuTimer jeuParent)
             {
@@ -45,5 +51,21 @@ namespace SuitesNumeriques
             this.Dispose();
         }
 
+        private void okBtn_Click(object sender, EventArgs e)
+        {
+            ParentForm.Enabled = true;
+
+            // On relance le timer si jeu avec contrainte
+            if (ParentForm is JeuTimer jeuParent)
+            {
+                jeuParent.EnableTimer();
+            }
+            this.Dispose();
+        }
+
+        private void Rules_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
