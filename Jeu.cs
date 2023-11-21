@@ -227,7 +227,9 @@ namespace SuitesNumeriques
 
         protected void reglesBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Implémenter les règles ici");
+            Rules rules = new Rules();
+            rules.Show();
+            //MessageBox.Show("Implémenter les règles ici");
         }
 
         protected void Jeu_FormClosed(object sender, FormClosedEventArgs e)
