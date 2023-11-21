@@ -232,7 +232,7 @@ namespace SuitesNumeriques
             rules.Show();
         }
 
-        protected void Jeu_FormClosed(object sender, FormClosedEventArgs e)
+        protected virtual void Jeu_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
             if (mainForm != null && !mainForm.Visible) mainForm.Show();

@@ -102,5 +102,13 @@ namespace SuitesNumeriques
             MyTimeManager.MyTimer.Stop();
             base.reglesBtn_Click(sender, e);
         }
+
+        protected override void Jeu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Pour eviter la null reference de l'event qui ne peut pas mettre à jour le form
+            MyTimeManager.MyTimer.Stop();
+
+            base.Jeu_FormClosed(sender, e);
+        }
     }
 }
