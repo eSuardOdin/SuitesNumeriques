@@ -59,6 +59,7 @@
             Controls.Add(rulesBox);
             Name = "Rules";
             Text = "Jeu: Règles du jeu";
+            FormClosed += Rules_FormClosed;
             ResumeLayout(false);
         }
 

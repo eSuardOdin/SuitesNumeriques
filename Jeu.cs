@@ -230,7 +230,6 @@ namespace SuitesNumeriques
             Rules rules = new Rules(this);
             
             rules.Show();
-            //MessageBox.Show("Implémenter les règles ici");
         }
 
         protected void Jeu_FormClosed(object sender, FormClosedEventArgs e)

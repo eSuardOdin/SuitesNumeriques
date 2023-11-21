@@ -12,7 +12,7 @@ namespace SuitesNumeriques
 {
     public partial class Rules : Form
     {
-        private Jeu ParentForm {  get; set; }
+        private Jeu ParentForm { get; set; }
         public Rules(Jeu parentForm)
         {
             InitializeComponent();
@@ -31,6 +31,17 @@ namespace SuitesNumeriques
             rulesBox.ReadOnly = true;
         }
 
+
+        private void Rules_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ParentForm.Show();
+            // On relance le timer si jeu avec contrainte
+            if (ParentForm is JeuTimer jeuParent)
+            {
+                jeuParent.EnableTimer();
+            }
+            this.Dispose();
+        }
 
     }
 }

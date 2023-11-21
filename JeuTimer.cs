@@ -49,6 +49,13 @@ namespace SuitesNumeriques
         }
 
 
+        /// <summary>
+        /// Utilisé pour relancer le timer 
+        /// </summary>
+        public void EnableTimer() => MyTimeManager.MyTimer.Start();
+        
+
+
         // EVENTS
 
         /// <summary>
