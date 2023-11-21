@@ -12,17 +12,19 @@ namespace SuitesNumeriques
 {
     public partial class Entrainement : Form
     {
+        private MainForm MyMainForm { get; set; }
         public string TypePartie { get; private set; }
         public Partie Partie { get; private set; }
 
         /*
          * Test de ramener les exercices dans le form
          */
-        public Exercice[] Exos {  get; private set; } = new Exercice[6];
+        public Exercice[] Exos { get; private set; } = new Exercice[6];
 
-        public Entrainement(string label, string typePartie)
+        public Entrainement(string label, string typePartie, MainForm mainForm)
         {
             InitializeComponent();
+            MyMainForm = mainForm;
             TypePartie = typePartie;
             Partie = new Partie(TypePartie);
             this.Text = $"Suites {label}: Rechercher...";
@@ -50,6 +52,12 @@ namespace SuitesNumeriques
             exo4.GetExoLabels();
             exo5.GetExoType(Convert.ToInt32(tab5.Tag), TypePartie);
             exo5.GetExoLabels();
+        }
+
+        private void Entrainement_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MyMainForm.Show();
+            this.Dispose();
         }
     }
 }

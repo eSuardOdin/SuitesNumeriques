@@ -7,16 +7,24 @@ namespace SuitesNumeriques
             InitializeComponent();
         }
 
+
+        /// <summary>
+        /// Ouverture du formulaire d'entrainement aux suites arithmétiques
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void arithmétiquesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Entrainement training = new Entrainement(arithmétiquesToolStripMenuItem.Text, arithmétiquesToolStripMenuItem.Tag.ToString());
+            Entrainement training = new Entrainement(arithmétiquesToolStripMenuItem.Text, arithmétiquesToolStripMenuItem.Tag.ToString(), this);
             training.Show();
+            this.Hide();
         }
 
         private void géométriquesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Entrainement training = new Entrainement(géométriquesToolStripMenuItem.Text, géométriquesToolStripMenuItem.Tag.ToString());
+            Entrainement training = new Entrainement(géométriquesToolStripMenuItem.Text, géométriquesToolStripMenuItem.Tag.ToString(), this);
             training.Show();
+            this.Hide();
         }
 
         private void sansContrainteToolStripMenuItem_Click(object sender, EventArgs e)
