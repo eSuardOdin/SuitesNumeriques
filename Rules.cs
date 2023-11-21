@@ -27,14 +27,16 @@ namespace SuitesNumeriques
             rulesBox.Text += "- Passer ou répondre faux à une question ne modifie pas les points.";
 
             rulesBox.Font = new Font(rulesBox.Font, FontStyle.Bold);
-
             rulesBox.ReadOnly = true;
+
+            ParentForm.Enabled = false;
         }
 
 
         private void Rules_FormClosed(object sender, FormClosedEventArgs e)
         {
             ParentForm.Show();
+            ParentForm.Enabled = true;
             // On relance le timer si jeu avec contrainte
             if (ParentForm is JeuTimer jeuParent)
             {
