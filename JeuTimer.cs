@@ -88,5 +88,12 @@ namespace SuitesNumeriques
             UpdateTimeLabel(MyTimeManager.SecondsLeft);
             base.skipBtn_Click(sender, e);
         }
+
+
+        protected override void reglesBtn_Click(object sender, EventArgs e)
+        {
+            MyTimeManager.MyTimer.Stop();
+            base.reglesBtn_Click(sender, e);
+        }
     }
 }

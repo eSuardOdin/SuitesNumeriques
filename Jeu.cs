@@ -225,9 +225,10 @@ namespace SuitesNumeriques
 
         }
 
-        protected void reglesBtn_Click(object sender, EventArgs e)
+        protected virtual void reglesBtn_Click(object sender, EventArgs e)
         {
-            Rules rules = new Rules();
+            Rules rules = new Rules(this);
+            
             rules.Show();
             //MessageBox.Show("Implémenter les règles ici");
         }
