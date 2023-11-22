@@ -89,7 +89,6 @@
             Name = "Rules";
             Text = "Jeu: Règles du jeu";
             FormClosed += Rules_FormClosed;
-            Load += Rules_Load;
             ResumeLayout(false);
             PerformLayout();
         }
