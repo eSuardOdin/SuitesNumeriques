@@ -12,17 +12,34 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ScrollBar;
 
 namespace SuitesNumeriques
 {
-
+    /// <summary>
+    /// Classe gérant le formulaire de jeu sans contrainte
+    /// </summary>
     public partial class Jeu : Form
     {
-        protected MainForm mainForm;
+        // Reference vers le formulaire de menu principal
+        protected MainForm MyMainForm;
+        // Permet d'accèder à l'exercice dans Versus.Exercices[]
         protected int IndexExercice { get; set; }
-        public UntimedVersus Versus { get; private set; } // Pas sûr du tout
-        public List<Player> Players { get; private set; } = new();
+        //Reste d'une classe qui permettait de tester mon app en console -!- À refactoriser -!- 
+        public UntimedVersus Versus { get; private set; }
+        // Bool pour gérer les tours
         protected bool IsFirstPlayer { get; set; }
         public Player J1 { get; private set; }
         public Player J2 { get; private set; }
-        public Jeu() { InitializeComponent(); } // Pour pouvoir utiliser le designer
+
+        /// <summary>
+        /// Constructeur sans paramètres, utile uniquement pour pouvoir utiliser le designer de la classe enfant JeuTimer.
+        /// </summary>
+        public Jeu() { InitializeComponent(); }
+
+        /// <summary>
+        /// Constructeur de la classe
+        /// </summary>
+        /// <param name="j1">Joueur 1</param>
+        /// <param name="j2">Joueur 2</param>
+        /// <param name="typePartie">Type de la partie (arithmétique, géométrique ou quelconque si implémentée)</param>
+        /// <param name="mainForm">Le formulaire parent</param>
         public Jeu(Player j1, Player j2, string typePartie, MainForm mainForm)
         {
             InitializeComponent();
@@ -31,27 +48,11 @@ namespace SuitesNumeriques
             Versus = new UntimedVersus(typePartie, j1, j2);
             IsFirstPlayer = true;
             IndexExercice = 0;
+            // On affiche le premier exercice
             exoContainer.Text = $"Question N°{IndexExercice + 1}/6";
             enonceLbl.Text = Versus.Exercices[IndexExercice].Enonce;
             ResetAffichage(j1, Versus.Exercices[IndexExercice]);
-            this.mainForm = mainForm;
-        }
-
-        /// <summary>
-        /// Doit contenir la logique de jeu d'une partie (TO DELETE)
-        /// </summary>
-        protected void Play()
-        {
-            bool isFirstPlayer = true; // Le tour du joueur en cours
-            bool submitted = false;
-            int currentExercice = 1;
-            foreach (Exercice ex in Versus.Exercices)
-            {
-                foreach (Player p in Versus.Players)
-                {
-
-                }
-            }
+            MyMainForm = mainForm;
         }
 
 
@@ -60,11 +61,10 @@ namespace SuitesNumeriques
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected virtual void validBtn_Click(object sender, EventArgs e) //ATTENTION, JE N'AI PAS IMPLEMENTE LA PRISE EN COMPTE DE LA REP EN RADIO BTN
-                                                                // Peut faire GetAnswer qui donnerait soit la txtbox soit le radiobtn en fonction de IndexExo
+        protected virtual void validBtn_Click(object sender, EventArgs e)
         {
             Player currentPlayer = IsFirstPlayer ? J1 : J2;
-            // Si dernier exercice, on prend la valeur du radio btn
+            // Si dernier exercice, on prend la valeur du radio btn comme réponse.
             if (IndexExercice == 5)
             {
                 foreach (Control btn in repBox.Controls)
@@ -75,23 +75,27 @@ namespace SuitesNumeriques
                     }
                 }
             }
-
             // On process la réponse
             ShowAnswerResult(currentPlayer, Versus.Exercices[IndexExercice], repTxtBox.Text);
 
+            // Pour passer du joueur 1 au joueur 2, on change de suite sur le même type d'exercice
             if (IsFirstPlayer) Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
-
+            // Sinon on change de type d'exercice
             else IndexExercice++;
-
+            // On change le tour
             IsFirstPlayer = !IsFirstPlayer;
+
+            // Si on est pas sur le dernier exercice et que le tour est au joueur 2
             if (!IsFirstPlayer && IndexExercice <= 5)
             {
                 ResetAffichage(J2, Versus.Exercices[IndexExercice]);
             }
+            // Si on a terminé
             else if (IndexExercice == 6)
             {
                 EndGame();
             }
+            // Sinon on reset l'affichage et montre les radio buttons en cas d'exercice sur la monotonie
             else
             {
                 ResetAffichage(J1, Versus.Exercices[IndexExercice]);
@@ -144,7 +148,6 @@ namespace SuitesNumeriques
                 Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
                 ResetAffichage(currentPlayer, Versus.Exercices[IndexExercice]);
             }
-            //ResetAffichage(currentPlayer, Versus.Exercices[IndexExercice]);
         }
 
         /// <summary>
@@ -170,22 +173,29 @@ namespace SuitesNumeriques
 
 
         /// <summary>
-        /// Permet de switch entre radio button et textbox
+        /// Permet de switch entre radio button et textbox, construit pour pouvoir passer de l'un à l'autre
+        /// même si on ne se sert que de TextBox -> RadioButtons
         /// </summary>
         /// <param name="isRadio">Si true, montrer les radio buttons</param>
         protected void SwitchInputType(bool isRadio)
         {
             bool isOneChecked = false;
+            // Si TextBox -> RadioButtons
             if (isRadio)
             {
+                // On cache et desactive la TextBox
                 repTxtBox.Visible = false;
                 repTxtBox.Enabled = false;
+                
                 foreach (Control btn in repBox.Controls)
                 {
+                    // Si le control est un RadioButton
                     if (btn is System.Windows.Forms.RadioButton)
                     {
+                        // Activé et visible
                         btn.Visible = true;
                         btn.Enabled = true;
+                        // On en check un pour enlever la possibilité de valider sans réponse
                         if (!isOneChecked)
                         {
                             ((System.Windows.Forms.RadioButton)btn).Checked = true;
@@ -194,6 +204,7 @@ namespace SuitesNumeriques
                     }
                 }
             }
+            // Si RadioButtons -> TextBox
             else
             {
                 repTxtBox.Visible = true;
@@ -210,35 +221,50 @@ namespace SuitesNumeriques
         }
 
 
+        /// <summary>
+        /// Fin d'une partie, on crée un formulaire de fin auquel on passe notre reference du menu principal
+        /// </summary>
         protected virtual void EndGame()
         {
-            FinPartie fin = new(J1, J2, Versus.TypeSuite, mainForm, false);
+            FinPartie fin = new(J1, J2, Versus.TypeSuite, MyMainForm, false);
             fin.Show();
-            
             this.Dispose();
         }
 
-
+        /// <summary>
+        /// Clic sur le bouton de scores dont j'ai oublié de changer le nom
+        /// et que je laisserai ainsi pour ne pas froisser le .designer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"{J1.Pseudo}: {J1.Score}\n{J2.Pseudo}: {J2.Score}", "Partie en cours...", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
+        /// <summary>
+        /// Bouton règles, on passe une reference de notre form de jeu pour qu'il soit géré.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected virtual void reglesBtn_Click(object sender, EventArgs e)
         {
             Rules rules = new Rules(this);
-            
             rules.Show();
         }
 
+        /// <summary>
+        /// Fermeture du jeu et réouverture du main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected virtual void Jeu_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
-            if (mainForm != null && !mainForm.Visible) mainForm.Show();
+            if (MyMainForm != null && !MyMainForm.Visible) MyMainForm.Show();
         }
         
-
+/*
         // Control getters
         protected string getRepTxtBox(bool isRadio)
         {
@@ -253,6 +279,6 @@ namespace SuitesNumeriques
                 }
             }
             return repTxtBox.Text;
-        }
+        }*/
     }
 }

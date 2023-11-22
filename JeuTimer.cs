@@ -65,7 +65,7 @@ namespace SuitesNumeriques
         protected override void EndGame()
         {
             // Fin de partie timée
-            FinPartie fin = new(J1, J2, Versus.TypeSuite, mainForm, true);
+            FinPartie fin = new(J1, J2, Versus.TypeSuite, MyMainForm, true);
             fin.Show();
             this.Dispose();
         }
