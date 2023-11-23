@@ -10,8 +10,12 @@ using System.Windows.Forms;
 
 namespace SuitesNumeriques
 {
+    /// <summary>
+    /// Classe gérant le formulaire de fin de partie
+    /// </summary>
     public partial class FinPartie : Form
     {
+        // 
         private IOScoreManager? MyScoreManager { get; set; }
         
         private bool IsTimed { get; set; }
@@ -19,7 +23,7 @@ namespace SuitesNumeriques
         private Player J1 { get; set; }
         private Player J2 { get; set; }
         private string TypePartie { get; set; }
-        private bool IsNewPartie { get; set; } = false; // Permettra de choisir si on remontre le MainForm au Close
+        private bool IsNewPartie { get; set; } = false;
         public FinPartie(Player j1, Player j2, string typePartie, MainForm mainForm, bool isTimed)
         {
             InitializeComponent();
@@ -47,6 +51,7 @@ namespace SuitesNumeriques
             }
             else winnerTxt.Text = "MATCH NUL";
 
+            // Si partie avec contrainte, on instancie l'objet pour écrire les meilleurs scores
             if (IsTimed)
             {
                 // Instance de l'IO des scores
@@ -76,7 +81,7 @@ namespace SuitesNumeriques
             {
                 if (ctrl is GroupBox)
                 {
-                    // Check du radio btn
+                    // Check du radio btn correspondant au type de partie jouée
                     foreach (RadioButton btn in ctrl.Controls)
                     {
                         if (btn.Tag.ToString().ToLower() == TypePartie) btn.Checked = true;
@@ -93,7 +98,12 @@ namespace SuitesNumeriques
             }
         }
 
-
+        /// <summary>
+        /// Fermeture du formulaire, on affiche le menu principal si on ne part
+        /// pas en nouvelle partie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FinPartie_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (!IsNewPartie)
@@ -102,7 +112,12 @@ namespace SuitesNumeriques
             }
             this.Dispose();
         }
-
+        /// <summary>
+        /// Fermeture du formulaire, on affiche le menu principal si on ne part
+        /// pas en nouvelle partie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuBtn_Click(object sender, EventArgs e)
         {
             if (!IsNewPartie)
