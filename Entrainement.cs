@@ -10,28 +10,37 @@ using System.Windows.Forms;
 
 namespace SuitesNumeriques
 {
+    /// <summary>
+    /// Classe gérant le formulaire d'entrainement
+    /// </summary>
     public partial class Entrainement : Form
     {
+        // Ref du formulaire menu principal
         private MainForm MyMainForm { get; set; }
+        // Type de la partie "géométrique" ou "arithmétique"
         public string TypePartie { get; private set; }
-        public Partie Partie { get; private set; }
-
-        /*
-         * Test de ramener les exercices dans le form
-         */
+        // Array d'exercices
         public Exercice[] Exos { get; private set; } = new Exercice[6];
 
+        /// <summary>
+        /// Constructeur du formulaire d'entrainement
+        /// </summary>
+        /// <param name="label">Type de partie à afficher dans le nom de la fenêtre</param> // Que j'aurais pu gérer avec le param typePartie
+        /// <param name="typePartie">Type de la partie</param>
+        /// <param name="mainForm">Reference vers le formulaire de menu principal</param>
         public Entrainement(string label, string typePartie, MainForm mainForm)
         {
             InitializeComponent();
             MyMainForm = mainForm;
             TypePartie = typePartie;
-            Partie = new Partie(TypePartie);
             this.Text = $"Suites {label}: Rechercher...";
             InitExos();
         }
 
-
+        /// <summary>
+        /// Instancie les exercices en une classe enfant du type Exercice en fonction du Tag de l'onglet
+        /// puis affiche l'énoncé
+        /// </summary>
         private void InitExos()
         {
             exo0.Tag = TypePartie;
@@ -54,6 +63,11 @@ namespace SuitesNumeriques
             exo5.GetExoLabels();
         }
 
+        /// <summary>
+        /// Fermeture du formulaire et affichage du menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Entrainement_FormClosed(object sender, FormClosedEventArgs e)
         {
             MyMainForm.Show();
