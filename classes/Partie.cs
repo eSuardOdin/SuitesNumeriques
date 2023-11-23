@@ -1,3 +1,6 @@
+/// <summary>
+/// Classe pour gérer une partie, peut être utilisé dans une console app
+/// </summary>
 public class Partie
 {
     public string TypeSuite { get; private set; }
@@ -14,6 +17,9 @@ public class Partie
         
     }
 
+    /// <summary>
+    /// Instancie les exercices d'une partie
+    /// </summary>
     protected void CreatePartie()
     {
         Exercices[0] = new ExoTerme(TypeSuite);
@@ -24,6 +30,9 @@ public class Partie
         Exercices[5] = new ExoMonotonie(TypeSuite);
     }
 
+    /// <summary>
+    /// Pseudo jeu dans la console
+    /// </summary>
     protected virtual void Play()
     {
         foreach (var ex in Exercices)

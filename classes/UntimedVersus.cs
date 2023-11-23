@@ -1,5 +1,6 @@
 /// <summary>
 /// Permet de gérer une partie entre deux joueurs sur n'importe quel type de suite
+/// était utilisé sur les tests console
 /// </summary>
 public class UntimedVersus : Partie
 {

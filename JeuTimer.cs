@@ -124,6 +124,8 @@ namespace SuitesNumeriques
         /// <param name="e"></param>
         protected override void skipBtn_Click(object sender, EventArgs e)
         {
+            // Reset du timer
+            MyTimeManager.ResetTimer();
             UpdateTimeLabel(MyTimeManager.SecondsLeft);
             base.skipBtn_Click(sender, e);
         }

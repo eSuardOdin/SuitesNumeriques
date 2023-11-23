@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace SuitesNumeriques
 {
+    /// <summary>
+    /// Classe gérant le formulaire d'initialisation d'une partie (mal nommée du coup)
+    /// </summary>
     public partial class InitJoueurs : Form
     {
         private bool IsTimed {  get; set; }
@@ -40,7 +43,7 @@ namespace SuitesNumeriques
                     if (btn.Checked == true) typePartie = btn.Tag.ToString();
                 }
             }
-            // Vérification de l'input et lancement du jeu si ok (À IMPLEMENTER)
+            // Vérification de l'input et lancement du jeu si ok
             string err = InputValidation();
             if (err == "")
             {
@@ -55,10 +58,16 @@ namespace SuitesNumeriques
                 MyJeu.Show();
                 this.Close();
             }
+            // Message si erreurs
             else MessageBox.Show(err, "Erreur création de partie", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
 
+        /// <summary>
+        /// Fermeture du formulaire et ouverture du menu principal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InitJoueurs_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
