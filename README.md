@@ -137,3 +137,4 @@ Exos réussis * 150 - resets * 50 + temps * 5
 **À implémenter**
 - Fin d'un tour si le timer passe à 0 ?
 - Ajouter un Timer.Stop() lors de la fermeture du form (ou si le form est hide)
+- Faire les 10 meilleurs scores (9 pour le moment)

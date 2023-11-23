@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace SuitesNumeriques
 {
+    /// <summary>
+    /// Classe gérant le formulaire d'affichage des meilleurs scores
+    /// </summary>
     public partial class HighScores : Form
     {
         private IOScoreManager? ScoreManager { get; set; }
@@ -20,22 +23,28 @@ namespace SuitesNumeriques
             InitializeComponent();
             MyMainForm = mainForm;
             TypeSuite = typeSuite;
-            // Maj du nom fenêtre
             this.Text += $": Suite {TypeSuite}";
             ScoreManager = new(TypeSuite);
-            //scoresLbl.Text = ScoreManager.GetHighScores();
-            //ScoreManager.PopulateHighScores(scoresData);
             ScoreManager.PopulateList(scoresList);
         }
 
 
-
+        /// <summary>
+        /// Fermeture de la fenêtre et affichage du menu principal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HighScores_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (MyMainForm != null && !MyMainForm.Visible) MyMainForm.Show();
             this.Dispose();
         }
 
+        /// <summary>
+        /// Fermeture de la fenêtre et affichage du menu principal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuBtn_Click(object sender, EventArgs e)
         {
 
@@ -43,7 +52,11 @@ namespace SuitesNumeriques
             this.Dispose();
         }
 
-        // Empêcher le resize de columns
+        /// <summary>
+        /// Empêche de resize les colonnes du tableau de scores
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void scoresList_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             e.Cancel = true;

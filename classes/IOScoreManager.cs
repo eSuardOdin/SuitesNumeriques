@@ -2,6 +2,7 @@ using Microsoft.VisualBasic.Devices;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Markup;
 using static System.Formats.Asn1.AsnWriter;
 
 /// <summary>
@@ -86,6 +87,12 @@ public class IOScoreManager
             while ((line = reader.ReadLine()) != null && rank == -1)
             {
                 var values = line.Split(';');
+
+                if (values[0] == "" && compteur <= 10)
+                {
+                    rank = compteur;
+                    break;
+                }
                 if (Convert.ToInt32(values[0]) <= score)
                 {
                     rank = compteur;
