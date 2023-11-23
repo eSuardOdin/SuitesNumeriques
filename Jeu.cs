@@ -264,8 +264,12 @@ namespace SuitesNumeriques
             if (MyMainForm != null && !MyMainForm.Visible) MyMainForm.Show();
         }
         
-/*
-        // Control getters
+
+        /// <summary>
+        /// Get la TextBox depuis les formulaires enfant
+        /// </summary>
+        /// <param name="isRadio">Si oui, on prend la valeur du radioBtn dans la txtBox</param>
+        /// <returns></returns>
         protected string getRepTxtBox(bool isRadio)
         {
             if (isRadio)
@@ -279,6 +283,6 @@ namespace SuitesNumeriques
                 }
             }
             return repTxtBox.Text;
-        }*/
+        }
     }
 }
