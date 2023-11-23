@@ -83,6 +83,7 @@
             quelconquesEnProjetToolStripMenuItem.Name = "quelconquesEnProjetToolStripMenuItem";
             quelconquesEnProjetToolStripMenuItem.Size = new Size(202, 22);
             quelconquesEnProjetToolStripMenuItem.Text = "Quelconques (En projet)";
+            quelconquesEnProjetToolStripMenuItem.Click += quelconquesEnProjetToolStripMenuItem_Click;
             // 
             // jouerToolStripMenuItem
             // 
@@ -115,7 +116,7 @@
             // arithmétiqueToolStripMenuItem
             // 
             arithmétiqueToolStripMenuItem.Name = "arithmétiqueToolStripMenuItem";
-            arithmétiqueToolStripMenuItem.Size = new Size(180, 22);
+            arithmétiqueToolStripMenuItem.Size = new Size(144, 22);
             arithmétiqueToolStripMenuItem.Tag = "";
             arithmétiqueToolStripMenuItem.Text = "Arithmétique";
             arithmétiqueToolStripMenuItem.Click += arithmétiqueToolStripMenuItem_Click;
@@ -123,7 +124,7 @@
             // géométriqueToolStripMenuItem
             // 
             géométriqueToolStripMenuItem.Name = "géométriqueToolStripMenuItem";
-            géométriqueToolStripMenuItem.Size = new Size(180, 22);
+            géométriqueToolStripMenuItem.Size = new Size(144, 22);
             géométriqueToolStripMenuItem.Tag = "";
             géométriqueToolStripMenuItem.Text = "Géométrique";
             géométriqueToolStripMenuItem.Click += géométriqueToolStripMenuItem_Click;
