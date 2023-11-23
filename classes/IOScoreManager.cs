@@ -19,6 +19,9 @@ public class IOScoreManager
         InitEnv();
     }
 
+    /// <summary>
+    /// Initialisation des fichiers de score
+    /// </summary>
     private void InitEnv()
     {
         string path = Directory.GetCurrentDirectory();
@@ -124,17 +127,21 @@ public class IOScoreManager
                     newScore += $"{p.Score};{p.Pseudo};{date}\n";
                     compteur++;
                 }
-                if (compteur != 10) newScore += line + "\n";
+                if (compteur != 10) newScore += line + "\n"; // Ici ?
                 compteur++;
             }
         }
+        // Ecriture du nouveau texte du score
         using (StreamWriter sw = new StreamWriter(Path))
         {
             sw.WriteLine(newScore);
         }
     }
 
-
+    /// <summary>
+    /// Créer la chaîne de caractères utilisée pour remplir le form de scores
+    /// </summary>
+    /// <returns>Les scores en chaîne</returns>
     public string GetHighScores()
     {
         string scores = "Rang\t\tScore\t\tPseudo\t\tDate\n\n";
@@ -164,50 +171,10 @@ public class IOScoreManager
     }
 
 
-    /*public void PopulateHighScores(DataGridView dataGrid)
-    {
-        // Ajout des headers
-        dataGrid.ColumnCount = 4;
-        dataGrid.Columns[0].Name = "Rang";
-        dataGrid.Columns[1].Name = "Score";
-        dataGrid.Columns[2].Name = "Pseudo";
-        dataGrid.Columns[3].Name = "Date";
-
-        // Refresh ?
-
-
-        // Ajout des datas
-        int compteur = 1;
-        List<string[]> data = new();
-
-        using (StreamReader reader = new(Path))
-        {
-            string line;
-            while ((line = reader.ReadLine()) != null)
-            {
-                
-                var values = line.Split(';');
-                if (values[0] != "") // Prevent l'erreur de la dernière ligne vide ...
-                {
-                    if (values[1] != "") // Si pseudo non vide
-                    {
-                        string[] row = { $"{compteur}", $"{values[0]}", $"{values[1]}", $"{values[2]}" };
-                        data.Add(row);
-                    }
-                    else
-                    {
-                        string[] row = { $"{compteur}", "", "", ""};
-                        data.Add(row);
-                    }
-                    compteur++;
-                }
-            }
-            foreach(var row in data) dataGrid.Rows.Add(row);
-        }
-    }*/
-
-
-
+    /// <summary>
+    /// Remplit un formulaire de scores
+    /// </summary>
+    /// <param name="scoresList">La liste à remplir</param>
     public void PopulateList(ListView scoresList)
     {
         // Ajout des headers
@@ -246,6 +213,7 @@ public class IOScoreManager
                     compteur++;
                 }
             }
+            // Rajoute une ligne pour chaque score et la remplit (j'aurais pu gérer ça en une seule boucle, changer si assez de tps)
             foreach (var row in data)
             {
                 ListViewItem item = new(row);
