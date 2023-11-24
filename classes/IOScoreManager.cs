@@ -36,7 +36,7 @@ public class IOScoreManager
                 {
                     DateTime date = DateTime.Now;
                     string blank = "";
-                    for (int i = 0; i <= 10; i++)
+                    for (int i = 0; i < 10; i++)
                     {
                         blank += $"0;;{date}\n";
                     }
