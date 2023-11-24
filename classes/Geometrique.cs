@@ -1,3 +1,6 @@
+/// <summary>
+/// Classe gérant les suites géométriques
+/// </summary>
 public class Geometrique : Suite
 {
     public Geometrique(double raison, double premierTerme) : base(raison, premierTerme) {}
