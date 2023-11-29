@@ -8,6 +8,7 @@ namespace SuitesNumeriques
         public MainForm()
         {
             InitializeComponent();
+            
         }
 
 

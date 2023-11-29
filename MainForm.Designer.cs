@@ -28,142 +28,149 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
-            entrainementSurLesSuitesToolStripMenuItem = new ToolStripMenuItem();
-            arithmétiquesToolStripMenuItem = new ToolStripMenuItem();
-            géométriquesToolStripMenuItem = new ToolStripMenuItem();
-            quelconquesEnProjetToolStripMenuItem = new ToolStripMenuItem();
-            jouerToolStripMenuItem = new ToolStripMenuItem();
-            sansContrainteToolStripMenuItem = new ToolStripMenuItem();
-            avecContrainteToolStripMenuItem = new ToolStripMenuItem();
-            meilleursTempsToolStripMenuItem = new ToolStripMenuItem();
-            arithmétiqueToolStripMenuItem = new ToolStripMenuItem();
-            géométriqueToolStripMenuItem = new ToolStripMenuItem();
-            picLeft = new PictureBox();
-            picRight = new PictureBox();
-            menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picLeft).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picRight).BeginInit();
-            SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.entrainementSurLesSuitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arithmétiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.géométriquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quelconquesEnProjetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jouerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sansContrainteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.avecContrainteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.meilleursTempsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arithmétiqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.géométriqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { entrainementSurLesSuitesToolStripMenuItem, jouerToolStripMenuItem, meilleursTempsToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1100, 24);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.entrainementSurLesSuitesToolStripMenuItem,
+            this.jouerToolStripMenuItem,
+            this.meilleursTempsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1100, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // entrainementSurLesSuitesToolStripMenuItem
             // 
-            entrainementSurLesSuitesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { arithmétiquesToolStripMenuItem, géométriquesToolStripMenuItem, quelconquesEnProjetToolStripMenuItem });
-            entrainementSurLesSuitesToolStripMenuItem.Name = "entrainementSurLesSuitesToolStripMenuItem";
-            entrainementSurLesSuitesToolStripMenuItem.Size = new Size(160, 20);
-            entrainementSurLesSuitesToolStripMenuItem.Text = "Entrainement sur les Suites";
+            this.entrainementSurLesSuitesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arithmétiquesToolStripMenuItem,
+            this.géométriquesToolStripMenuItem,
+            this.quelconquesEnProjetToolStripMenuItem});
+            this.entrainementSurLesSuitesToolStripMenuItem.Name = "entrainementSurLesSuitesToolStripMenuItem";
+            this.entrainementSurLesSuitesToolStripMenuItem.Size = new System.Drawing.Size(160, 20);
+            this.entrainementSurLesSuitesToolStripMenuItem.Text = "Entrainement sur les Suites";
             // 
             // arithmétiquesToolStripMenuItem
             // 
-            arithmétiquesToolStripMenuItem.Name = "arithmétiquesToolStripMenuItem";
-            arithmétiquesToolStripMenuItem.Size = new Size(202, 22);
-            arithmétiquesToolStripMenuItem.Tag = "arithmétique";
-            arithmétiquesToolStripMenuItem.Text = "Arithmétiques";
-            arithmétiquesToolStripMenuItem.Click += arithmétiquesToolStripMenuItem_Click;
+            this.arithmétiquesToolStripMenuItem.Name = "arithmétiquesToolStripMenuItem";
+            this.arithmétiquesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.arithmétiquesToolStripMenuItem.Tag = "arithmétique";
+            this.arithmétiquesToolStripMenuItem.Text = "Arithmétiques";
             // 
             // géométriquesToolStripMenuItem
             // 
-            géométriquesToolStripMenuItem.Name = "géométriquesToolStripMenuItem";
-            géométriquesToolStripMenuItem.Size = new Size(202, 22);
-            géométriquesToolStripMenuItem.Tag = "géométrique";
-            géométriquesToolStripMenuItem.Text = "Géométriques";
-            géométriquesToolStripMenuItem.Click += géométriquesToolStripMenuItem_Click;
+            this.géométriquesToolStripMenuItem.Name = "géométriquesToolStripMenuItem";
+            this.géométriquesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.géométriquesToolStripMenuItem.Tag = "géométrique";
+            this.géométriquesToolStripMenuItem.Text = "Géométriques";
             // 
             // quelconquesEnProjetToolStripMenuItem
             // 
-            quelconquesEnProjetToolStripMenuItem.Name = "quelconquesEnProjetToolStripMenuItem";
-            quelconquesEnProjetToolStripMenuItem.Size = new Size(202, 22);
-            quelconquesEnProjetToolStripMenuItem.Text = "Quelconques (En projet)";
-            quelconquesEnProjetToolStripMenuItem.Click += quelconquesEnProjetToolStripMenuItem_Click;
+            this.quelconquesEnProjetToolStripMenuItem.Name = "quelconquesEnProjetToolStripMenuItem";
+            this.quelconquesEnProjetToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.quelconquesEnProjetToolStripMenuItem.Text = "Quelconques (En projet)";
             // 
             // jouerToolStripMenuItem
             // 
-            jouerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sansContrainteToolStripMenuItem, avecContrainteToolStripMenuItem });
-            jouerToolStripMenuItem.Name = "jouerToolStripMenuItem";
-            jouerToolStripMenuItem.Size = new Size(47, 20);
-            jouerToolStripMenuItem.Text = "Jouer";
+            this.jouerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sansContrainteToolStripMenuItem,
+            this.avecContrainteToolStripMenuItem});
+            this.jouerToolStripMenuItem.Name = "jouerToolStripMenuItem";
+            this.jouerToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.jouerToolStripMenuItem.Text = "Jouer";
             // 
             // sansContrainteToolStripMenuItem
             // 
-            sansContrainteToolStripMenuItem.Name = "sansContrainteToolStripMenuItem";
-            sansContrainteToolStripMenuItem.Size = new Size(157, 22);
-            sansContrainteToolStripMenuItem.Text = "Sans contrainte";
-            sansContrainteToolStripMenuItem.Click += sansContrainteToolStripMenuItem_Click;
+            this.sansContrainteToolStripMenuItem.Name = "sansContrainteToolStripMenuItem";
+            this.sansContrainteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.sansContrainteToolStripMenuItem.Text = "Sans contrainte";
             // 
             // avecContrainteToolStripMenuItem
             // 
-            avecContrainteToolStripMenuItem.Name = "avecContrainteToolStripMenuItem";
-            avecContrainteToolStripMenuItem.Size = new Size(157, 22);
-            avecContrainteToolStripMenuItem.Text = "Avec contrainte";
-            avecContrainteToolStripMenuItem.Click += avecContrainteToolStripMenuItem_Click;
+            this.avecContrainteToolStripMenuItem.Name = "avecContrainteToolStripMenuItem";
+            this.avecContrainteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.avecContrainteToolStripMenuItem.Text = "Avec contrainte";
             // 
             // meilleursTempsToolStripMenuItem
             // 
-            meilleursTempsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { arithmétiqueToolStripMenuItem, géométriqueToolStripMenuItem });
-            meilleursTempsToolStripMenuItem.Name = "meilleursTempsToolStripMenuItem";
-            meilleursTempsToolStripMenuItem.Size = new Size(103, 20);
-            meilleursTempsToolStripMenuItem.Text = "Meilleurs temps";
+            this.meilleursTempsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arithmétiqueToolStripMenuItem,
+            this.géométriqueToolStripMenuItem});
+            this.meilleursTempsToolStripMenuItem.Name = "meilleursTempsToolStripMenuItem";
+            this.meilleursTempsToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.meilleursTempsToolStripMenuItem.Text = "Meilleurs temps";
             // 
             // arithmétiqueToolStripMenuItem
             // 
-            arithmétiqueToolStripMenuItem.Name = "arithmétiqueToolStripMenuItem";
-            arithmétiqueToolStripMenuItem.Size = new Size(144, 22);
-            arithmétiqueToolStripMenuItem.Tag = "";
-            arithmétiqueToolStripMenuItem.Text = "Arithmétique";
-            arithmétiqueToolStripMenuItem.Click += arithmétiqueToolStripMenuItem_Click;
+            this.arithmétiqueToolStripMenuItem.Name = "arithmétiqueToolStripMenuItem";
+            this.arithmétiqueToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.arithmétiqueToolStripMenuItem.Tag = "";
+            this.arithmétiqueToolStripMenuItem.Text = "Arithmétique";
             // 
             // géométriqueToolStripMenuItem
             // 
-            géométriqueToolStripMenuItem.Name = "géométriqueToolStripMenuItem";
-            géométriqueToolStripMenuItem.Size = new Size(144, 22);
-            géométriqueToolStripMenuItem.Tag = "";
-            géométriqueToolStripMenuItem.Text = "Géométrique";
-            géométriqueToolStripMenuItem.Click += géométriqueToolStripMenuItem_Click;
+            this.géométriqueToolStripMenuItem.Name = "géométriqueToolStripMenuItem";
+            this.géométriqueToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.géométriqueToolStripMenuItem.Tag = "";
+            this.géométriqueToolStripMenuItem.Text = "Géométrique";
             // 
-            // picLeft
+            // panel1
             // 
-            picLeft.ImageLocation = "C:\\Users\\Erwann\\source\\repos\\SuitesNumeriques\\Stuff\\ari.png";
-            picLeft.Location = new Point(12, 37);
-            picLeft.Name = "picLeft";
-            picLeft.Size = new Size(500, 671);
-            picLeft.TabIndex = 1;
-            picLeft.TabStop = false;
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(23, 41);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1052, 671);
+            this.panel1.TabIndex = 1;
             // 
-            // picRight
+            // pictureBox1
             // 
-            picRight.ImageLocation = "C:\\Users\\Erwann\\source\\repos\\SuitesNumeriques\\Stuff\\geo.png";
-            picRight.Location = new Point(565, 37);
-            picRight.Name = "picRight";
-            picRight.Size = new Size(510, 671);
-            picRight.TabIndex = 2;
-            picRight.TabStop = false;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(96, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(819, 8097);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1100, 724);
-            Controls.Add(picRight);
-            Controls.Add(picLeft);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
-            Name = "MainForm";
-            Text = "Études des suites numériques en mathématiques";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picLeft).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picRight).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1100, 724);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "MainForm";
+            this.Text = "Études des suites numériques en mathématiques";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -177,9 +184,9 @@
         private ToolStripMenuItem sansContrainteToolStripMenuItem;
         private ToolStripMenuItem avecContrainteToolStripMenuItem;
         private ToolStripMenuItem meilleursTempsToolStripMenuItem;
-        private PictureBox picLeft;
-        private PictureBox picRight;
         private ToolStripMenuItem arithmétiqueToolStripMenuItem;
         private ToolStripMenuItem géométriqueToolStripMenuItem;
+        private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }
