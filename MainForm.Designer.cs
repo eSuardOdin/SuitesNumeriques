@@ -75,6 +75,7 @@
             this.arithmétiquesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.arithmétiquesToolStripMenuItem.Tag = "arithmétique";
             this.arithmétiquesToolStripMenuItem.Text = "Arithmétiques";
+            this.arithmétiquesToolStripMenuItem.Click += new System.EventHandler(this.arithmétiquesToolStripMenuItem_Click);
             // 
             // géométriquesToolStripMenuItem
             // 
@@ -82,12 +83,14 @@
             this.géométriquesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.géométriquesToolStripMenuItem.Tag = "géométrique";
             this.géométriquesToolStripMenuItem.Text = "Géométriques";
+            this.géométriquesToolStripMenuItem.Click += new System.EventHandler(this.géométriquesToolStripMenuItem_Click);
             // 
             // quelconquesEnProjetToolStripMenuItem
             // 
             this.quelconquesEnProjetToolStripMenuItem.Name = "quelconquesEnProjetToolStripMenuItem";
             this.quelconquesEnProjetToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.quelconquesEnProjetToolStripMenuItem.Text = "Quelconques (En projet)";
+            this.quelconquesEnProjetToolStripMenuItem.Click += new System.EventHandler(this.quelconquesEnProjetToolStripMenuItem_Click);
             // 
             // jouerToolStripMenuItem
             // 
@@ -101,14 +104,16 @@
             // sansContrainteToolStripMenuItem
             // 
             this.sansContrainteToolStripMenuItem.Name = "sansContrainteToolStripMenuItem";
-            this.sansContrainteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.sansContrainteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sansContrainteToolStripMenuItem.Text = "Sans contrainte";
+            this.sansContrainteToolStripMenuItem.Click += new System.EventHandler(this.sansContrainteToolStripMenuItem_Click);
             // 
             // avecContrainteToolStripMenuItem
             // 
             this.avecContrainteToolStripMenuItem.Name = "avecContrainteToolStripMenuItem";
-            this.avecContrainteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.avecContrainteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.avecContrainteToolStripMenuItem.Text = "Avec contrainte";
+            this.avecContrainteToolStripMenuItem.Click += new System.EventHandler(this.avecContrainteToolStripMenuItem_Click);
             // 
             // meilleursTempsToolStripMenuItem
             // 
@@ -122,16 +127,18 @@
             // arithmétiqueToolStripMenuItem
             // 
             this.arithmétiqueToolStripMenuItem.Name = "arithmétiqueToolStripMenuItem";
-            this.arithmétiqueToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.arithmétiqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.arithmétiqueToolStripMenuItem.Tag = "";
             this.arithmétiqueToolStripMenuItem.Text = "Arithmétique";
+            this.arithmétiqueToolStripMenuItem.Click += new System.EventHandler(this.arithmétiqueToolStripMenuItem_Click);
             // 
             // géométriqueToolStripMenuItem
             // 
             this.géométriqueToolStripMenuItem.Name = "géométriqueToolStripMenuItem";
-            this.géométriqueToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.géométriqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.géométriqueToolStripMenuItem.Tag = "";
             this.géométriqueToolStripMenuItem.Text = "Géométrique";
+            this.géométriqueToolStripMenuItem.Click += new System.EventHandler(this.géométriqueToolStripMenuItem_Click);
             // 
             // panel1
             // 

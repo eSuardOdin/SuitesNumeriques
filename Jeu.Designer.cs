@@ -143,14 +143,14 @@
             // repBox
             // 
             this.repBox.Controls.Add(this.premierTermeLbl);
-            this.repBox.Controls.Add(this.raisonLbl);
-            this.repBox.Controls.Add(this.premierTermeTxtBox);
-            this.repBox.Controls.Add(this.raisonTxtBox);
             this.repBox.Controls.Add(this.radio3);
             this.repBox.Controls.Add(this.repTxtBox);
+            this.repBox.Controls.Add(this.raisonLbl);
             this.repBox.Controls.Add(this.radio2);
             this.repBox.Controls.Add(this.reponseLbl);
+            this.repBox.Controls.Add(this.premierTermeTxtBox);
             this.repBox.Controls.Add(this.radio1);
+            this.repBox.Controls.Add(this.raisonTxtBox);
             this.repBox.Controls.Add(this.radio0);
             this.repBox.Location = new System.Drawing.Point(146, 245);
             this.repBox.Name = "repBox";
@@ -162,7 +162,7 @@
             // 
             this.premierTermeLbl.AutoSize = true;
             this.premierTermeLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.premierTermeLbl.Location = new System.Drawing.Point(0, 49);
+            this.premierTermeLbl.Location = new System.Drawing.Point(9, 49);
             this.premierTermeLbl.Name = "premierTermeLbl";
             this.premierTermeLbl.Size = new System.Drawing.Size(96, 15);
             this.premierTermeLbl.TabIndex = 8;
@@ -173,7 +173,7 @@
             // 
             this.raisonLbl.AutoSize = true;
             this.raisonLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.raisonLbl.Location = new System.Drawing.Point(47, 24);
+            this.raisonLbl.Location = new System.Drawing.Point(56, 24);
             this.raisonLbl.Name = "raisonLbl";
             this.raisonLbl.Size = new System.Drawing.Size(49, 15);
             this.raisonLbl.TabIndex = 2;
@@ -182,7 +182,7 @@
             // 
             // premierTermeTxtBox
             // 
-            this.premierTermeTxtBox.Location = new System.Drawing.Point(102, 42);
+            this.premierTermeTxtBox.Location = new System.Drawing.Point(111, 42);
             this.premierTermeTxtBox.Name = "premierTermeTxtBox";
             this.premierTermeTxtBox.Size = new System.Drawing.Size(110, 23);
             this.premierTermeTxtBox.TabIndex = 3;
@@ -190,7 +190,7 @@
             // 
             // raisonTxtBox
             // 
-            this.raisonTxtBox.Location = new System.Drawing.Point(102, 17);
+            this.raisonTxtBox.Location = new System.Drawing.Point(111, 17);
             this.raisonTxtBox.Name = "raisonTxtBox";
             this.raisonTxtBox.Size = new System.Drawing.Size(110, 23);
             this.raisonTxtBox.TabIndex = 2;

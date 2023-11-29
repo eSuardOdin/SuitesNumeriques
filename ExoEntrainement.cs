@@ -49,6 +49,11 @@ namespace SuitesNumeriques
                     break;
                 case 5:
                     Exo = new ExoMonotonie(typeSuite);
+                    repBox.Visible = false;
+                    repBox.Enabled = false;
+                    reponseLbl.Visible = false;
+                    groupBox1.Visible = true;
+                    radio0.Checked = true;
                     break;
                 default:
                     break;
