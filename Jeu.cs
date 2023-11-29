@@ -99,7 +99,7 @@ namespace SuitesNumeriques
             else
             {
                 ResetAffichage(J1, Versus.Exercices[IndexExercice]);
-                if (IndexExercice == 5) SwitchInputType(true);
+                if (IndexExercice == 5) SwitchInputType(2);
             }
         }
 
@@ -133,8 +133,12 @@ namespace SuitesNumeriques
             if (!IsFirstPlayer)
             {
                 IndexExercice++;
+                // On montre les deux txt box si exo 4
+                if (IndexExercice == 3) SwitchInputType(1);
                 // On montre les radio btns si dernier exercice
-                if (IndexExercice == 5) SwitchInputType(true);
+                else if (IndexExercice == 5) SwitchInputType(2);
+                // Sinon on reset
+                else SwitchInputType();
             }
             if (IndexExercice == 6)
             {
@@ -173,15 +177,14 @@ namespace SuitesNumeriques
 
 
         /// <summary>
-        /// Permet de switch entre radio button et textbox, construit pour pouvoir passer de l'un à l'autre
-        /// même si on ne se sert que de TextBox -> RadioButtons
+        /// Permet de switch entre radio button, double textbox et textbox
         /// </summary>
-        /// <param name="isRadio">Si true, montrer les radio buttons</param>
-        protected void SwitchInputType(bool isRadio)
+        /// <param name="type">Si 0 : On remet l'affichage de base<br/>Si 1 : On passe aux 2 txt box<br/>Si 2 : On passe aux radio btns</param>
+        protected void SwitchInputType(byte type = 0)
         {
             bool isOneChecked = false;
             // Si TextBox -> RadioButtons
-            if (isRadio)
+            if (type == 2)
             {
                 // On cache et desactive la TextBox
                 repTxtBox.Visible = false;
@@ -204,11 +207,37 @@ namespace SuitesNumeriques
                     }
                 }
             }
+            // Si TextBox -> 2x TextBox
+            else if (type == 1)
+            {
+                // On cache le champ de réponse de base
+                repTxtBox.Visible = false;
+                repTxtBox.Enabled = false;
+                reponseLbl.Visible = false;
+
+                // On montre le champ raison et premier terme
+                raisonTxtBox.Visible = true;
+                raisonTxtBox.Enabled = true;
+                raisonLbl.Visible = true;
+                premierTermeTxtBox.Visible = true;
+                premierTermeTxtBox.Enabled = true;
+                premierTermeLbl.Visible = true;
+            }
             // Si RadioButtons -> TextBox
             else
             {
                 repTxtBox.Visible = true;
                 repTxtBox.Enabled = true;
+                reponseLbl.Visible = true;
+
+                // On cache les labels et txtBox de raison et premier terme (qu'importe leur état)
+                raisonLbl.Visible = false;
+                raisonTxtBox.Visible = false;
+                raisonTxtBox.Enabled = false;
+                premierTermeLbl.Visible = false;
+                premierTermeTxtBox.Visible = false;
+                premierTermeTxtBox.Enabled = false;
+                // On cache les radio btns
                 foreach (Control btn in repBox.Controls)
                 {
                     if (btn is System.Windows.Forms.RadioButton)
