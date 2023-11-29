@@ -64,17 +64,20 @@ namespace SuitesNumeriques
         protected virtual void validBtn_Click(object sender, EventArgs e)
         {
             Player currentPlayer = IsFirstPlayer ? J1 : J2;
-            // Si dernier exercice, on prend la valeur du radio btn comme réponse.
-            if (IndexExercice == 5)
+
+            // Si exo 3, on prend la valeur des deux txtBox
+            if (IndexExercice == 3)
             {
-                foreach (Control btn in repBox.Controls)
-                {
-                    if (btn is System.Windows.Forms.RadioButton radio)
-                    {
-                        if (radio.Checked == true) repTxtBox.Text = radio.Text;
-                    }
-                }
+                repTxtBox.Text = GetRepTxtBox(1);
             }
+            // Si dernier exercice, on prend la valeur du radio btn comme réponse.
+            else if (IndexExercice == 5)
+            {
+                repTxtBox.Text = GetRepTxtBox(2);
+            }
+            // Sinon
+            else repTxtBox.Text = GetRepTxtBox();
+
             // On process la réponse
             ShowAnswerResult(currentPlayer, Versus.Exercices[IndexExercice], repTxtBox.Text);
 
@@ -96,10 +99,13 @@ namespace SuitesNumeriques
                 EndGame();
             }
             // Sinon on reset l'affichage et montre les radio buttons en cas d'exercice sur la monotonie
+            // ou les deux txt box en cas d'exercice raison et premier terme
             else
             {
                 ResetAffichage(J1, Versus.Exercices[IndexExercice]);
-                if (IndexExercice == 5) SwitchInputType(2);
+                if (IndexExercice == 3) SwitchInputType(1);
+                else if (IndexExercice == 5) SwitchInputType(2);
+                else SwitchInputType();
             }
         }
 
@@ -118,6 +124,8 @@ namespace SuitesNumeriques
             pointsTxt.Text = p.Score.ToString();
             pointsTxt.ForeColor = IsFirstPlayer == true ? Color.Red : Color.Blue;
             repTxtBox.Text = "";
+            raisonTxtBox.Text = "";
+            premierTermeTxtBox.Text = "";
         }
 
 
@@ -292,16 +300,16 @@ namespace SuitesNumeriques
             this.Dispose();
             if (MyMainForm != null && !MyMainForm.Visible) MyMainForm.Show();
         }
-        
+
 
         /// <summary>
         /// Get la TextBox depuis les formulaires enfant
         /// </summary>
-        /// <param name="isRadio">Si oui, on prend la valeur du radioBtn dans la txtBox</param>
+        /// <param name="type">Si 0, on prend la valeur de la repTxtBox<br/>Si 1, on prend les valeurs des deux txtBox<br/>Si 2, on prend la valeur du radioBtn dans la txtBox</param>
         /// <returns></returns>
-        protected string getRepTxtBox(bool isRadio)
+        protected string GetRepTxtBox(byte type = 0)
         {
-            if (isRadio)
+            if (type == 2)
             {
                 foreach (Control btn in repBox.Controls)
                 {
@@ -311,6 +319,12 @@ namespace SuitesNumeriques
                     }
                 }
             }
+            else if (type == 1)
+            {
+                repTxtBox.Text = $"{raisonTxtBox.Text.Trim()} {premierTermeTxtBox.Text.Trim()}";
+            }
+
+            else repTxtBox.Text = repTxtBox.Text.Trim();
             return repTxtBox.Text;
         }
     }

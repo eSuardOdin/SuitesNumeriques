@@ -43,4 +43,12 @@ public class TimeManager
     {
         SecondsLeft = StartingSeconds;
     }
+
+    /// <summary>
+    /// Permet de se désinscrire à l'event timer dans le jeu avec contrainte
+    /// </summary>
+    public void DetachEvent()
+    {
+        MyTimer.Elapsed -= OnSecEvent;
+    }
 }

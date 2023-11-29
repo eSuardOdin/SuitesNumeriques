@@ -92,23 +92,23 @@ namespace SuitesNumeriques
         protected override void validBtn_Click(object sender, EventArgs e)
         {
             Player currentPlayer = IsFirstPlayer ? J1 : J2;
-            
-            // Si on est pas dans la dernière question on ne prend pas en compte les radio buttons:
-            if(IndexExercice != 5)
+            byte repType;
+            switch (IndexExercice)
             {
-                if (currentPlayer.Repondre(Versus.Exercices[IndexExercice], base.getRepTxtBox(false)))
-                {
-                    currentPlayer.AddTime(MyTimeManager.SecondsLeft);
-                    currentPlayer.AddTimedScore(MyTimeManager.SecondsLeft);
-                }
+                case 3:
+                    repType = 1;
+                    break;
+                case 5:
+                    repType = 2;
+                    break;
+                default:
+                    repType = 0;
+                    break;
             }
-            else
+            if (currentPlayer.Repondre(Versus.Exercices[IndexExercice], base.GetRepTxtBox(repType)))
             {
-                if (currentPlayer.Repondre(Versus.Exercices[IndexExercice], base.getRepTxtBox(true)))
-                {
-                    currentPlayer.AddTime(MyTimeManager.SecondsLeft);
-                    currentPlayer.AddTimedScore(MyTimeManager.SecondsLeft);
-                }
+                currentPlayer.AddTime(MyTimeManager.SecondsLeft);
+                currentPlayer.AddTimedScore(MyTimeManager.SecondsLeft);
             }
             
             // Reset du timer
@@ -150,8 +150,8 @@ namespace SuitesNumeriques
         protected override void Jeu_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Pour eviter la null reference de l'event qui ne peut pas mettre à jour le form
-            MyTimeManager.MyTimer.Stop();
-
+            // mais même en enlevant ça, je ne parviens pas à reproduire le bug...
+            MyTimeManager.DetachEvent();
             base.Jeu_FormClosed(sender, e);
         }
     }

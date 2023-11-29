@@ -118,7 +118,7 @@ public class IOScoreManager
         using (StreamReader reader = new(Path))
         {
             string line;
-            while((line = reader.ReadLine()) != null && compteur <= 10)
+            while((line = reader.ReadLine()) != null && compteur <= 11)
             {
                 DateTime date = DateTime.Now;
                 var values = line.Split(';');
@@ -127,7 +127,7 @@ public class IOScoreManager
                     newScore += $"{p.Score};{p.Pseudo};{date}\n";
                     compteur++;
                 }
-                if (compteur != 10) newScore += line + "\n"; // Ici ?
+                if (compteur != 11) newScore += line + "\n"; // Ici ?
                 compteur++;
             }
         }
