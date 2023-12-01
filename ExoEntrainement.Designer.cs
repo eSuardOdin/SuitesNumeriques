@@ -202,17 +202,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.premierTermeLbl);
             this.Controls.Add(this.raisonLbl);
-            this.Controls.Add(this.premierTermeTxtBox);
-            this.Controls.Add(this.raisonTxtBox);
             this.Controls.Add(this.repStatutLbl);
             this.Controls.Add(this.validBtn);
-            this.Controls.Add(this.repBox);
             this.Controls.Add(this.reponseLbl);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.enonceLbl);
+            this.Controls.Add(this.raisonTxtBox);
+            this.Controls.Add(this.premierTermeTxtBox);
+            this.Controls.Add(this.repBox);
+            this.Controls.Add(this.groupBox1);
             this.Name = "ExoEntrainement";
             this.Size = new System.Drawing.Size(714, 319);
             this.groupBox1.ResumeLayout(false);

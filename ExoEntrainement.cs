@@ -20,6 +20,7 @@ namespace SuitesNumeriques
         public ExoEntrainement(/*string typeSuite*/)
         {
             InitializeComponent();
+            repStatutLbl.Location = new Point(375, 295);
         }
 
 
@@ -43,6 +44,15 @@ namespace SuitesNumeriques
                     break;
                 case 3:
                     Exo = new ExoRaison(typeSuite);
+                    repBox.Visible = false;
+                    repBox.Enabled = false;
+                    reponseLbl.Visible = false;
+                    premierTermeLbl.Visible = true;
+                    premierTermeTxtBox.Visible = true;
+                    premierTermeTxtBox.Enabled = true;
+                    raisonLbl.Visible = true;
+                    raisonTxtBox.Visible = true;
+                    raisonTxtBox.Enabled = true;
                     break;
                 case 4:
                     Exo = new ExoSomme(typeSuite);
@@ -71,10 +81,27 @@ namespace SuitesNumeriques
             enonceLbl.Text = Exo.Enonce;
             repBox.Text = "";
             repStatutLbl.Text = "";
+            raisonTxtBox.Text = "";
+            premierTermeTxtBox.Text = "";
         }
 
         private void validBtn_Click(object sender, EventArgs e)
         {
+            if(Exo is ExoMonotonie)
+            {
+                foreach (Control btn in groupBox1.Controls)
+                {
+                    if (btn is System.Windows.Forms.RadioButton radio)
+                    {
+                        if (radio.Checked == true) repBox.Text = radio.Text;
+                    }
+                }
+            }
+            else if (Exo is ExoRaison)
+            {
+                repBox.Text = $"{raisonTxtBox.Text} {premierTermeTxtBox.Text}";
+            }
+            System.Diagnostics.Debug.WriteLine(repBox.Text);
             if (repBox.Text == Exo.Reponse)
             {
                 repStatutLbl.ForeColor = Color.Blue;
