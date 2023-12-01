@@ -71,7 +71,7 @@
             // 
             this.reponseLbl.AutoSize = true;
             this.reponseLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.reponseLbl.Location = new System.Drawing.Point(221, 255);
+            this.reponseLbl.Location = new System.Drawing.Point(30, 34);
             this.reponseLbl.Name = "reponseLbl";
             this.reponseLbl.Size = new System.Drawing.Size(64, 15);
             this.reponseLbl.TabIndex = 6;
@@ -190,6 +190,7 @@
             this.groupBox1.Controls.Add(this.radio0);
             this.groupBox1.Controls.Add(this.radio3);
             this.groupBox1.Controls.Add(this.radio2);
+            this.groupBox1.Controls.Add(this.reponseLbl);
             this.groupBox1.Controls.Add(this.radio1);
             this.groupBox1.Location = new System.Drawing.Point(175, 213);
             this.groupBox1.Name = "groupBox1";
@@ -202,17 +203,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.premierTermeLbl);
             this.Controls.Add(this.raisonLbl);
             this.Controls.Add(this.repStatutLbl);
             this.Controls.Add(this.validBtn);
-            this.Controls.Add(this.reponseLbl);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.enonceLbl);
             this.Controls.Add(this.raisonTxtBox);
             this.Controls.Add(this.premierTermeTxtBox);
             this.Controls.Add(this.repBox);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.premierTermeLbl);
             this.Name = "ExoEntrainement";
             this.Size = new System.Drawing.Size(714, 319);
             this.groupBox1.ResumeLayout(false);

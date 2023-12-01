@@ -101,7 +101,7 @@ namespace SuitesNumeriques
             {
                 repBox.Text = $"{raisonTxtBox.Text} {premierTermeTxtBox.Text}";
             }
-            System.Diagnostics.Debug.WriteLine(repBox.Text);
+            System.Diagnostics.Debug.WriteLine("Répondu : " + repBox.Text + ", la réponse était : " + Exo.Reponse);
             if (repBox.Text == Exo.Reponse)
             {
                 repStatutLbl.ForeColor = Color.Blue;
