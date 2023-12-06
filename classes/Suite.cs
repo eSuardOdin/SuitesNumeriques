@@ -1,7 +1,7 @@
 /// <summary>
 /// La classe mère d'une suite, contient les méthodes à override par les classes enfant
 /// </summary>
-public class Suite
+public abstract class Suite
 {
     public double Raison {get; private set;}
     public double PremierTerme {get; private set;} 
@@ -12,26 +12,8 @@ public class Suite
         PremierTerme = premierTerme;
     }
 
-    public virtual double GetValueAt(int rank)
-    {
-
-        return 0;
-    }
-
-    public virtual double GetSum(int firstN)
-    {
-
-        return 0;
-    }
-
-    public virtual bool IsMonotone()
-    {
-
-        return true;
-    }
-
-    public virtual string GetCroissance()
-    {
-        return "";
-    }
+    public abstract double GetValueAt(int rank);
+    public abstract double GetSum(int firstN);
+    public abstract bool IsMonotone();
+    public abstract string GetCroissance();
 }

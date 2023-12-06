@@ -2,7 +2,6 @@ public class ExoRaison : Exercice
 {
     public ExoRaison(string typeSuite)
     {
-        //base.
         GetNewSuite(typeSuite);
         SetEnonce(typeSuite);
     }

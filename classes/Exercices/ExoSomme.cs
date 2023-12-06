@@ -2,7 +2,6 @@ public class ExoSomme : Exercice
 {
     public ExoSomme(string typeSuite)
     {
-        //base.
         GetNewSuite(typeSuite);
         SetEnonce(typeSuite);
     }

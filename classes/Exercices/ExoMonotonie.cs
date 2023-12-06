@@ -2,7 +2,6 @@ public class ExoMonotonie : Exercice
 {
     public ExoMonotonie(string typeSuite)
     {
-        //base.
         GetNewSuite(typeSuite);
         SetEnonce(typeSuite);
     }

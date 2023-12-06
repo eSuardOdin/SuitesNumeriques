@@ -10,7 +10,9 @@ using static System.Formats.Asn1.AsnWriter;
 /// </summary>
 public class IOScoreManager
 {
-    public FileStream? Fs;
+    
+    //public FileStream? Fs;
+    
     public string Path {get; private set;} = Directory.GetCurrentDirectory();
 
     public IOScoreManager(string typeSuite)
@@ -137,39 +139,6 @@ public class IOScoreManager
             sw.WriteLine(newScore);
         }
     }
-
-    /// <summary>
-    /// Créer la chaîne de caractères utilisée pour remplir le form de scores
-    /// </summary>
-    /// <returns>Les scores en chaîne</returns>
-    public string GetHighScores()
-    {
-        string scores = "Rang\t\tScore\t\tPseudo\t\tDate\n\n";
-        int compteur = 1;
-
-        using (StreamReader reader = new(Path))
-        {
-            string line;
-            while ((line = reader.ReadLine()) != null)
-            {
-                var values = line.Split(';');
-                if(values[0] != "") // Prevent l'erreur de la dernière ligne vide ...
-                {
-                    if (values[1] != "") // Si pseudo non vide
-                    {
-                        scores += $". {compteur}\t\t{values[0]}\t\t{values[1]}\t\t{values[2]}\n\n";
-                    }
-                    else
-                    {
-                        scores += $". {compteur}\n\n";
-                    }
-                    compteur++;
-                }
-            }
-        }
-        return scores;
-    }
-
 
     /// <summary>
     /// Remplit un formulaire de scores

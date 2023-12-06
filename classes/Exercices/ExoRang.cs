@@ -2,7 +2,6 @@ public class ExoRang : Exercice
 {
     public ExoRang(string typeSuite)
     {
-        //base.
         GetNewSuite(typeSuite);
         SetEnonce(typeSuite);
     }

@@ -28,198 +28,197 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.enonceLbl = new System.Windows.Forms.Label();
-            this.resetBtn = new System.Windows.Forms.Button();
-            this.reponseLbl = new System.Windows.Forms.Label();
-            this.repBox = new System.Windows.Forms.TextBox();
-            this.validBtn = new System.Windows.Forms.Button();
-            this.repStatutLbl = new System.Windows.Forms.Label();
-            this.premierTermeLbl = new System.Windows.Forms.Label();
-            this.raisonLbl = new System.Windows.Forms.Label();
-            this.premierTermeTxtBox = new System.Windows.Forms.TextBox();
-            this.raisonTxtBox = new System.Windows.Forms.TextBox();
-            this.radio2 = new System.Windows.Forms.RadioButton();
-            this.radio0 = new System.Windows.Forms.RadioButton();
-            this.radio3 = new System.Windows.Forms.RadioButton();
-            this.radio1 = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
-            this.SuspendLayout();
+            enonceLbl = new Label();
+            resetBtn = new Button();
+            reponseLbl = new Label();
+            repBox = new TextBox();
+            validBtn = new Button();
+            repStatutLbl = new Label();
+            premierTermeLbl = new Label();
+            raisonLbl = new Label();
+            premierTermeTxtBox = new TextBox();
+            raisonTxtBox = new TextBox();
+            radio2 = new RadioButton();
+            radio0 = new RadioButton();
+            radio3 = new RadioButton();
+            radio1 = new RadioButton();
+            groupBox1 = new GroupBox();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
             // 
             // enonceLbl
             // 
-            this.enonceLbl.AutoSize = true;
-            this.enonceLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.enonceLbl.Location = new System.Drawing.Point(77, 78);
-            this.enonceLbl.Name = "enonceLbl";
-            this.enonceLbl.Size = new System.Drawing.Size(40, 15);
-            this.enonceLbl.TabIndex = 4;
-            this.enonceLbl.Text = "label1";
+            enonceLbl.AutoSize = true;
+            enonceLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            enonceLbl.Location = new Point(77, 78);
+            enonceLbl.Name = "enonceLbl";
+            enonceLbl.Size = new Size(40, 15);
+            enonceLbl.TabIndex = 4;
+            enonceLbl.Text = "label1";
             // 
             // resetBtn
             // 
-            this.resetBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.resetBtn.Location = new System.Drawing.Point(258, 16);
-            this.resetBtn.Name = "resetBtn";
-            this.resetBtn.Size = new System.Drawing.Size(152, 23);
-            this.resetBtn.TabIndex = 5;
-            this.resetBtn.Text = "Nouvelle Recherche";
-            this.resetBtn.UseVisualStyleBackColor = true;
-            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
+            resetBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            resetBtn.Location = new Point(258, 16);
+            resetBtn.Name = "resetBtn";
+            resetBtn.Size = new Size(152, 23);
+            resetBtn.TabIndex = 5;
+            resetBtn.Text = "Nouvelle Recherche";
+            resetBtn.UseVisualStyleBackColor = true;
+            resetBtn.Click += resetBtn_Click;
             // 
             // reponseLbl
             // 
-            this.reponseLbl.AutoSize = true;
-            this.reponseLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.reponseLbl.Location = new System.Drawing.Point(30, 34);
-            this.reponseLbl.Name = "reponseLbl";
-            this.reponseLbl.Size = new System.Drawing.Size(64, 15);
-            this.reponseLbl.TabIndex = 6;
-            this.reponseLbl.Text = "Réponse : ";
+            reponseLbl.AutoSize = true;
+            reponseLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            reponseLbl.Location = new Point(96, 251);
+            reponseLbl.Name = "reponseLbl";
+            reponseLbl.Size = new Size(64, 15);
+            reponseLbl.TabIndex = 6;
+            reponseLbl.Text = "Réponse : ";
             // 
             // repBox
             // 
-            this.repBox.Location = new System.Drawing.Point(291, 247);
-            this.repBox.Name = "repBox";
-            this.repBox.Size = new System.Drawing.Size(170, 23);
-            this.repBox.TabIndex = 7;
+            repBox.Location = new Point(291, 247);
+            repBox.Name = "repBox";
+            repBox.Size = new Size(170, 23);
+            repBox.TabIndex = 7;
             // 
             // validBtn
             // 
-            this.validBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.validBtn.Location = new System.Drawing.Point(291, 293);
-            this.validBtn.Name = "validBtn";
-            this.validBtn.Size = new System.Drawing.Size(75, 23);
-            this.validBtn.TabIndex = 8;
-            this.validBtn.Text = "Valider";
-            this.validBtn.UseVisualStyleBackColor = true;
-            this.validBtn.Click += new System.EventHandler(this.validBtn_Click);
+            validBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            validBtn.Location = new Point(291, 293);
+            validBtn.Name = "validBtn";
+            validBtn.Size = new Size(75, 23);
+            validBtn.TabIndex = 8;
+            validBtn.Text = "Valider";
+            validBtn.UseVisualStyleBackColor = true;
+            validBtn.Click += validBtn_Click;
             // 
             // repStatutLbl
             // 
-            this.repStatutLbl.AutoSize = true;
-            this.repStatutLbl.Location = new System.Drawing.Point(334, 241);
-            this.repStatutLbl.Name = "repStatutLbl";
-            this.repStatutLbl.Size = new System.Drawing.Size(0, 15);
-            this.repStatutLbl.TabIndex = 9;
+            repStatutLbl.AutoSize = true;
+            repStatutLbl.Location = new Point(334, 241);
+            repStatutLbl.Name = "repStatutLbl";
+            repStatutLbl.Size = new Size(0, 15);
+            repStatutLbl.TabIndex = 9;
             // 
             // premierTermeLbl
             // 
-            this.premierTermeLbl.AutoSize = true;
-            this.premierTermeLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.premierTermeLbl.Location = new System.Drawing.Point(189, 255);
-            this.premierTermeLbl.Name = "premierTermeLbl";
-            this.premierTermeLbl.Size = new System.Drawing.Size(96, 15);
-            this.premierTermeLbl.TabIndex = 13;
-            this.premierTermeLbl.Text = "Premier terme :";
-            this.premierTermeLbl.Visible = false;
+            premierTermeLbl.AutoSize = true;
+            premierTermeLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            premierTermeLbl.Location = new Point(189, 255);
+            premierTermeLbl.Name = "premierTermeLbl";
+            premierTermeLbl.Size = new Size(96, 15);
+            premierTermeLbl.TabIndex = 13;
+            premierTermeLbl.Text = "Premier terme :";
+            premierTermeLbl.Visible = false;
             // 
             // raisonLbl
             // 
-            this.raisonLbl.AutoSize = true;
-            this.raisonLbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.raisonLbl.Location = new System.Drawing.Point(236, 230);
-            this.raisonLbl.Name = "raisonLbl";
-            this.raisonLbl.Size = new System.Drawing.Size(49, 15);
-            this.raisonLbl.TabIndex = 10;
-            this.raisonLbl.Text = "Raison :";
-            this.raisonLbl.Visible = false;
+            raisonLbl.AutoSize = true;
+            raisonLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            raisonLbl.Location = new Point(236, 230);
+            raisonLbl.Name = "raisonLbl";
+            raisonLbl.Size = new Size(49, 15);
+            raisonLbl.TabIndex = 10;
+            raisonLbl.Text = "Raison :";
+            raisonLbl.Visible = false;
             // 
             // premierTermeTxtBox
             // 
-            this.premierTermeTxtBox.Location = new System.Drawing.Point(291, 248);
-            this.premierTermeTxtBox.Name = "premierTermeTxtBox";
-            this.premierTermeTxtBox.Size = new System.Drawing.Size(110, 23);
-            this.premierTermeTxtBox.TabIndex = 12;
-            this.premierTermeTxtBox.Visible = false;
+            premierTermeTxtBox.Location = new Point(291, 248);
+            premierTermeTxtBox.Name = "premierTermeTxtBox";
+            premierTermeTxtBox.Size = new Size(110, 23);
+            premierTermeTxtBox.TabIndex = 12;
+            premierTermeTxtBox.Visible = false;
             // 
             // raisonTxtBox
             // 
-            this.raisonTxtBox.Location = new System.Drawing.Point(291, 223);
-            this.raisonTxtBox.Name = "raisonTxtBox";
-            this.raisonTxtBox.Size = new System.Drawing.Size(110, 23);
-            this.raisonTxtBox.TabIndex = 11;
-            this.raisonTxtBox.Visible = false;
+            raisonTxtBox.Location = new Point(291, 223);
+            raisonTxtBox.Name = "raisonTxtBox";
+            raisonTxtBox.Size = new Size(110, 23);
+            raisonTxtBox.TabIndex = 11;
+            raisonTxtBox.Visible = false;
             // 
             // radio2
             // 
-            this.radio2.AutoSize = true;
-            this.radio2.Location = new System.Drawing.Point(9, 46);
-            this.radio2.Name = "radio2";
-            this.radio2.Size = new System.Drawing.Size(137, 19);
-            this.radio2.TabIndex = 16;
-            this.radio2.TabStop = true;
-            this.radio2.Text = "Monotone croissante";
-            this.radio2.UseVisualStyleBackColor = true;
+            radio2.AutoSize = true;
+            radio2.Location = new Point(9, 46);
+            radio2.Name = "radio2";
+            radio2.Size = new Size(137, 19);
+            radio2.TabIndex = 16;
+            radio2.TabStop = true;
+            radio2.Text = "Monotone croissante";
+            radio2.UseVisualStyleBackColor = true;
             // 
             // radio0
             // 
-            this.radio0.AutoSize = true;
-            this.radio0.Location = new System.Drawing.Point(9, 22);
-            this.radio0.Name = "radio0";
-            this.radio0.Size = new System.Drawing.Size(107, 19);
-            this.radio0.TabIndex = 14;
-            this.radio0.TabStop = true;
-            this.radio0.Text = "Non monotone";
-            this.radio0.UseVisualStyleBackColor = true;
+            radio0.AutoSize = true;
+            radio0.Location = new Point(9, 22);
+            radio0.Name = "radio0";
+            radio0.Size = new Size(107, 19);
+            radio0.TabIndex = 14;
+            radio0.TabStop = true;
+            radio0.Text = "Non monotone";
+            radio0.UseVisualStyleBackColor = true;
             // 
             // radio3
             // 
-            this.radio3.AutoSize = true;
-            this.radio3.Location = new System.Drawing.Point(170, 46);
-            this.radio3.Name = "radio3";
-            this.radio3.Size = new System.Drawing.Size(150, 19);
-            this.radio3.TabIndex = 17;
-            this.radio3.TabStop = true;
-            this.radio3.Text = "Monotone décroissante";
-            this.radio3.UseVisualStyleBackColor = true;
+            radio3.AutoSize = true;
+            radio3.Location = new Point(170, 46);
+            radio3.Name = "radio3";
+            radio3.Size = new Size(150, 19);
+            radio3.TabIndex = 17;
+            radio3.TabStop = true;
+            radio3.Text = "Monotone décroissante";
+            radio3.UseVisualStyleBackColor = true;
             // 
             // radio1
             // 
-            this.radio1.AutoSize = true;
-            this.radio1.Location = new System.Drawing.Point(170, 22);
-            this.radio1.Name = "radio1";
-            this.radio1.Size = new System.Drawing.Size(136, 19);
-            this.radio1.TabIndex = 15;
-            this.radio1.TabStop = true;
-            this.radio1.Text = "Monotone constante";
-            this.radio1.UseVisualStyleBackColor = true;
+            radio1.AutoSize = true;
+            radio1.Location = new Point(170, 22);
+            radio1.Name = "radio1";
+            radio1.Size = new Size(136, 19);
+            radio1.TabIndex = 15;
+            radio1.TabStop = true;
+            radio1.Text = "Monotone constante";
+            radio1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radio0);
-            this.groupBox1.Controls.Add(this.radio3);
-            this.groupBox1.Controls.Add(this.radio2);
-            this.groupBox1.Controls.Add(this.reponseLbl);
-            this.groupBox1.Controls.Add(this.radio1);
-            this.groupBox1.Location = new System.Drawing.Point(175, 213);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 74);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Visible = false;
+            groupBox1.Controls.Add(radio0);
+            groupBox1.Controls.Add(radio3);
+            groupBox1.Controls.Add(radio2);
+            groupBox1.Controls.Add(radio1);
+            groupBox1.Location = new Point(175, 213);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(318, 74);
+            groupBox1.TabIndex = 18;
+            groupBox1.TabStop = false;
+            groupBox1.Visible = false;
             // 
             // ExoEntrainement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.raisonLbl);
-            this.Controls.Add(this.repStatutLbl);
-            this.Controls.Add(this.validBtn);
-            this.Controls.Add(this.resetBtn);
-            this.Controls.Add(this.enonceLbl);
-            this.Controls.Add(this.raisonTxtBox);
-            this.Controls.Add(this.premierTermeTxtBox);
-            this.Controls.Add(this.repBox);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.premierTermeLbl);
-            this.Name = "ExoEntrainement";
-            this.Size = new System.Drawing.Size(714, 319);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(raisonLbl);
+            Controls.Add(repStatutLbl);
+            Controls.Add(validBtn);
+            Controls.Add(reponseLbl);
+            Controls.Add(resetBtn);
+            Controls.Add(enonceLbl);
+            Controls.Add(raisonTxtBox);
+            Controls.Add(premierTermeTxtBox);
+            Controls.Add(repBox);
+            Controls.Add(groupBox1);
+            Controls.Add(premierTermeLbl);
+            Name = "ExoEntrainement";
+            Size = new Size(714, 319);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

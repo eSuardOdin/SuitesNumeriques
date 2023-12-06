@@ -5,15 +5,11 @@ public class Partie
 {
     public string TypeSuite { get; private set; }
     public Exercice[] Exercices{ get; private set; } = new Exercice[6];
-    public int Score { get; private set; }
 
     public Partie(string typeSuite)
     {
         TypeSuite = typeSuite;
-        Score = 0;
-        
         CreatePartie();
-        Play();
         
     }
 
@@ -29,7 +25,7 @@ public class Partie
         Exercices[4] = new ExoSomme(TypeSuite);
         Exercices[5] = new ExoMonotonie(TypeSuite);
     }
-
+    /*
     /// <summary>
     /// Pseudo jeu dans la console
     /// </summary>
@@ -49,5 +45,5 @@ public class Partie
             else Console.WriteLine($"Faux, la réponse est : {ex.Reponse}");
         }
         Console.WriteLine($"Votre score est de {Score}/{Exercices.Length}");
-    }
+    }*/
 }
