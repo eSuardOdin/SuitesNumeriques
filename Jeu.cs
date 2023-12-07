@@ -22,7 +22,9 @@ namespace SuitesNumeriques
         // Permet d'accèder à l'exercice dans Versus.Exercices[]
         protected int IndexExercice { get; set; }
         //Reste d'une classe qui permettait de tester mon app en console -!- À refactoriser -!- 
-        public UntimedVersus Versus { get; private set; }
+        //public UntimedVersus Versus { get; private set; }
+        protected string TypeSuite { get; set; }
+        protected Exercice[] Exercices { get; set; } = new Exercice[6];
         // Bool pour gérer les tours
         protected bool IsFirstPlayer { get; set; }
         public Player J1 { get; private set; }
@@ -45,13 +47,15 @@ namespace SuitesNumeriques
             InitializeComponent();
             J1 = j1;
             J2 = j2;
-            Versus = new UntimedVersus(typePartie, j1, j2);
+            TypeSuite = typePartie;
+            GetExercices();
+            //Versus = new UntimedVersus(typePartie, j1, j2);
             IsFirstPlayer = true;
             IndexExercice = 0;
             // On affiche le premier exercice
             exoContainer.Text = $"Question N°{IndexExercice + 1}/6";
-            enonceLbl.Text = Versus.Exercices[IndexExercice].Enonce;
-            ResetAffichage(j1, Versus.Exercices[IndexExercice]);
+            enonceLbl.Text = Exercices[IndexExercice].Enonce;
+            ResetAffichage(j1, Exercices[IndexExercice]);
             MyMainForm = mainForm;
         }
 
@@ -79,10 +83,10 @@ namespace SuitesNumeriques
             else repTxtBox.Text = GetRepTxtBox();
 
             // On process la réponse
-            ShowAnswerResult(currentPlayer, Versus.Exercices[IndexExercice], repTxtBox.Text);
+            ShowAnswerResult(currentPlayer, Exercices[IndexExercice], repTxtBox.Text);
 
             // Pour passer du joueur 1 au joueur 2, on change de suite sur le même type d'exercice
-            if (IsFirstPlayer) Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
+            if (IsFirstPlayer) Exercices[IndexExercice].GetNewSuite(TypeSuite);
             // Sinon on change de type d'exercice
             else IndexExercice++;
             // On change le tour
@@ -91,7 +95,7 @@ namespace SuitesNumeriques
             // Si on est pas sur le dernier exercice et que le tour est au joueur 2
             if (!IsFirstPlayer && IndexExercice <= 5)
             {
-                ResetAffichage(J2, Versus.Exercices[IndexExercice]);
+                ResetAffichage(J2, Exercices[IndexExercice]);
             }
             // Si on a terminé
             else if (IndexExercice == 6)
@@ -102,7 +106,7 @@ namespace SuitesNumeriques
             // ou les deux txt box en cas d'exercice raison et premier terme
             else
             {
-                ResetAffichage(J1, Versus.Exercices[IndexExercice]);
+                ResetAffichage(J1, Exercices[IndexExercice]);
                 if (IndexExercice == 3) SwitchInputType(1);
                 else if (IndexExercice == 5) SwitchInputType(2);
                 else SwitchInputType();
@@ -157,8 +161,8 @@ namespace SuitesNumeriques
                 // On change de joueur et de suite
                 IsFirstPlayer = !IsFirstPlayer;
                 Player currentPlayer = IsFirstPlayer ? J1 : J2;
-                Versus.Exercices[IndexExercice].GetNewSuite(Versus.TypeSuite);
-                ResetAffichage(currentPlayer, Versus.Exercices[IndexExercice]);
+                Exercices[IndexExercice].GetNewSuite(TypeSuite);
+                ResetAffichage(currentPlayer, Exercices[IndexExercice]);
             }
         }
 
@@ -263,7 +267,7 @@ namespace SuitesNumeriques
         /// </summary>
         protected virtual void EndGame()
         {
-            FinPartie fin = new(J1, J2, Versus.TypeSuite, MyMainForm, false);
+            FinPartie fin = new(J1, J2, TypeSuite, MyMainForm, false);
             fin.Show();
             this.Dispose();
         }
@@ -326,6 +330,16 @@ namespace SuitesNumeriques
 
             else repTxtBox.Text = repTxtBox.Text.Trim();
             return repTxtBox.Text;
+        }
+
+        protected void GetExercices()
+        {
+            Exercices[0] = new ExoTerme(TypeSuite);
+            Exercices[1] = new ExoPremierTerme(TypeSuite);
+            Exercices[2] = new ExoRang(TypeSuite);
+            Exercices[3] = new ExoRaison(TypeSuite);
+            Exercices[4] = new ExoSomme(TypeSuite);
+            Exercices[5] = new ExoMonotonie(TypeSuite);
         }
     }
 }

@@ -65,7 +65,7 @@ namespace SuitesNumeriques
         protected override void EndGame()
         {
             // Fin de partie timée
-            FinPartie fin = new(J1, J2, Versus.TypeSuite, MyMainForm, true);
+            FinPartie fin = new(J1, J2, TypeSuite, MyMainForm, true);
             fin.Show();
             this.Dispose();
         }
@@ -105,7 +105,7 @@ namespace SuitesNumeriques
                     repType = 0;
                     break;
             }
-            if (currentPlayer.Repondre(Versus.Exercices[IndexExercice], base.GetRepTxtBox(repType)))
+            if (currentPlayer.Repondre(Exercices[IndexExercice], base.GetRepTxtBox(repType)))
             {
                 currentPlayer.AddTime(MyTimeManager.SecondsLeft);
                 currentPlayer.AddTimedScore(MyTimeManager.SecondsLeft);
