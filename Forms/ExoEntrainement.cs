@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace SuitesNumeriques
 {
+    /// <summary>
+    /// Classe gérant l'affichage d'un exercice d'entrainement
+    /// </summary>
     public partial class ExoEntrainement : UserControl
     {
         /// <summary>
@@ -69,11 +72,25 @@ namespace SuitesNumeriques
             }
         }
 
+        /// <summary>
+        /// Affecte l'énoncé de l'exercice au texte du label 
+        /// </summary>
         public void GetExoLabels()
         {
             enonceLbl.Text = Exo.Enonce;
         }
-        
+
+
+
+        //--------------------------
+        // EVENTS
+        //--------------------------
+
+        /// <summary>
+        /// Affecte une nouvelle suite à l'exercice et met à jour l'énoncé
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void resetBtn_Click(object sender, EventArgs e)
         {
             Exo.GetNewSuite(this.Tag.ToString());
@@ -84,8 +101,14 @@ namespace SuitesNumeriques
             premierTermeTxtBox.Text = "";
         }
 
+        /// <summary>
+        /// Vérifie la réponse du joueur et affiche sa véracité
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void validBtn_Click(object sender, EventArgs e)
         {
+            // Si on est sur l'exo monotonie, on affecte à repBox.Text la valeur du btn coché
             if(Exo is ExoMonotonie)
             {
                 foreach (Control btn in groupBox1.Controls)
@@ -96,11 +119,16 @@ namespace SuitesNumeriques
                     }
                 }
             }
+            // Si exo raison + premier terme, on affecte la concaténation des deux champs texte
             else if (Exo is ExoRaison)
             {
                 repBox.Text = $"{raisonTxtBox.Text} {premierTermeTxtBox.Text}";
             }
-            System.Diagnostics.Debug.WriteLine("Répondu : " + repBox.Text + ", la réponse était : " + Exo.Reponse);
+
+            // Débug
+            // System.Diagnostics.Debug.WriteLine("Répondu : " + repBox.Text + ", la réponse était : " + Exo.Reponse);
+
+            // On affiche le résultat
             if (repBox.Text == Exo.Reponse)
             {
                 repStatutLbl.ForeColor = Color.Blue;

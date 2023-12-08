@@ -23,7 +23,7 @@ namespace SuitesNumeriques
         /// <summary>
         /// Constructeur de Rules
         /// </summary>
-        /// <param name="parentForm"></param>
+        /// <param name="parentForm">Formulaire du jeu actuel</param>
         public Rules(Jeu parentForm)
         {
             InitializeComponent();

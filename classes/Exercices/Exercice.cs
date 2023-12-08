@@ -1,9 +1,27 @@
+/// <summary>
+/// Classe abstraite mère des autres exercices
+/// </summary>
 public abstract class Exercice
 {
+    /// <summary>
+    /// Enoncé de l'exercice
+    /// </summary>
     public string? Enonce {get; protected set;}
+    /// <summary>
+    /// Réponse de l'exercice
+    /// </summary>
     public string? Reponse {get; protected set;}
+    /// <summary>
+    /// Suite associée à l'exercice
+    /// </summary>
     public Suite? SuiteExo {get; protected set;}
+
+    /// <summary>
+    /// Servira à générer l'énoncé et le format de réponse correspondant au type d'exercice
+    /// </summary>
+    /// <param name="typeSuite">Arithmétique ou géométrique</param>
     public abstract void SetEnonce(string typeSuite);
+
     /// <summary>
     /// Sert à (re)génèrer l'exercice
     /// </summary>

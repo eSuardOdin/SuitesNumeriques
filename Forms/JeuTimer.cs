@@ -21,7 +21,7 @@ namespace SuitesNumeriques
         private TimeManager MyTimeManager { get; set; }
         
         /// <summary>
-        /// Constructeur de la classe
+        /// Constructeur de la classe, instancie le timer et affecte une methode à appeller à son event de secondes changées
         /// </summary>
         /// <param name="j1">Joueur 1</param>
         /// <param name="j2">Joueur 2</param>
@@ -106,7 +106,6 @@ namespace SuitesNumeriques
             }
             if (currentPlayer.Repondre(Exercices[IndexExercice], base.GetRepTxtBox(repType)))
             {
-                currentPlayer.AddTime(MyTimeManager.SecondsLeft);
                 currentPlayer.AddTimedScore(MyTimeManager.SecondsLeft);
             }
             

@@ -17,17 +17,39 @@ namespace SuitesNumeriques
     /// </summary>
     public partial class Jeu : Form
     {
-        // Reference vers le formulaire de menu principal
+        /// <summary>
+        /// Reference vers le formulaire de menu principal
+        /// </summary>
         protected MainForm MyMainForm;
-        // Permet d'accèder à l'exercice dans Versus.Exercices[]
+
+        /// <summary>
+        /// Permet d'accèder à l'exercice dans Exercices[]
+        /// </summary>
         protected int IndexExercice { get; set; }
-        //Reste d'une classe qui permettait de tester mon app en console -!- À refactoriser -!- 
-        //public UntimedVersus Versus { get; private set; }
+        
+        /// <summary>
+        /// "géométrique" ou "arithmétique"
+        /// </summary>
         protected string TypeSuite { get; set; }
+
+        /// <summary>
+        /// Array d'exercices
+        /// </summary>
         protected Exercice[] Exercices { get; set; } = new Exercice[6];
-        // Bool pour gérer les tours
+        
+        /// <summary>
+        /// Bool pour gérer les tours
+        /// </summary>
         protected bool IsFirstPlayer { get; set; }
+
+        /// <summary>
+        /// Joueur 1
+        /// </summary>
         public Player J1 { get; private set; }
+
+        /// <summary>
+        /// Joueur 2
+        /// </summary>
         public Player J2 { get; private set; }
 
         /// <summary>
@@ -48,8 +70,8 @@ namespace SuitesNumeriques
             J1 = j1;
             J2 = j2;
             TypeSuite = typePartie;
+            // On remplit le tableau d'exercices
             GetExercices();
-            //Versus = new UntimedVersus(typePartie, j1, j2);
             IsFirstPlayer = true;
             IndexExercice = 0;
             // On affiche le premier exercice
@@ -58,6 +80,30 @@ namespace SuitesNumeriques
             ResetAffichage(j1, Exercices[IndexExercice]);
             MyMainForm = mainForm;
         }
+
+
+
+
+        /// <summary>
+        /// Rafraichit l'affichage du formulaire par rapport au joueur dont c'est le tour
+        /// </summary>
+        /// <param name="p">Joueur en cours</param>
+        /// <param name="exo">Exercice en cours</param>
+        protected void ResetAffichage(Player p, Exercice exo)
+        {
+            enonceLbl.Text = exo.Enonce;
+            exoContainer.Text = $"Question N°{IndexExercice + 1}/6";
+            joueurTxt.Text = p.Pseudo;
+            joueurLbl.Text = IsFirstPlayer == true ? "Joueur N°1" : "Joueur N°2";
+            joueurTxt.ForeColor = IsFirstPlayer == true ? Color.Red : Color.Blue;
+            pointsTxt.Text = p.Score.ToString();
+            pointsTxt.ForeColor = IsFirstPlayer == true ? Color.Red : Color.Blue;
+            repTxtBox.Text = "";
+            raisonTxtBox.Text = "";
+            premierTermeTxtBox.Text = "";
+        }
+
+
 
 
         /// <summary>
@@ -111,25 +157,6 @@ namespace SuitesNumeriques
                 else if (IndexExercice == 5) SwitchInputType(2);
                 else SwitchInputType();
             }
-        }
-
-        /// <summary>
-        /// Rafraichit l'affichage du formulaire par rapport au joueur dont c'est le tour
-        /// </summary>
-        /// <param name="p">Joueur en cours</param>
-        /// <param name="exo">Exercice en cours</param>
-        protected void ResetAffichage(Player p, Exercice exo)
-        {
-            enonceLbl.Text = exo.Enonce;
-            exoContainer.Text = $"Question N°{IndexExercice + 1}/6";
-            joueurTxt.Text = p.Pseudo;
-            joueurLbl.Text = IsFirstPlayer == true ? "Joueur N°1" : "Joueur N°2";
-            joueurTxt.ForeColor = IsFirstPlayer == true ? Color.Red : Color.Blue;
-            pointsTxt.Text = p.Score.ToString();
-            pointsTxt.ForeColor = IsFirstPlayer == true ? Color.Red : Color.Blue;
-            repTxtBox.Text = "";
-            raisonTxtBox.Text = "";
-            premierTermeTxtBox.Text = "";
         }
 
 
@@ -313,6 +340,7 @@ namespace SuitesNumeriques
         /// <returns></returns>
         protected string GetRepTxtBox(byte type = 0)
         {
+            // Si la réponse = radio buttons
             if (type == 2)
             {
                 foreach (Control btn in repBox.Controls)
@@ -323,15 +351,20 @@ namespace SuitesNumeriques
                     }
                 }
             }
+            // Si la réponse = 2 champs texte
             else if (type == 1)
             {
                 repTxtBox.Text = $"{raisonTxtBox.Text.Trim()} {premierTermeTxtBox.Text.Trim()}";
             }
 
+            // réponse normale
             else repTxtBox.Text = repTxtBox.Text.Trim();
             return repTxtBox.Text;
         }
 
+        /// <summary>
+        /// Remplissage de l'array d'exercices
+        /// </summary>
         protected void GetExercices()
         {
             Exercices[0] = new ExoTerme(TypeSuite);

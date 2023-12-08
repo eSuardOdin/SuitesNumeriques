@@ -12,19 +12,62 @@ using System.Windows.Forms;
 namespace SuitesNumeriques
 {
     /// <summary>
-    /// Classe gérant le formulaire d'initialisation d'une partie (mal nommée du coup)
+    /// Classe gérant le formulaire d'initialisation d'une partie et de ses joueurs
     /// </summary>
     public partial class InitJoueurs : Form
     {
+        /// <summary>
+        /// Pour lancer une partie avec ou sans contrainte de temps
+        /// </summary>
         private bool IsTimed {  get; set; }
+
+        /// <summary>
+        /// Le jeu à initialiser
+        /// </summary>
         private Jeu? MyJeu { get; set; } = null;
+
+        /// <summary>
+        /// Reference vers le menu principal
+        /// </summary>
         MainForm mainForm;
+
+        /// <summary>
+        /// Constructeur, affecte les arguments aux attributs de l'objet
+        /// </summary>
+        /// <param name="mainForm"></param>
+        /// <param name="isTimed"></param>
         public InitJoueurs(MainForm mainForm, bool isTimed)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             IsTimed = isTimed;
         }
+
+
+        /// <summary>
+        /// Validation du formulaire de création de partie
+        /// </summary>
+        /// <returns>Une string d'erreurs ou une string vide si ok</returns>
+        private string InputValidation()
+        {
+            string err = "";
+            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            if (j1TxtBox.Text == "") err += "J1: Le champ de saisie ne doit pas être vide.\n";
+            else if (!regex.IsMatch(j1TxtBox.Text)) err += "J1: Le nom du joueur ne doit contenir que des caractères alphanumériques.\n";
+            else if (j1TxtBox.Text.Length > 20) err += "J1: Le nom du joueur ne doit pas contenir plus de 20 caractères.\n";
+            if (j2TxtBox.Text == "") err += "J2: Le champ de saisie ne doit pas être vide.\n";
+            else if (!regex.IsMatch(j2TxtBox.Text)) err += "J2: Le nom du joueur ne doit contenir que des caractères alphanumériques.\n";
+            else if (j2TxtBox.Text.Length > 20) err += "J2: Le nom du joueur ne doit pas contenir plus de 20 caractères.\n";
+
+            if (j1TxtBox.Text == j2TxtBox.Text && err == "") err += "Les deux joueurs ne peuvent avoir le même nom";
+            return err;
+        }
+
+
+        //------------------
+        //  EVENTS
+        //------------------
+
 
         /// <summary>
         /// Lancement de la partie
@@ -75,23 +118,6 @@ namespace SuitesNumeriques
             if (mainForm != null && !mainForm.Visible && MyJeu == null) mainForm.Show();
         }
 
-        /// <summary>
-        /// Validation du formulaire de création de partie
-        /// </summary>
-        /// <returns>Une string d'erreurs ou une string vide si ok</returns>
-        private string InputValidation()
-        {
-            string err = "";
-            Regex regex = new Regex("^[a-zA-Z0-9]+$");
-            if (j1TxtBox.Text == "") err += "J1: Le champ de saisie ne doit pas être vide.\n";
-            else if (!regex.IsMatch(j1TxtBox.Text)) err += "J1: Le nom du joueur ne doit contenir que des caractères alphanumériques.\n";
-            else if (j1TxtBox.Text.Length > 20) err += "J1: Le nom du joueur ne doit pas contenir plus de 20 caractères.\n";
-            if (j2TxtBox.Text == "") err += "J2: Le champ de saisie ne doit pas être vide.\n";
-            else if (!regex.IsMatch(j2TxtBox.Text)) err += "J2: Le nom du joueur ne doit contenir que des caractères alphanumériques.\n";
-            else if (j2TxtBox.Text.Length > 20) err += "J2: Le nom du joueur ne doit pas contenir plus de 20 caractères.\n";
-
-            if (j1TxtBox.Text == j2TxtBox.Text && err == "") err += "Les deux joueurs ne peuvent avoir le même nom";
-            return err;
-        }
+        
     }
 }

@@ -4,10 +4,21 @@ using System.Timers;
 /// </summary>
 public class TimeManager
 {
-    // Timer d'une seconde
+    /// <summary>
+    /// Timer d'une seconde
+    /// </summary>
     public System.Timers.Timer MyTimer { get ; private set; }
+    /// <summary>
+    /// Les secondes restantes
+    /// </summary>
     public int SecondsLeft {get; private set;}
+    /// <summary>
+    /// Nombre de secondes initiales
+    /// </summary>
     private int StartingSeconds { get; set; }
+    /// <summary>
+    /// Delegate qui return void et prend un int en argument, utilisé dans le JeuTimer.
+    /// </summary>
     public event Action<int> SecondsLeftChanged;
 
     /// <summary>
@@ -31,9 +42,13 @@ public class TimeManager
     /// <param name="e">Objet qui contient les données de l'event</param>
     private void OnSecEvent(Object source, ElapsedEventArgs e) 
     {
-        SecondsLeft -=1;
-        // On déclenche l'event
-        SecondsLeftChanged.Invoke(SecondsLeft);
+        // On déclenche s'il reste au moins une seconde
+        if (SecondsLeft > 0)
+        {
+            SecondsLeft -=1;
+            // On déclenche l'event
+            SecondsLeftChanged.Invoke(SecondsLeft);
+        }
     }
 
     /// <summary>

@@ -15,15 +15,50 @@ namespace SuitesNumeriques
     /// </summary>
     public partial class FinPartie : Form
     {
-        // 
+        /// <summary>
+        /// Le score manager qui écrit les nouveaux scores en fin de partie
+        /// <br/>Peut être null si partie sans contrainte de temps
+        /// </summary>
         private IOScoreManager? MyScoreManager { get; set; }
-        
+
+        /// <summary>
+        /// La partie était elle avec contrainte de temps?
+        /// </summary>
         private bool IsTimed { get; set; }
+
+        /// <summary>
+        /// Reference du formulaire principal
+        /// </summary>
         private MainForm MyMainForm { get; set; }
+
+        /// <summary>
+        /// Joueur 1
+        /// </summary>
         private Player J1 { get; set; }
+
+        /// <summary>
+        /// Joueur 2
+        /// </summary>
         private Player J2 { get; set; }
+
+        /// <summary>
+        /// Type de la partie "arithmétique" ou "géométrique"
+        /// </summary>
         private string TypePartie { get; set; }
+
+        /// <summary>
+        /// Est ce qu'on lance une nouvelle partie ?
+        /// </summary>
         private bool IsNewPartie { get; set; } = false;
+
+        /// <summary>
+        /// Constructeur, affecte les valeurs des arguments aux attributs et affiche les informations sur scores et vainqueur.
+        /// </summary>
+        /// <param name="j1"></param>
+        /// <param name="j2"></param>
+        /// <param name="typePartie"></param>
+        /// <param name="mainForm"></param>
+        /// <param name="isTimed"></param>
         public FinPartie(Player j1, Player j2, string typePartie, MainForm mainForm, bool isTimed)
         {
             InitializeComponent();

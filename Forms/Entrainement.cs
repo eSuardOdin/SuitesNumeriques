@@ -15,17 +15,23 @@ namespace SuitesNumeriques
     /// </summary>
     public partial class Entrainement : Form
     {
-        // Ref du formulaire menu principal
+        /// <summary>
+        /// Reference du formulaire principal
+        /// </summary>
         private MainForm MyMainForm { get; set; }
-        // Type de la partie "géométrique" ou "arithmétique"
+        /// <summary>
+        /// Type de la partie "géométrique" ou "arithmétique"
+        /// </summary>
         public string TypePartie { get; private set; }
-        // Array d'exercices
+        /// <summary>
+        /// Array d'exercices
+        /// </summary>
         public Exercice[] Exos { get; private set; } = new Exercice[6];
 
         /// <summary>
         /// Constructeur du formulaire d'entrainement
         /// </summary>
-        /// <param name="label">Type de partie à afficher dans le nom de la fenêtre</param> // Que j'aurais pu gérer avec le param typePartie
+        /// <param name="label">Type de partie à afficher dans le nom de la fenêtre</param>
         /// <param name="typePartie">Type de la partie</param>
         /// <param name="mainForm">Reference vers le formulaire de menu principal</param>
         public Entrainement(string label, string typePartie, MainForm mainForm)
@@ -62,6 +68,11 @@ namespace SuitesNumeriques
             exo5.GetExoType(Convert.ToInt32(tab5.Tag), TypePartie);
             exo5.GetExoLabels();
         }
+
+
+        //--------------------------
+        // EVENTS
+        //--------------------------
 
         /// <summary>
         /// Fermeture du formulaire et affichage du menu

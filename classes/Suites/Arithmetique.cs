@@ -1,3 +1,6 @@
+/// <summary>
+/// Classe gérant les suites arithmétiques
+/// </summary>
 public class Arithmethique : Suite
 {
     public Arithmethique(double raison, double premierTerme) : base(raison, premierTerme) {}

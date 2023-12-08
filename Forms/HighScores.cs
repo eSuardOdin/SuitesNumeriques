@@ -15,9 +15,26 @@ namespace SuitesNumeriques
     /// </summary>
     public partial class HighScores : Form
     {
+        /// <summary>
+        /// Score manager pour aller lire les fichiers et remplir la ListView
+        /// </summary>
         private IOScoreManager? ScoreManager { get; set; }
+
+        /// <summary>
+        /// "arithmétique" ou "géométrique"
+        /// </summary>
         private string TypeSuite { get; set; }
+
+        /// <summary>
+        /// Réference vers le formulaire principal
+        /// </summary>
         private MainForm MyMainForm { get; set; }
+
+        /// <summary>
+        /// Constructeur, affiche les informations de la fenêtre et appelle la méthode du ScoreManager pour remplir la ListView
+        /// </summary>
+        /// <param name="mainForm"></param>
+        /// <param name="typeSuite"></param>
         public HighScores(MainForm mainForm, string typeSuite)
         {
             InitializeComponent();
@@ -27,6 +44,11 @@ namespace SuitesNumeriques
             ScoreManager = new(TypeSuite);
             ScoreManager.PopulateList(scoresList);
         }
+
+
+        //------------------
+        //  EVENTS
+        //------------------
 
 
         /// <summary>

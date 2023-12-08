@@ -10,11 +10,15 @@ using static System.Formats.Asn1.AsnWriter;
 /// </summary>
 public class IOScoreManager
 {
-    
-    //public FileStream? Fs;
-    
+    /// <summary>
+    /// Chemin du fichier de scores
+    /// </summary>
     public string Path {get; private set;} = Directory.GetCurrentDirectory();
 
+    /// <summary>
+    /// Constructeur de l'objet, on change le chemin pour correspondre au type de suite et on créé les fichiers de scores
+    /// </summary>
+    /// <param name="typeSuite">Arithmétique ou géométrique</param>
     public IOScoreManager(string typeSuite)
     {
         Path += $@"\{typeSuite}.txt";
@@ -36,11 +40,11 @@ public class IOScoreManager
 
                 try
                 {
-                    DateTime date = DateTime.Now;
+                    // On remplit le fichier de lignes vides
                     string blank = "";
                     for (int i = 0; i < 10; i++)
                     {
-                        blank += $"0;;{date}\n";
+                        blank += $"0;;\n";
                     }
                     Byte[] bytes = Encoding.UTF8.GetBytes(blank);
                     fs.Write(bytes, 0, bytes.Length);
@@ -59,11 +63,10 @@ public class IOScoreManager
                     
                 try
                 {
-                    DateTime date = DateTime.Now;
                     string blank = "";
                     for (int i = 0; i <= 10; i++)
                     {
-                        blank += $"0;;{date}\n";
+                        blank += $"0;;\n";
                     }
                     Byte[] bytes = Encoding.UTF8.GetBytes(blank);
                     fs.Write(bytes, 0, bytes.Length);
@@ -93,11 +96,12 @@ public class IOScoreManager
             {
                 var values = line.Split(';');
 
+                // Si score vide et encore dans les 10 premiers, l'utilisateur prend le rang
                 if (values[0] == "" && compteur <= 10)
                 {
                     rank = compteur;
-                    break;
                 }
+                // Si score inferieur à celui de l'utilisateur, l'utilisateur prend le rang
                 if (Convert.ToInt32(values[0]) <= score)
                 {
                     rank = compteur;
@@ -124,12 +128,13 @@ public class IOScoreManager
             {
                 DateTime date = DateTime.Now;
                 var values = line.Split(';');
+                // Si on est sur la ligne du rang on insère la ligne du joueur dans le nouveau fichier de scores
                 if(rank == compteur)
                 {
                     newScore += $"{p.Score};{p.Pseudo};{date}\n";
                     compteur++;
                 }
-                if (compteur != 11) newScore += line + "\n"; // Ici ?
+                if (compteur != 11) newScore += line + "\n";
                 compteur++;
             }
         }
@@ -152,9 +157,6 @@ public class IOScoreManager
         scoresList.Columns.Add("Score", 50);
         scoresList.Columns.Add("Pseudo", 150);
         scoresList.Columns.Add("Date", 150);
-
-        // Refresh ?
-
 
         // Ajout des datas
         int compteur = 1;
