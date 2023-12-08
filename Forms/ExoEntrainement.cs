@@ -16,8 +16,7 @@ namespace SuitesNumeriques
         /// L'exercice géré par le control
         /// </summary>
         private Exercice? Exo { get; set; }
-        //private string TypeSuite { get; set; }
-        public ExoEntrainement(/*string typeSuite*/)
+        public ExoEntrainement()
         {
             InitializeComponent();
             repStatutLbl.Location = new Point(375, 295);

@@ -51,7 +51,6 @@ namespace SuitesNumeriques
             }
             else
             {
-                timeLbl.Text = secondsLeft.ToString();
                 timeLbl.Text = $"{(secondsLeft/60).ToString()}min {(secondsLeft%60).ToString()}sec";
                 if (secondsLeft / 60 == 0) timeLbl.ForeColor = Color.Red;
                 else timeLbl.ForeColor = Color.Green;

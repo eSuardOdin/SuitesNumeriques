@@ -195,7 +195,7 @@ namespace SuitesNumeriques
         protected void SwitchInputType(byte type = 0)
         {
             bool isOneChecked = false;
-            // Si TextBox -> RadioButtons
+            // Si RadioButtons
             if (type == 2)
             {
                 // On cache et desactive la TextBox
@@ -235,7 +235,7 @@ namespace SuitesNumeriques
                 premierTermeTxtBox.Enabled = true;
                 premierTermeLbl.Visible = true;
             }
-            // Si RadioButtons -> TextBox
+            // Si TextBox de base
             else
             {
                 repTxtBox.Visible = true;
